@@ -1,0 +1,54 @@
+
+baseURL = "https://matuteiglesias.github.io/ldd-uba/"
+languageCode = "es"
+title = "Ejercicios en Notebooks"
+theme = "techdoc"
+
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 5
+    ordered = false
+
+[params]
+  algolia_search_enable = true
+  algolia_indexName = "your_index_name"
+  algolia_appId = "your_algolia_app_id"
+  algolia_apiKey = "your_algolia_api_key"
+
+
+[menu]
+  [[menu.main]]
+    name = "Notebooks"
+    weight = 1
+    url = "/notebooks/"
+
+  [[menu.main]]
+    name = "Inicio"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Python y Pandas"
+    url = "/notebooks/python-pandas/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Bases de Datos y SQL"
+    url = "/notebooks/bases-de-datos/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Visualización de Datos"
+    url = "/notebooks/visualizacion/"
+    weight = 4
+
+  [[menu.main]]
+    name = "Estadística y Probabilidad"
+    url = "/notebooks/estadistica/"
+    weight = 5
+
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
