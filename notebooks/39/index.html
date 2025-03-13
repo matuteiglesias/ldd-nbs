@@ -1,10 +1,369 @@
-<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea - Ejercicios en Notebooks</title>
-<meta name=generator content="Hugo 0.145.0"><link href=https://matuteiglesias.github.io/ldd-nbs//index.xml rel=alternate type=application/rss+xml><link rel=canonical href=https://matuteiglesias.github.io/ldd-nbs/notebooks/39/><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-nbs/css/theme.min.css><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-nbs/css/chroma.min.css><script defer src=https://matuteiglesias.github.io/ldd-nbs//js/fontawesome6/all.min.js></script><script src=https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin=anonymous></script><script src=https://matuteiglesias.github.io/ldd-nbs/js/bundle.js></script><style>:root{}</style><meta property="og:url" content="https://matuteiglesias.github.io/ldd-nbs/notebooks/39/"><meta property="og:site_name" content="Ejercicios en Notebooks"><meta property="og:title" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea"><meta property="og:description" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.
-Objetivos Implementar operaciones de actualización de reservas en una base de datos. Verificar y aplicar restricciones de integridad de datos. Analizar y clasificar restricciones de integridad referencial. Entrada de Datos El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:"><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="notebooks"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea"><meta name=twitter:description content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.
-Objetivos Implementar operaciones de actualización de reservas en una base de datos. Verificar y aplicar restricciones de integridad de datos. Analizar y clasificar restricciones de integridad referencial. Entrada de Datos El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:"><meta itemprop=name content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea"><meta itemprop=description content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.
-Objetivos Implementar operaciones de actualización de reservas en una base de datos. Verificar y aplicar restricciones de integridad de datos. Analizar y clasificar restricciones de integridad referencial. Entrada de Datos El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:"><meta itemprop=wordCount content="460"></head><body><div class=container><header><h1>Ejercicios en Notebooks</h1></header><div class=global-menu><nav><ul><li><a href=/ldd-nbs/>Inicio</a></li><li><a href=/ldd-nbs/notebooks/>Notebooks</a></li><li><a href=/ldd-nbs/notebooks/python-pandas/>Python y Pandas</a></li><li><a href=/ldd-nbs/notebooks/bases-de-datos/>Bases de Datos y SQL</a></li><li><a href=/ldd-nbs/notebooks/visualizacion/>Visualización de Datos</a></li><li><a href=/ldd-nbs/notebooks/estadistica/>Estadística y Probabilidad</a></li></ul></nav></div><div class=content-container><main><h1>Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</h1><h1 id=ejercicio-39-gestión-de-reservas-en-una-base-de-datos-de-aerolínea>Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</h1><p>Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.</p><h2 id=objetivos>Objetivos</h2><ul><li>Implementar operaciones de actualización de reservas en una base de datos.</li><li>Verificar y aplicar restricciones de integridad de datos.</li><li>Analizar y clasificar restricciones de integridad referencial.</li></ul><h2 id=entrada-de-datos>Entrada de Datos</h2><p>El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:</p><ul><li><strong>FLIGHT (Vuelo)</strong>: Identificado por <code>Flight_number</code>.</li><li><strong>FLIGHT_LEG (Tramo del Vuelo)</strong>: Incluye <code>Leg_number</code>.</li><li><strong>LEG_INSTANCE (Instancia de Tramo de Vuelo)</strong>: Relacionado con fechas específicas.</li><li><strong>FARE (Tarifa)</strong>: Define costos asociados.</li><li><strong>SEAT_RESERVATION (Reserva de Asiento)</strong>: Registra pasajeros y asientos.</li><li><strong>AIRPLANE (Avión)</strong>: Identificado por <code>Airplane_id</code>.</li><li><strong>AIRPLANE_TYPE (Tipo de Avión)</strong>: Define modelos y capacidades.</li><li><strong>AIRPORT (Aeropuerto)</strong>: Identificado por <code>Airport_code</code>.</li></ul><h2 id=parte-1-operación-de-actualización-de-reserva>Parte 1: Operación de Actualización de Reserva</h2><h3 id=a-operaciones-necesarias-para-registrar-una-nueva-reserva>a. Operaciones necesarias para registrar una nueva reserva</h3><ol><li><p><strong>Verificar disponibilidad</strong>:</p><ul><li>Comprobar existencia del vuelo y tramo en <code>LEG_INSTANCE</code>.</li><li>Revisar disponibilidad de asientos en <code>SEAT_RESERVATION</code>.</li></ul></li><li><p><strong>Crear la reserva</strong>:</p><ul><li>Insertar un nuevo registro en <code>SEAT_RESERVATION</code> con detalles del pasajero y vuelo.</li></ul></li><li><p><strong>Actualizar la ocupación del vuelo</strong>:</p><ul><li>Reducir asientos disponibles en <code>LEG_INSTANCE</code>.</li></ul></li><li><p><strong>Confirmar la reserva</strong>:</p><ul><li>Registrar la tarifa asociada y emitir el ticket.</li></ul></li></ol><h3 id=ejemplo-de-consulta-sql>Ejemplo de consulta SQL</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#75715e>-- TODO: Implementar
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> SEAT_RESERVATION (passenger_id, flight_number, leg_number, date, seat_number)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>12345</span>, <span style=color:#e6db74>&#39;AA101&#39;</span>, <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;2025-06-15&#39;</span>, <span style=color:#e6db74>&#39;12A&#39;</span>);
-</span></span></code></pre></div><h2 id=parte-2-restricciones-a-verificar>Parte 2: Restricciones a Verificar</h2><h3 id=b-restricciones-en-la-operación-de-reserva>b. Restricciones en la operación de reserva</h3><ul><li><strong>Disponibilidad de asiento</strong>: No reservar un asiento ocupado.</li><li><strong>Existencia del vuelo y tramo</strong>: Validar en <code>LEG_INSTANCE</code>.</li><li><strong>Consistencia de horarios</strong>: Hora de llegada posterior a la de salida.</li><li><strong>Compatibilidad del avión con el aeropuerto</strong>: Validar en <code>CAN_LAND</code>.</li><li><strong>Integridad de datos del pasajero</strong>: <code>Passenger_id</code> debe existir.</li></ul><h2 id=parte-3-tipos-de-restricciones-de-integridad>Parte 3: Tipos de Restricciones de Integridad</h2><table><thead><tr><th>Restricción</th><th>Tipo</th></tr></thead><tbody><tr><td><code>FLIGHT</code> tiene <code>Flight_number</code> único</td><td>Clave primaria</td></tr><tr><td><code>FLIGHT_LEG</code> asociado a <code>FLIGHT</code></td><td>Integridad referencial</td></tr><tr><td><code>LEG_INSTANCE</code> corresponde a <code>FLIGHT_LEG</code></td><td>Integridad referencial</td></tr><tr><td><code>SEAT_RESERVATION</code> asociada a pasajero y vuelo</td><td>Integridad referencial</td></tr><tr><td>Avión debe existir en <code>AIRPLANE</code></td><td>Integridad referencial</td></tr><tr><td>Fecha de llegada no anterior a salida</td><td>Restricción de dominio</td></tr><tr><td>Asientos reservados no superan capacidad</td><td>Restricción de negocio</td></tr></tbody></table><h2 id=parte-4-restricciones-de-integridad-referencial>Parte 4: Restricciones de Integridad Referencial</h2><ol><li><code>FLIGHT_LEG.Flight_number</code> → <code>FLIGHT.Flight_number</code></li><li><code>LEG_INSTANCE.Flight_number, LEG_INSTANCE.Leg_number</code> → <code>FLIGHT_LEG.Flight_number, FLIGHT_LEG.Leg_number</code></li><li><code>SEAT_RESERVATION.Flight_number, SEAT_RESERVATION.Leg_number, SEAT_RESERVATION.Date</code> → <code>LEG_INSTANCE.Flight_number, LEG_INSTANCE.Leg_number, LEG_INSTANCE.Date</code></li><li><code>FARE.Flight_number</code> → <code>FLIGHT.Flight_number</code></li><li><code>LEG_INSTANCE.Airplane_id</code> → <code>AIRPLANE.Airplane_id</code></li><li><code>AIRPLANE.Airplane_type</code> → <code>AIRPLANE_TYPE.Airplane_type</code></li><li><code>CAN_LAND.Airplane_type, CAN_LAND.Airport_code</code> → <code>AIRPLANE_TYPE.Airplane_type, AIRPORT.Airport_code</code></li><li><code>FLIGHT_LEG.Departure_airport</code> → <code>AIRPORT.Airport_code</code></li><li><code>FLIGHT_LEG.Arrival_airport</code> → <code>AIRPORT.Airport_code</code></li><li><code>SEAT_RESERVATION.Passenger_id</code> → <code>PASSENGER.Passenger_id</code></li></ol><h2 id=conclusión>Conclusión</h2><p>Este ejercicio permite reforzar conceptos clave en bases de datos, como operaciones de actualización complejas, verificación de restricciones de integridad, identificación de claves y relaciones entre entidades, y análisis de restricciones de negocio en sistemas de reserva.</p><h3 id=entrega-esperada>Entrega esperada</h3><ul><li>Descripción detallada de cada parte del ejercicio.</li><li>SQL que represente la inserción de reservas.</li><li>Análisis de restricciones con explicaciones.</li></ul><div class=edit-meta><br></div><nav class=pagination><a class="nav nav-prev" href=https://matuteiglesias.github.io/ldd-nbs/notebooks/38/ title="Ejercicio 38: Gestión de Notas de Examen"><i class="fas fa-arrow-left" aria-hidden=true></i>&nbsp;Prev - Ejercicio 38: Gestión de Notas de Examen</a>
-<a class="nav nav-next" href=https://matuteiglesias.github.io/ldd-nbs/notebooks/04/ title="Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py">Next - Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py <i class="fas fa-arrow-right" aria-hidden=true></i></a></nav><footer><p class=powered>Powered by <a href=https://gohugo.io>Hugo</a>. Theme by <a href=https://themes.gohugo.io/hugo-theme-techdoc/>TechDoc</a>. Designed by <a href=https://github.com/thingsym/hugo-theme-techdoc>Thingsym</a>.</p></footer></main><div class=sidebar><div class=sidebar-footer></div></div></div><a href=# id=backtothetop-fixed class=backtothetop data-backtothetop-duration=600 data-backtothetop-easing=easeOutQuart data-backtothetop-fixed-fadein=1000 data-backtothetop-fixed-fadeout=1000 data-backtothetop-fixed-bottom=10 data-backtothetop-fixed-right=20><span class="fa-layers fa-fw"><i class="fas fa-circle"></i>
-<i class="fas fa-arrow-circle-up"></i></span></a></div></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head><script src="/ldd-uba/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ldd-uba/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea - Ejercicios en Notebooks</title>
+<meta name="generator" content="Hugo 0.145.0">
+<link href="http://localhost:1313/ldd-uba//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="http://localhost:1313/ldd-uba/notebooks/39/">
+<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/theme.min.css">
+<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/chroma.min.css">
+<script defer src="http://localhost:1313/ldd-uba//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="http://localhost:1313/ldd-uba/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="http://localhost:1313/ldd-uba/notebooks/39/">
+  <meta property="og:site_name" content="Ejercicios en Notebooks">
+  <meta property="og:title" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea">
+  <meta property="og:description" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.
+Objetivos Implementar operaciones de actualización de reservas en una base de datos. Verificar y aplicar restricciones de integridad de datos. Analizar y clasificar restricciones de integridad referencial. Entrada de Datos El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notebooks">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea">
+  <meta name="twitter:description" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.
+Objetivos Implementar operaciones de actualización de reservas en una base de datos. Verificar y aplicar restricciones de integridad de datos. Analizar y clasificar restricciones de integridad referencial. Entrada de Datos El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:">
+
+  <meta itemprop="name" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea">
+  <meta itemprop="description" content="Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.
+Objetivos Implementar operaciones de actualización de reservas en una base de datos. Verificar y aplicar restricciones de integridad de datos. Analizar y clasificar restricciones de integridad referencial. Entrada de Datos El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:">
+  <meta itemprop="wordCount" content="460"></head>
+<body>
+
+<div class="container"><header>
+<h1>Ejercicios en Notebooks</h1>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li class=""><a href="/ldd-uba/">Inicio</a></li>
+<li class=""><a href="/ldd-uba/notebooks/">Notebooks</a></li>
+<li class=""><a href="/ldd-uba/notebooks/python-pandas/">Python y Pandas</a></li>
+<li class=""><a href="/ldd-uba/notebooks/bases-de-datos/">Bases de Datos y SQL</a></li>
+<li class=""><a href="/ldd-uba/notebooks/visualizacion/">Visualización de Datos</a></li>
+<li class=""><a href="/ldd-uba/notebooks/estadistica/">Estadística y Probabilidad</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><div class="content-container">
+
+    
+    <aside class="sidebar">
+        <h3>📑 Contenidos</h3>
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#objetivos">Objetivos</a></li>
+    <li><a href="#entrada-de-datos">Entrada de Datos</a></li>
+    <li><a href="#parte-1-operación-de-actualización-de-reserva">Parte 1: Operación de Actualización de Reserva</a>
+      <ul>
+        <li><a href="#a-operaciones-necesarias-para-registrar-una-nueva-reserva">a. Operaciones necesarias para registrar una nueva reserva</a></li>
+        <li><a href="#ejemplo-de-consulta-sql">Ejemplo de consulta SQL</a></li>
+      </ul>
+    </li>
+    <li><a href="#parte-2-restricciones-a-verificar">Parte 2: Restricciones a Verificar</a>
+      <ul>
+        <li><a href="#b-restricciones-en-la-operación-de-reserva">b. Restricciones en la operación de reserva</a></li>
+      </ul>
+    </li>
+    <li><a href="#parte-3-tipos-de-restricciones-de-integridad">Parte 3: Tipos de Restricciones de Integridad</a></li>
+    <li><a href="#parte-4-restricciones-de-integridad-referencial">Parte 4: Restricciones de Integridad Referencial</a></li>
+    <li><a href="#conclusión">Conclusión</a>
+      <ul>
+        <li><a href="#entrega-esperada">Entrega esperada</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+        
+        <h3>📂 Otros Notebooks</h3>
+        <ul>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/01/">Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/02/">Ejercicio 2: Traductor Geringoso y Clases en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/03/">Ejercicio 3: Simulación de Rebotes y Tablas de Multiplicar sin Multiplicar</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/04/">Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/05/">Ejercicio 5: Cálculo de una Hipoteca con Pagos Extras</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/06/">Ejercicio 6: Corrección de Errores Comunes en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/07/">Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/08/">Ejercicio 8: Maestría en Input/Output con Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/09/">Ejercicio 9: Fundamentos de Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/10/">Ejercicio 10: Indexación y Filtrado</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/11/">Ejercicio 11: Combinación de Datos</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/12/">Ejercicio 12: Agregaciones y Análisis</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/13/">Ejercicio 13: Agrupación y Transformaciones en Pandas con el Dataset Diamonds</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/14/">Ejercicio 14: Análisis de Datos y Visualización con Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/15/">Ejercicio 15: Análisis de Datos Temporales con Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/16/">Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/17/">Ejercicio 17: Cargando un Google Sheet como un DataFrame en Python desde Google Cloud Platform (GCP)</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/18/">Ejercicio 18: Limpieza y Visualización de Datos Geoespaciales con GeoPandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/19/">Ejercicio 19: Limpieza y Análisis Exploratorio de Datos (EDA) en Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/20/">Ejercicio 20: Instalación y Configuración de PostgreSQL en Sistemas Operativos Comunes</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/21/">Ejercicio 21: Exploración y Consulta de Datos en PostgreSQL con DBeaver</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/22/">Ejercicio 22: Administración y Consultas en PostgreSQL con pgAdmin</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/23/">Conexiones a Bases de Datos desde Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/24/">Ejercicio 24: Comparación de Operaciones en Pandas y SQL</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/25/">Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/26/">Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/27/">Ejercicio 27: Modelado de Bases de Datos con DBML</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/28/">Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/29/">Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/30/">Ejercicio 30: Diseño de DER para una Productora de Cine</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/31/">Ejercicio 31: Mapeo al Modelo Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/32/">Ejercicio 32: Mapeo de un Diagrama Entidad-Relación al Modelo Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/33/">Ejercicio 33: Modelado Entidad-Relación para Bases de Datos MAIL_ORDER y MOVIE</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/34/">Ejercicio 34: Modelado de la Base de Datos GRADE_BOOK</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/35/">Ejercicio 35: Modelado de la Base de Datos ONLINE_AUCTION</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/36/">Ejercicio 36: Modelado de la Base de Datos de una Liga de Hockey Femenino</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/37/">Ejercicio: Consultas SQL sobre Vuelos y Reservas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/38/">Ejercicio 38: Gestión de Notas de Examen</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/39/">Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/40/">Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/41/">Ejercicio 41: Consultas y Actualizaciones SQL en Bases de Datos Relacionales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/42/">Ejercicio 42: Análisis y Visualización de Datos con Gráficos en Pandas y Seaborn</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/43/">Ejercicio 43: Análisis Visual de Datos con Penguins e Iris</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/44/">Ejercicio 44: Limpieza y Manejo de Datos Faltantes, Duplicados y Variables Categóricas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/45/">Ejercicio 45: Análisis Estadístico y Visualización de Datos con `tips` y `ventaCasas`</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/46/">Ejercicio 46: Implementación Manual de Regresión Lineal con NumPy</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/47/">Ejercicio 47: Análisis de Correlaciones y Visualización con Heatmaps</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/48/">Ejercicio 48: Construcción y Análisis de Redes Basadas en Similitud</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/49/">Ejercicio 49: Creación de Figuras Científicas de Publicación con Matplotlib</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/50/">Ejercicio 50: Creación de un Reporte Exploratorio con Python y Markdown</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/51/">Ejercicio 51: Contar Historias con Datos - Más Allá de los Gráficos</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/52/">Ejercicio 52: Simulación de la Paradoja del Cumpleaños</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/53/">Ejercicio 53: Ley de los Grandes Números en Acción</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/54/">Ejercicio 54: Simulación del P-Value y Rechazo de H₀</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/55/">Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/56/">Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/57/">Ejercicio 57: Regresión Lineal Simple en Datos Reales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/58/">Ejercicio 58: Evaluación de Suposiciones de la Regresión Lineal</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/59/">Ejercicio 59: Análisis de Datos de Ventas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/60/">Ejercicio 60: Análisis de Datos de Ventas</a></li>
+            
+        </ul>
+        
+
+    </aside>
+
+    
+    
+    <div class="main-content" style="margin-left: 20px; padding-left: 10px; max-width: 80%;">
+        <h1 id="ejercicio-39-gestión-de-reservas-en-una-base-de-datos-de-aerolínea">Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</h1>
+<p>Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.</p>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li>Implementar operaciones de actualización de reservas en una base de datos.</li>
+<li>Verificar y aplicar restricciones de integridad de datos.</li>
+<li>Analizar y clasificar restricciones de integridad referencial.</li>
+</ul>
+<h2 id="entrada-de-datos">Entrada de Datos</h2>
+<p>El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:</p>
+<ul>
+<li><strong>FLIGHT (Vuelo)</strong>: Identificado por <code>Flight_number</code>.</li>
+<li><strong>FLIGHT_LEG (Tramo del Vuelo)</strong>: Incluye <code>Leg_number</code>.</li>
+<li><strong>LEG_INSTANCE (Instancia de Tramo de Vuelo)</strong>: Relacionado con fechas específicas.</li>
+<li><strong>FARE (Tarifa)</strong>: Define costos asociados.</li>
+<li><strong>SEAT_RESERVATION (Reserva de Asiento)</strong>: Registra pasajeros y asientos.</li>
+<li><strong>AIRPLANE (Avión)</strong>: Identificado por <code>Airplane_id</code>.</li>
+<li><strong>AIRPLANE_TYPE (Tipo de Avión)</strong>: Define modelos y capacidades.</li>
+<li><strong>AIRPORT (Aeropuerto)</strong>: Identificado por <code>Airport_code</code>.</li>
+</ul>
+<h2 id="parte-1-operación-de-actualización-de-reserva">Parte 1: Operación de Actualización de Reserva</h2>
+<h3 id="a-operaciones-necesarias-para-registrar-una-nueva-reserva">a. Operaciones necesarias para registrar una nueva reserva</h3>
+<ol>
+<li>
+<p><strong>Verificar disponibilidad</strong>:</p>
+<ul>
+<li>Comprobar existencia del vuelo y tramo en <code>LEG_INSTANCE</code>.</li>
+<li>Revisar disponibilidad de asientos en <code>SEAT_RESERVATION</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Crear la reserva</strong>:</p>
+<ul>
+<li>Insertar un nuevo registro en <code>SEAT_RESERVATION</code> con detalles del pasajero y vuelo.</li>
+</ul>
+</li>
+<li>
+<p><strong>Actualizar la ocupación del vuelo</strong>:</p>
+<ul>
+<li>Reducir asientos disponibles en <code>LEG_INSTANCE</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Confirmar la reserva</strong>:</p>
+<ul>
+<li>Registrar la tarifa asociada y emitir el ticket.</li>
+</ul>
+</li>
+</ol>
+<h3 id="ejemplo-de-consulta-sql">Ejemplo de consulta SQL</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- TODO: Implementar
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> SEAT_RESERVATION (passenger_id, flight_number, leg_number, date, seat_number)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">12345</span>, <span style="color:#e6db74">&#39;AA101&#39;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;2025-06-15&#39;</span>, <span style="color:#e6db74">&#39;12A&#39;</span>);
+</span></span></code></pre></div><h2 id="parte-2-restricciones-a-verificar">Parte 2: Restricciones a Verificar</h2>
+<h3 id="b-restricciones-en-la-operación-de-reserva">b. Restricciones en la operación de reserva</h3>
+<ul>
+<li><strong>Disponibilidad de asiento</strong>: No reservar un asiento ocupado.</li>
+<li><strong>Existencia del vuelo y tramo</strong>: Validar en <code>LEG_INSTANCE</code>.</li>
+<li><strong>Consistencia de horarios</strong>: Hora de llegada posterior a la de salida.</li>
+<li><strong>Compatibilidad del avión con el aeropuerto</strong>: Validar en <code>CAN_LAND</code>.</li>
+<li><strong>Integridad de datos del pasajero</strong>: <code>Passenger_id</code> debe existir.</li>
+</ul>
+<h2 id="parte-3-tipos-de-restricciones-de-integridad">Parte 3: Tipos de Restricciones de Integridad</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Restricción</th>
+          <th>Tipo</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>FLIGHT</code> tiene <code>Flight_number</code> único</td>
+          <td>Clave primaria</td>
+      </tr>
+      <tr>
+          <td><code>FLIGHT_LEG</code> asociado a <code>FLIGHT</code></td>
+          <td>Integridad referencial</td>
+      </tr>
+      <tr>
+          <td><code>LEG_INSTANCE</code> corresponde a <code>FLIGHT_LEG</code></td>
+          <td>Integridad referencial</td>
+      </tr>
+      <tr>
+          <td><code>SEAT_RESERVATION</code> asociada a pasajero y vuelo</td>
+          <td>Integridad referencial</td>
+      </tr>
+      <tr>
+          <td>Avión debe existir en <code>AIRPLANE</code></td>
+          <td>Integridad referencial</td>
+      </tr>
+      <tr>
+          <td>Fecha de llegada no anterior a salida</td>
+          <td>Restricción de dominio</td>
+      </tr>
+      <tr>
+          <td>Asientos reservados no superan capacidad</td>
+          <td>Restricción de negocio</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="parte-4-restricciones-de-integridad-referencial">Parte 4: Restricciones de Integridad Referencial</h2>
+<ol>
+<li><code>FLIGHT_LEG.Flight_number</code> → <code>FLIGHT.Flight_number</code></li>
+<li><code>LEG_INSTANCE.Flight_number, LEG_INSTANCE.Leg_number</code> → <code>FLIGHT_LEG.Flight_number, FLIGHT_LEG.Leg_number</code></li>
+<li><code>SEAT_RESERVATION.Flight_number, SEAT_RESERVATION.Leg_number, SEAT_RESERVATION.Date</code> → <code>LEG_INSTANCE.Flight_number, LEG_INSTANCE.Leg_number, LEG_INSTANCE.Date</code></li>
+<li><code>FARE.Flight_number</code> → <code>FLIGHT.Flight_number</code></li>
+<li><code>LEG_INSTANCE.Airplane_id</code> → <code>AIRPLANE.Airplane_id</code></li>
+<li><code>AIRPLANE.Airplane_type</code> → <code>AIRPLANE_TYPE.Airplane_type</code></li>
+<li><code>CAN_LAND.Airplane_type, CAN_LAND.Airport_code</code> → <code>AIRPLANE_TYPE.Airplane_type, AIRPORT.Airport_code</code></li>
+<li><code>FLIGHT_LEG.Departure_airport</code> → <code>AIRPORT.Airport_code</code></li>
+<li><code>FLIGHT_LEG.Arrival_airport</code> → <code>AIRPORT.Airport_code</code></li>
+<li><code>SEAT_RESERVATION.Passenger_id</code> → <code>PASSENGER.Passenger_id</code></li>
+</ol>
+<h2 id="conclusión">Conclusión</h2>
+<p>Este ejercicio permite reforzar conceptos clave en bases de datos, como operaciones de actualización complejas, verificación de restricciones de integridad, identificación de claves y relaciones entre entidades, y análisis de restricciones de negocio en sistemas de reserva.</p>
+<h3 id="entrega-esperada">Entrega esperada</h3>
+<ul>
+<li>Descripción detallada de cada parte del ejercicio.</li>
+<li>SQL que represente la inserción de reservas.</li>
+<li>Análisis de restricciones con explicaciones.</li>
+</ul>
+<div class="edit-meta">
+
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/ldd-uba/notebooks/38/" title="Ejercicio 38: Gestión de Notas de Examen"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Ejercicio 38: Gestión de Notas de Examen</a>
+<a class="nav nav-next" href="http://localhost:1313/ldd-uba/notebooks/40/" title="Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales">Next - Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav>
+
+</article>
+
+</div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+
+
+
+
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

@@ -1,8 +1,223 @@
-<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Ejercicio 10: Indexación y Filtrado - Ejercicios en Notebooks</title>
-<meta name=generator content="Hugo 0.145.0"><link href=https://matuteiglesias.github.io/ldd-nbs//index.xml rel=alternate type=application/rss+xml><link rel=canonical href=https://matuteiglesias.github.io/ldd-nbs/notebooks/10/><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-nbs/css/theme.min.css><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-nbs/css/chroma.min.css><script defer src=https://matuteiglesias.github.io/ldd-nbs//js/fontawesome6/all.min.js></script><script src=https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin=anonymous></script><script src=https://matuteiglesias.github.io/ldd-nbs/js/bundle.js></script><style>:root{}</style><meta property="og:url" content="https://matuteiglesias.github.io/ldd-nbs/notebooks/10/"><meta property="og:site_name" content="Ejercicios en Notebooks"><meta property="og:title" content="Ejercicio 10: Indexación y Filtrado"><meta property="og:description" content="Ejercicio 10: Indexación y Filtrado En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.
-Objetivos Aprender a utilizar métodos de selección de datos en Pandas como .loc[], .iloc[], .query(), y boolean indexing. Practicar la extracción de subconjuntos de datos basados en condiciones específicas. Identificar las especies más comunes en un conjunto de datos. Entrada de Datos Se proporcionará un DataFrame con la siguiente estructura:"><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="notebooks"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ejercicio 10: Indexación y Filtrado"><meta name=twitter:description content="Ejercicio 10: Indexación y Filtrado En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.
-Objetivos Aprender a utilizar métodos de selección de datos en Pandas como .loc[], .iloc[], .query(), y boolean indexing. Practicar la extracción de subconjuntos de datos basados en condiciones específicas. Identificar las especies más comunes en un conjunto de datos. Entrada de Datos Se proporcionará un DataFrame con la siguiente estructura:"><meta itemprop=name content="Ejercicio 10: Indexación y Filtrado"><meta itemprop=description content="Ejercicio 10: Indexación y Filtrado En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.
-Objetivos Aprender a utilizar métodos de selección de datos en Pandas como .loc[], .iloc[], .query(), y boolean indexing. Practicar la extracción de subconjuntos de datos basados en condiciones específicas. Identificar las especies más comunes en un conjunto de datos. Entrada de Datos Se proporcionará un DataFrame con la siguiente estructura:"><meta itemprop=wordCount content="372"></head><body><div class=container><header><h1>Ejercicios en Notebooks</h1></header><div class=global-menu><nav><ul><li><a href=/ldd-nbs/>Inicio</a></li><li><a href=/ldd-nbs/notebooks/>Notebooks</a></li><li><a href=/ldd-nbs/notebooks/python-pandas/>Python y Pandas</a></li><li><a href=/ldd-nbs/notebooks/bases-de-datos/>Bases de Datos y SQL</a></li><li><a href=/ldd-nbs/notebooks/visualizacion/>Visualización de Datos</a></li><li><a href=/ldd-nbs/notebooks/estadistica/>Estadística y Probabilidad</a></li></ul></nav></div><div class=content-container><main><h1>Ejercicio 10: Indexación y Filtrado</h1><h1 id=ejercicio-10-indexación-y-filtrado>Ejercicio 10: Indexación y Filtrado</h1><p>En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.</p><h2 id=objetivos>Objetivos</h2><ul><li>Aprender a utilizar métodos de selección de datos en Pandas como <code>.loc[]</code>, <code>.iloc[]</code>, <code>.query()</code>, y boolean indexing.</li><li>Practicar la extracción de subconjuntos de datos basados en condiciones específicas.</li><li>Identificar las especies más comunes en un conjunto de datos.</li></ul><h2 id=entrada-de-datos>Entrada de Datos</h2><p>Se proporcionará un DataFrame con la siguiente estructura:</p><ul><li><code>nombre_com</code>: Nombre común del árbol.</li><li><code>altura_tot</code>: Altura total del árbol en metros.</li><li><code>inclinacio</code>: Inclinación del árbol en grados.</li><li><code>parque</code>: Nombre del parque donde se encuentra el árbol.</li></ul><h2 id=código-base>Código Base</h2><pre tabindex=0><code>import pandas as pd
+<!DOCTYPE html>
+<html lang="es">
+<head><script src="/ldd-uba/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ldd-uba/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Ejercicio 10: Indexación y Filtrado - Ejercicios en Notebooks</title>
+<meta name="generator" content="Hugo 0.145.0">
+<link href="http://localhost:1313/ldd-uba//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="http://localhost:1313/ldd-uba/notebooks/10/">
+<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/theme.min.css">
+<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/chroma.min.css">
+<script defer src="http://localhost:1313/ldd-uba//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="http://localhost:1313/ldd-uba/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="http://localhost:1313/ldd-uba/notebooks/10/">
+  <meta property="og:site_name" content="Ejercicios en Notebooks">
+  <meta property="og:title" content="Ejercicio 10: Indexación y Filtrado">
+  <meta property="og:description" content="Ejercicio 10: Indexación y Filtrado En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.
+Objetivos Aprender a utilizar métodos de selección de datos en Pandas como .loc[], .iloc[], .query(), y boolean indexing. Practicar la extracción de subconjuntos de datos basados en condiciones específicas. Identificar las especies más comunes en un conjunto de datos. Entrada de Datos Se proporcionará un DataFrame con la siguiente estructura:">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notebooks">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ejercicio 10: Indexación y Filtrado">
+  <meta name="twitter:description" content="Ejercicio 10: Indexación y Filtrado En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.
+Objetivos Aprender a utilizar métodos de selección de datos en Pandas como .loc[], .iloc[], .query(), y boolean indexing. Practicar la extracción de subconjuntos de datos basados en condiciones específicas. Identificar las especies más comunes en un conjunto de datos. Entrada de Datos Se proporcionará un DataFrame con la siguiente estructura:">
+
+  <meta itemprop="name" content="Ejercicio 10: Indexación y Filtrado">
+  <meta itemprop="description" content="Ejercicio 10: Indexación y Filtrado En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.
+Objetivos Aprender a utilizar métodos de selección de datos en Pandas como .loc[], .iloc[], .query(), y boolean indexing. Practicar la extracción de subconjuntos de datos basados en condiciones específicas. Identificar las especies más comunes en un conjunto de datos. Entrada de Datos Se proporcionará un DataFrame con la siguiente estructura:">
+  <meta itemprop="wordCount" content="372"></head>
+<body>
+
+<div class="container"><header>
+<h1>Ejercicios en Notebooks</h1>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li class=""><a href="/ldd-uba/">Inicio</a></li>
+<li class=""><a href="/ldd-uba/notebooks/">Notebooks</a></li>
+<li class=""><a href="/ldd-uba/notebooks/python-pandas/">Python y Pandas</a></li>
+<li class=""><a href="/ldd-uba/notebooks/bases-de-datos/">Bases de Datos y SQL</a></li>
+<li class=""><a href="/ldd-uba/notebooks/visualizacion/">Visualización de Datos</a></li>
+<li class=""><a href="/ldd-uba/notebooks/estadistica/">Estadística y Probabilidad</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><div class="content-container">
+
+    
+    <aside class="sidebar">
+        <h3>📑 Contenidos</h3>
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#objetivos">Objetivos</a></li>
+    <li><a href="#entrada-de-datos">Entrada de Datos</a></li>
+    <li><a href="#código-base">Código Base</a></li>
+    <li><a href="#tareas">Tareas</a></li>
+    <li><a href="#pruebas">Pruebas</a></li>
+  </ul>
+</nav>
+        
+        
+        <h3>📂 Otros Notebooks</h3>
+        <ul>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/01/">Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/02/">Ejercicio 2: Traductor Geringoso y Clases en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/03/">Ejercicio 3: Simulación de Rebotes y Tablas de Multiplicar sin Multiplicar</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/04/">Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/05/">Ejercicio 5: Cálculo de una Hipoteca con Pagos Extras</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/06/">Ejercicio 6: Corrección de Errores Comunes en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/07/">Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/08/">Ejercicio 8: Maestría en Input/Output con Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/09/">Ejercicio 9: Fundamentos de Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/10/">Ejercicio 10: Indexación y Filtrado</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/11/">Ejercicio 11: Combinación de Datos</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/12/">Ejercicio 12: Agregaciones y Análisis</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/13/">Ejercicio 13: Agrupación y Transformaciones en Pandas con el Dataset Diamonds</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/14/">Ejercicio 14: Análisis de Datos y Visualización con Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/15/">Ejercicio 15: Análisis de Datos Temporales con Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/16/">Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/17/">Ejercicio 17: Cargando un Google Sheet como un DataFrame en Python desde Google Cloud Platform (GCP)</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/18/">Ejercicio 18: Limpieza y Visualización de Datos Geoespaciales con GeoPandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/19/">Ejercicio 19: Limpieza y Análisis Exploratorio de Datos (EDA) en Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/20/">Ejercicio 20: Instalación y Configuración de PostgreSQL en Sistemas Operativos Comunes</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/21/">Ejercicio 21: Exploración y Consulta de Datos en PostgreSQL con DBeaver</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/22/">Ejercicio 22: Administración y Consultas en PostgreSQL con pgAdmin</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/23/">Conexiones a Bases de Datos desde Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/24/">Ejercicio 24: Comparación de Operaciones en Pandas y SQL</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/25/">Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/26/">Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/27/">Ejercicio 27: Modelado de Bases de Datos con DBML</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/28/">Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/29/">Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/30/">Ejercicio 30: Diseño de DER para una Productora de Cine</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/31/">Ejercicio 31: Mapeo al Modelo Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/32/">Ejercicio 32: Mapeo de un Diagrama Entidad-Relación al Modelo Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/33/">Ejercicio 33: Modelado Entidad-Relación para Bases de Datos MAIL_ORDER y MOVIE</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/34/">Ejercicio 34: Modelado de la Base de Datos GRADE_BOOK</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/35/">Ejercicio 35: Modelado de la Base de Datos ONLINE_AUCTION</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/36/">Ejercicio 36: Modelado de la Base de Datos de una Liga de Hockey Femenino</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/37/">Ejercicio: Consultas SQL sobre Vuelos y Reservas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/38/">Ejercicio 38: Gestión de Notas de Examen</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/39/">Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/40/">Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/41/">Ejercicio 41: Consultas y Actualizaciones SQL en Bases de Datos Relacionales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/42/">Ejercicio 42: Análisis y Visualización de Datos con Gráficos en Pandas y Seaborn</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/43/">Ejercicio 43: Análisis Visual de Datos con Penguins e Iris</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/44/">Ejercicio 44: Limpieza y Manejo de Datos Faltantes, Duplicados y Variables Categóricas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/45/">Ejercicio 45: Análisis Estadístico y Visualización de Datos con `tips` y `ventaCasas`</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/46/">Ejercicio 46: Implementación Manual de Regresión Lineal con NumPy</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/47/">Ejercicio 47: Análisis de Correlaciones y Visualización con Heatmaps</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/48/">Ejercicio 48: Construcción y Análisis de Redes Basadas en Similitud</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/49/">Ejercicio 49: Creación de Figuras Científicas de Publicación con Matplotlib</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/50/">Ejercicio 50: Creación de un Reporte Exploratorio con Python y Markdown</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/51/">Ejercicio 51: Contar Historias con Datos - Más Allá de los Gráficos</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/52/">Ejercicio 52: Simulación de la Paradoja del Cumpleaños</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/53/">Ejercicio 53: Ley de los Grandes Números en Acción</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/54/">Ejercicio 54: Simulación del P-Value y Rechazo de H₀</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/55/">Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/56/">Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/57/">Ejercicio 57: Regresión Lineal Simple en Datos Reales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/58/">Ejercicio 58: Evaluación de Suposiciones de la Regresión Lineal</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/59/">Ejercicio 59: Análisis de Datos de Ventas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/60/">Ejercicio 60: Análisis de Datos de Ventas</a></li>
+            
+        </ul>
+        
+
+    </aside>
+
+    
+    
+    <div class="main-content" style="margin-left: 20px; padding-left: 10px; max-width: 80%;">
+        <h1 id="ejercicio-10-indexación-y-filtrado">Ejercicio 10: Indexación y Filtrado</h1>
+<p>En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.</p>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li>Aprender a utilizar métodos de selección de datos en Pandas como <code>.loc[]</code>, <code>.iloc[]</code>, <code>.query()</code>, y boolean indexing.</li>
+<li>Practicar la extracción de subconjuntos de datos basados en condiciones específicas.</li>
+<li>Identificar las especies más comunes en un conjunto de datos.</li>
+</ul>
+<h2 id="entrada-de-datos">Entrada de Datos</h2>
+<p>Se proporcionará un DataFrame con la siguiente estructura:</p>
+<ul>
+<li><code>nombre_com</code>: Nombre común del árbol.</li>
+<li><code>altura_tot</code>: Altura total del árbol en metros.</li>
+<li><code>inclinacio</code>: Inclinación del árbol en grados.</li>
+<li><code>parque</code>: Nombre del parque donde se encuentra el árbol.</li>
+</ul>
+<h2 id="código-base">Código Base</h2>
+<pre tabindex="0"><code>import pandas as pd
 
 # Supongamos que el DataFrame se llama df y ya ha sido cargado previamente
 # df = pd.read_csv(&#39;path_to_file.csv&#39;)
@@ -11,7 +226,27 @@ Objetivos Aprender a utilizar métodos de selección de datos en Pandas como .lo
 columnas_relevantes = [&#39;nombre_com&#39;, &#39;altura_tot&#39;, &#39;inclinacio&#39;]
 
 # TODO: Implementar
-</code></pre><h2 id=tareas>Tareas</h2><ol><li><p><strong>Seleccionar Columnas Relevantes</strong>: Filtrar el DataFrame para que solo contenga las columnas <code>nombre_com</code>, <code>altura_tot</code>, e <code>inclinacio</code>.</p></li><li><p><strong>Extraer Árboles del Parque &ldquo;GENERAL PAZ&rdquo;</strong>: Utilizar el método <code>.query()</code> para obtener todos los registros de árboles ubicados en el parque &ldquo;GENERAL PAZ&rdquo;.</p></li><li><p><strong>Obtener las 10 Especies Más Comunes</strong>: Utilizar el método <code>.value_counts()</code> para identificar las 10 especies de árboles más comunes en el DataFrame.</p></li><li><p><strong>Seleccionar Árboles con Altura Mayor a 10m</strong>: Utilizar <code>.loc[]</code> para filtrar los árboles cuya altura total es mayor a 10 metros.</p></li><li><p><strong>Filtrar Árboles Inclinados Más de 30 Grados</strong>: Aplicar boolean indexing para obtener todos los árboles cuya inclinación es mayor a 30 grados.</p></li></ol><h2 id=pruebas>Pruebas</h2><p>Ejemplo de cómo deberían estructurarse las pruebas:</p><pre tabindex=0><code># Prueba para seleccionar columnas relevantes
+</code></pre><h2 id="tareas">Tareas</h2>
+<ol>
+<li>
+<p><strong>Seleccionar Columnas Relevantes</strong>: Filtrar el DataFrame para que solo contenga las columnas <code>nombre_com</code>, <code>altura_tot</code>, e <code>inclinacio</code>.</p>
+</li>
+<li>
+<p><strong>Extraer Árboles del Parque &ldquo;GENERAL PAZ&rdquo;</strong>: Utilizar el método <code>.query()</code> para obtener todos los registros de árboles ubicados en el parque &ldquo;GENERAL PAZ&rdquo;.</p>
+</li>
+<li>
+<p><strong>Obtener las 10 Especies Más Comunes</strong>: Utilizar el método <code>.value_counts()</code> para identificar las 10 especies de árboles más comunes en el DataFrame.</p>
+</li>
+<li>
+<p><strong>Seleccionar Árboles con Altura Mayor a 10m</strong>: Utilizar <code>.loc[]</code> para filtrar los árboles cuya altura total es mayor a 10 metros.</p>
+</li>
+<li>
+<p><strong>Filtrar Árboles Inclinados Más de 30 Grados</strong>: Aplicar boolean indexing para obtener todos los árboles cuya inclinación es mayor a 30 grados.</p>
+</li>
+</ol>
+<h2 id="pruebas">Pruebas</h2>
+<p>Ejemplo de cómo deberían estructurarse las pruebas:</p>
+<pre tabindex="0"><code># Prueba para seleccionar columnas relevantes
 df_relevante = df[columnas_relevantes]
 print(df_relevante.head())
 
@@ -30,6 +265,34 @@ print(arboles_altos.head())
 # Prueba para filtrar árboles inclinados más de 30 grados
 arboles_inclinados = df.loc[df[&#39;inclinacio&#39;] &gt; 30]
 print(arboles_inclinados.head())
-</code></pre><p>Se espera que los estudiantes sean capaces de obtener listas filtradas de árboles específicos, subconjuntos de datos basados en condiciones, y un resumen de las especies más comunes.</p><div class=edit-meta><br></div><nav class=pagination><a class="nav nav-prev" href=https://matuteiglesias.github.io/ldd-nbs/notebooks/01/ title="Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings"><i class="fas fa-arrow-left" aria-hidden=true></i>&nbsp;Prev - Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings</a>
-<a class="nav nav-next" href=https://matuteiglesias.github.io/ldd-nbs/notebooks/11/ title="Ejercicio 11: Combinación de Datos">Next - Ejercicio 11: Combinación de Datos <i class="fas fa-arrow-right" aria-hidden=true></i></a></nav><footer><p class=powered>Powered by <a href=https://gohugo.io>Hugo</a>. Theme by <a href=https://themes.gohugo.io/hugo-theme-techdoc/>TechDoc</a>. Designed by <a href=https://github.com/thingsym/hugo-theme-techdoc>Thingsym</a>.</p></footer></main><div class=sidebar><div class=sidebar-footer></div></div></div><a href=# id=backtothetop-fixed class=backtothetop data-backtothetop-duration=600 data-backtothetop-easing=easeOutQuart data-backtothetop-fixed-fadein=1000 data-backtothetop-fixed-fadeout=1000 data-backtothetop-fixed-bottom=10 data-backtothetop-fixed-right=20><span class="fa-layers fa-fw"><i class="fas fa-circle"></i>
-<i class="fas fa-arrow-circle-up"></i></span></a></div></body></html>
+</code></pre><p>Se espera que los estudiantes sean capaces de obtener listas filtradas de árboles específicos, subconjuntos de datos basados en condiciones, y un resumen de las especies más comunes.</p>
+<div class="edit-meta">
+
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/ldd-uba/notebooks/09/" title="Ejercicio 9: Fundamentos de Pandas"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Ejercicio 9: Fundamentos de Pandas</a>
+<a class="nav nav-next" href="http://localhost:1313/ldd-uba/notebooks/11/" title="Ejercicio 11: Combinación de Datos">Next - Ejercicio 11: Combinación de Datos <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav>
+
+</article>
+
+</div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+
+
+
+
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

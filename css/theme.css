@@ -717,18 +717,20 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 main {
+  flex: 1; /* Allow main content to take up remaining space */
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 75%;
           flex: 0 0 75%;
-  max-width: 75%;
+  max-width: 80%;
 }
 main:only-child {
   -webkit-box-sizing: border-box;
@@ -744,7 +746,7 @@ main:only-child {
           box-sizing: border-box;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+          flex: 0 0 10%;
   -webkit-box-ordinal-group: 0;
       -ms-flex-order: -1;
           order: -1;

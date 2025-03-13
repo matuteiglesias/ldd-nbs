@@ -1,8 +1,242 @@
-<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Ejercicio 15: Análisis de Datos Temporales con Pandas - Ejercicios en Notebooks</title>
-<meta name=generator content="Hugo 0.145.0"><link href=https://matuteiglesias.github.io/ldd-nbs//index.xml rel=alternate type=application/rss+xml><link rel=canonical href=https://matuteiglesias.github.io/ldd-nbs/notebooks/15/><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-nbs/css/theme.min.css><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-nbs/css/chroma.min.css><script defer src=https://matuteiglesias.github.io/ldd-nbs//js/fontawesome6/all.min.js></script><script src=https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin=anonymous></script><script src=https://matuteiglesias.github.io/ldd-nbs/js/bundle.js></script><style>:root{}</style><meta property="og:url" content="https://matuteiglesias.github.io/ldd-nbs/notebooks/15/"><meta property="og:site_name" content="Ejercicios en Notebooks"><meta property="og:title" content="Ejercicio 15: Análisis de Datos Temporales con Pandas"><meta property="og:description" content="Ejercicio 15: Análisis de Datos Temporales con Pandas Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.
-Objetivos Manipular datos temporales utilizando Pandas. Visualizar series temporales para identificar tendencias. Aplicar transformaciones avanzadas en datos con fechas y tiempos. Entrada de Datos id: Identificador único de la receta. name: Nombre de la receta. ingredients: Lista de ingredientes como texto. date: Fecha de publicación de la receta. category: Categoría de la receta (postres, pastas, carnes, etc.). Parte A: Carga y Exploración de Datos Tareas Cargar el dataset en un DataFrame de Pandas y explorar su contenido. Convertir la columna date a formato datetime64 para facilitar su manipulación. Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior. import pandas as pd # Cargar el dataset # TODO: Implementar la carga del dataset # df = pd.read_csv('ruta_al_dataset.csv') # Convertir la columna 'date' a formato datetime # TODO: Implementar la conversión de la columna 'date' # Extraer año, mes, día de la semana y día del año # TODO: Implementar la extracción de componentes de fecha Parte B: Análisis y Agrupación Temporal Tareas Agregación por Año y Mes"><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="notebooks"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ejercicio 15: Análisis de Datos Temporales con Pandas"><meta name=twitter:description content="Ejercicio 15: Análisis de Datos Temporales con Pandas Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.
-Objetivos Manipular datos temporales utilizando Pandas. Visualizar series temporales para identificar tendencias. Aplicar transformaciones avanzadas en datos con fechas y tiempos. Entrada de Datos id: Identificador único de la receta. name: Nombre de la receta. ingredients: Lista de ingredientes como texto. date: Fecha de publicación de la receta. category: Categoría de la receta (postres, pastas, carnes, etc.). Parte A: Carga y Exploración de Datos Tareas Cargar el dataset en un DataFrame de Pandas y explorar su contenido. Convertir la columna date a formato datetime64 para facilitar su manipulación. Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior. import pandas as pd # Cargar el dataset # TODO: Implementar la carga del dataset # df = pd.read_csv('ruta_al_dataset.csv') # Convertir la columna 'date' a formato datetime # TODO: Implementar la conversión de la columna 'date' # Extraer año, mes, día de la semana y día del año # TODO: Implementar la extracción de componentes de fecha Parte B: Análisis y Agrupación Temporal Tareas Agregación por Año y Mes"><meta itemprop=name content="Ejercicio 15: Análisis de Datos Temporales con Pandas"><meta itemprop=description content="Ejercicio 15: Análisis de Datos Temporales con Pandas Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.
-Objetivos Manipular datos temporales utilizando Pandas. Visualizar series temporales para identificar tendencias. Aplicar transformaciones avanzadas en datos con fechas y tiempos. Entrada de Datos id: Identificador único de la receta. name: Nombre de la receta. ingredients: Lista de ingredientes como texto. date: Fecha de publicación de la receta. category: Categoría de la receta (postres, pastas, carnes, etc.). Parte A: Carga y Exploración de Datos Tareas Cargar el dataset en un DataFrame de Pandas y explorar su contenido. Convertir la columna date a formato datetime64 para facilitar su manipulación. Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior. import pandas as pd # Cargar el dataset # TODO: Implementar la carga del dataset # df = pd.read_csv('ruta_al_dataset.csv') # Convertir la columna 'date' a formato datetime # TODO: Implementar la conversión de la columna 'date' # Extraer año, mes, día de la semana y día del año # TODO: Implementar la extracción de componentes de fecha Parte B: Análisis y Agrupación Temporal Tareas Agregación por Año y Mes"><meta itemprop=wordCount content="512"></head><body><div class=container><header><h1>Ejercicios en Notebooks</h1></header><div class=global-menu><nav><ul><li><a href=/ldd-nbs/>Inicio</a></li><li><a href=/ldd-nbs/notebooks/>Notebooks</a></li><li><a href=/ldd-nbs/notebooks/python-pandas/>Python y Pandas</a></li><li><a href=/ldd-nbs/notebooks/bases-de-datos/>Bases de Datos y SQL</a></li><li><a href=/ldd-nbs/notebooks/visualizacion/>Visualización de Datos</a></li><li><a href=/ldd-nbs/notebooks/estadistica/>Estadística y Probabilidad</a></li></ul></nav></div><div class=content-container><main><h1>Ejercicio 15: Análisis de Datos Temporales con Pandas</h1><h1 id=ejercicio-15-análisis-de-datos-temporales-con-pandas>Ejercicio 15: Análisis de Datos Temporales con Pandas</h1><p>Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.</p><h2 id=objetivos>Objetivos</h2><ul><li>Manipular datos temporales utilizando Pandas.</li><li>Visualizar series temporales para identificar tendencias.</li><li>Aplicar transformaciones avanzadas en datos con fechas y tiempos.</li></ul><h2 id=entrada-de-datos>Entrada de Datos</h2><ul><li><code>id</code>: Identificador único de la receta.</li><li><code>name</code>: Nombre de la receta.</li><li><code>ingredients</code>: Lista de ingredientes como texto.</li><li><code>date</code>: Fecha de publicación de la receta.</li><li><code>category</code>: Categoría de la receta (postres, pastas, carnes, etc.).</li></ul><h2 id=parte-a-carga-y-exploración-de-datos>Parte A: Carga y Exploración de Datos</h2><h3 id=tareas>Tareas</h3><ol><li>Cargar el dataset en un <code>DataFrame</code> de Pandas y explorar su contenido.</li><li>Convertir la columna <code>date</code> a formato <code>datetime64</code> para facilitar su manipulación.</li><li>Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior.</li></ol><pre tabindex=0><code>import pandas as pd
+<!DOCTYPE html>
+<html lang="es">
+<head><script src="/ldd-uba/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ldd-uba/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Ejercicio 15: Análisis de Datos Temporales con Pandas - Ejercicios en Notebooks</title>
+<meta name="generator" content="Hugo 0.145.0">
+<link href="http://localhost:1313/ldd-uba//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="http://localhost:1313/ldd-uba/notebooks/15/">
+<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/theme.min.css">
+<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/chroma.min.css">
+<script defer src="http://localhost:1313/ldd-uba//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="http://localhost:1313/ldd-uba/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="http://localhost:1313/ldd-uba/notebooks/15/">
+  <meta property="og:site_name" content="Ejercicios en Notebooks">
+  <meta property="og:title" content="Ejercicio 15: Análisis de Datos Temporales con Pandas">
+  <meta property="og:description" content="Ejercicio 15: Análisis de Datos Temporales con Pandas Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.
+Objetivos Manipular datos temporales utilizando Pandas. Visualizar series temporales para identificar tendencias. Aplicar transformaciones avanzadas en datos con fechas y tiempos. Entrada de Datos id: Identificador único de la receta. name: Nombre de la receta. ingredients: Lista de ingredientes como texto. date: Fecha de publicación de la receta. category: Categoría de la receta (postres, pastas, carnes, etc.). Parte A: Carga y Exploración de Datos Tareas Cargar el dataset en un DataFrame de Pandas y explorar su contenido. Convertir la columna date a formato datetime64 para facilitar su manipulación. Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior. import pandas as pd # Cargar el dataset # TODO: Implementar la carga del dataset # df = pd.read_csv(&#39;ruta_al_dataset.csv&#39;) # Convertir la columna &#39;date&#39; a formato datetime # TODO: Implementar la conversión de la columna &#39;date&#39; # Extraer año, mes, día de la semana y día del año # TODO: Implementar la extracción de componentes de fecha Parte B: Análisis y Agrupación Temporal Tareas Agregación por Año y Mes">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notebooks">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ejercicio 15: Análisis de Datos Temporales con Pandas">
+  <meta name="twitter:description" content="Ejercicio 15: Análisis de Datos Temporales con Pandas Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.
+Objetivos Manipular datos temporales utilizando Pandas. Visualizar series temporales para identificar tendencias. Aplicar transformaciones avanzadas en datos con fechas y tiempos. Entrada de Datos id: Identificador único de la receta. name: Nombre de la receta. ingredients: Lista de ingredientes como texto. date: Fecha de publicación de la receta. category: Categoría de la receta (postres, pastas, carnes, etc.). Parte A: Carga y Exploración de Datos Tareas Cargar el dataset en un DataFrame de Pandas y explorar su contenido. Convertir la columna date a formato datetime64 para facilitar su manipulación. Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior. import pandas as pd # Cargar el dataset # TODO: Implementar la carga del dataset # df = pd.read_csv(&#39;ruta_al_dataset.csv&#39;) # Convertir la columna &#39;date&#39; a formato datetime # TODO: Implementar la conversión de la columna &#39;date&#39; # Extraer año, mes, día de la semana y día del año # TODO: Implementar la extracción de componentes de fecha Parte B: Análisis y Agrupación Temporal Tareas Agregación por Año y Mes">
+
+  <meta itemprop="name" content="Ejercicio 15: Análisis de Datos Temporales con Pandas">
+  <meta itemprop="description" content="Ejercicio 15: Análisis de Datos Temporales con Pandas Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.
+Objetivos Manipular datos temporales utilizando Pandas. Visualizar series temporales para identificar tendencias. Aplicar transformaciones avanzadas en datos con fechas y tiempos. Entrada de Datos id: Identificador único de la receta. name: Nombre de la receta. ingredients: Lista de ingredientes como texto. date: Fecha de publicación de la receta. category: Categoría de la receta (postres, pastas, carnes, etc.). Parte A: Carga y Exploración de Datos Tareas Cargar el dataset en un DataFrame de Pandas y explorar su contenido. Convertir la columna date a formato datetime64 para facilitar su manipulación. Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior. import pandas as pd # Cargar el dataset # TODO: Implementar la carga del dataset # df = pd.read_csv(&#39;ruta_al_dataset.csv&#39;) # Convertir la columna &#39;date&#39; a formato datetime # TODO: Implementar la conversión de la columna &#39;date&#39; # Extraer año, mes, día de la semana y día del año # TODO: Implementar la extracción de componentes de fecha Parte B: Análisis y Agrupación Temporal Tareas Agregación por Año y Mes">
+  <meta itemprop="wordCount" content="512"></head>
+<body>
+
+<div class="container"><header>
+<h1>Ejercicios en Notebooks</h1>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li class=""><a href="/ldd-uba/">Inicio</a></li>
+<li class=""><a href="/ldd-uba/notebooks/">Notebooks</a></li>
+<li class=""><a href="/ldd-uba/notebooks/python-pandas/">Python y Pandas</a></li>
+<li class=""><a href="/ldd-uba/notebooks/bases-de-datos/">Bases de Datos y SQL</a></li>
+<li class=""><a href="/ldd-uba/notebooks/visualizacion/">Visualización de Datos</a></li>
+<li class=""><a href="/ldd-uba/notebooks/estadistica/">Estadística y Probabilidad</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><div class="content-container">
+
+    
+    <aside class="sidebar">
+        <h3>📑 Contenidos</h3>
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#objetivos">Objetivos</a></li>
+    <li><a href="#entrada-de-datos">Entrada de Datos</a></li>
+    <li><a href="#parte-a-carga-y-exploración-de-datos">Parte A: Carga y Exploración de Datos</a>
+      <ul>
+        <li><a href="#tareas">Tareas</a></li>
+      </ul>
+    </li>
+    <li><a href="#parte-b-análisis-y-agrupación-temporal">Parte B: Análisis y Agrupación Temporal</a>
+      <ul>
+        <li><a href="#tareas-1">Tareas</a></li>
+      </ul>
+    </li>
+    <li><a href="#parte-c-visualización-avanzada-de-series-temporales">Parte C: Visualización Avanzada de Series Temporales</a>
+      <ul>
+        <li><a href="#tareas-2">Tareas</a></li>
+      </ul>
+    </li>
+    <li><a href="#entrega-esperada">Entrega Esperada</a></li>
+  </ul>
+</nav>
+        
+        
+        <h3>📂 Otros Notebooks</h3>
+        <ul>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/01/">Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/02/">Ejercicio 2: Traductor Geringoso y Clases en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/03/">Ejercicio 3: Simulación de Rebotes y Tablas de Multiplicar sin Multiplicar</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/04/">Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/05/">Ejercicio 5: Cálculo de una Hipoteca con Pagos Extras</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/06/">Ejercicio 6: Corrección de Errores Comunes en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/07/">Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/08/">Ejercicio 8: Maestría en Input/Output con Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/09/">Ejercicio 9: Fundamentos de Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/10/">Ejercicio 10: Indexación y Filtrado</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/11/">Ejercicio 11: Combinación de Datos</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/12/">Ejercicio 12: Agregaciones y Análisis</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/13/">Ejercicio 13: Agrupación y Transformaciones en Pandas con el Dataset Diamonds</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/14/">Ejercicio 14: Análisis de Datos y Visualización con Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/15/">Ejercicio 15: Análisis de Datos Temporales con Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/16/">Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/17/">Ejercicio 17: Cargando un Google Sheet como un DataFrame en Python desde Google Cloud Platform (GCP)</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/18/">Ejercicio 18: Limpieza y Visualización de Datos Geoespaciales con GeoPandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/19/">Ejercicio 19: Limpieza y Análisis Exploratorio de Datos (EDA) en Pandas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/20/">Ejercicio 20: Instalación y Configuración de PostgreSQL en Sistemas Operativos Comunes</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/21/">Ejercicio 21: Exploración y Consulta de Datos en PostgreSQL con DBeaver</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/22/">Ejercicio 22: Administración y Consultas en PostgreSQL con pgAdmin</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/23/">Conexiones a Bases de Datos desde Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/24/">Ejercicio 24: Comparación de Operaciones en Pandas y SQL</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/25/">Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/26/">Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/27/">Ejercicio 27: Modelado de Bases de Datos con DBML</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/28/">Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/29/">Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/30/">Ejercicio 30: Diseño de DER para una Productora de Cine</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/31/">Ejercicio 31: Mapeo al Modelo Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/32/">Ejercicio 32: Mapeo de un Diagrama Entidad-Relación al Modelo Relacional</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/33/">Ejercicio 33: Modelado Entidad-Relación para Bases de Datos MAIL_ORDER y MOVIE</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/34/">Ejercicio 34: Modelado de la Base de Datos GRADE_BOOK</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/35/">Ejercicio 35: Modelado de la Base de Datos ONLINE_AUCTION</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/36/">Ejercicio 36: Modelado de la Base de Datos de una Liga de Hockey Femenino</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/37/">Ejercicio: Consultas SQL sobre Vuelos y Reservas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/38/">Ejercicio 38: Gestión de Notas de Examen</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/39/">Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/40/">Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/41/">Ejercicio 41: Consultas y Actualizaciones SQL en Bases de Datos Relacionales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/42/">Ejercicio 42: Análisis y Visualización de Datos con Gráficos en Pandas y Seaborn</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/43/">Ejercicio 43: Análisis Visual de Datos con Penguins e Iris</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/44/">Ejercicio 44: Limpieza y Manejo de Datos Faltantes, Duplicados y Variables Categóricas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/45/">Ejercicio 45: Análisis Estadístico y Visualización de Datos con `tips` y `ventaCasas`</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/46/">Ejercicio 46: Implementación Manual de Regresión Lineal con NumPy</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/47/">Ejercicio 47: Análisis de Correlaciones y Visualización con Heatmaps</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/48/">Ejercicio 48: Construcción y Análisis de Redes Basadas en Similitud</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/49/">Ejercicio 49: Creación de Figuras Científicas de Publicación con Matplotlib</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/50/">Ejercicio 50: Creación de un Reporte Exploratorio con Python y Markdown</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/51/">Ejercicio 51: Contar Historias con Datos - Más Allá de los Gráficos</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/52/">Ejercicio 52: Simulación de la Paradoja del Cumpleaños</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/53/">Ejercicio 53: Ley de los Grandes Números en Acción</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/54/">Ejercicio 54: Simulación del P-Value y Rechazo de H₀</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/55/">Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/56/">Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/57/">Ejercicio 57: Regresión Lineal Simple en Datos Reales</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/58/">Ejercicio 58: Evaluación de Suposiciones de la Regresión Lineal</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/59/">Ejercicio 59: Análisis de Datos de Ventas</a></li>
+            
+                <li><a href="http://localhost:1313/ldd-uba/notebooks/60/">Ejercicio 60: Análisis de Datos de Ventas</a></li>
+            
+        </ul>
+        
+
+    </aside>
+
+    
+    
+    <div class="main-content" style="margin-left: 20px; padding-left: 10px; max-width: 80%;">
+        <h1 id="ejercicio-15-análisis-de-datos-temporales-con-pandas">Ejercicio 15: Análisis de Datos Temporales con Pandas</h1>
+<p>Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.</p>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li>Manipular datos temporales utilizando Pandas.</li>
+<li>Visualizar series temporales para identificar tendencias.</li>
+<li>Aplicar transformaciones avanzadas en datos con fechas y tiempos.</li>
+</ul>
+<h2 id="entrada-de-datos">Entrada de Datos</h2>
+<ul>
+<li><code>id</code>: Identificador único de la receta.</li>
+<li><code>name</code>: Nombre de la receta.</li>
+<li><code>ingredients</code>: Lista de ingredientes como texto.</li>
+<li><code>date</code>: Fecha de publicación de la receta.</li>
+<li><code>category</code>: Categoría de la receta (postres, pastas, carnes, etc.).</li>
+</ul>
+<h2 id="parte-a-carga-y-exploración-de-datos">Parte A: Carga y Exploración de Datos</h2>
+<h3 id="tareas">Tareas</h3>
+<ol>
+<li>Cargar el dataset en un <code>DataFrame</code> de Pandas y explorar su contenido.</li>
+<li>Convertir la columna <code>date</code> a formato <code>datetime64</code> para facilitar su manipulación.</li>
+<li>Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior.</li>
+</ol>
+<pre tabindex="0"><code>import pandas as pd
 
 # Cargar el dataset
 # TODO: Implementar la carga del dataset
@@ -13,11 +247,107 @@ Objetivos Manipular datos temporales utilizando Pandas. Visualizar series tempor
 
 # Extraer año, mes, día de la semana y día del año
 # TODO: Implementar la extracción de componentes de fecha
-</code></pre><h2 id=parte-b-análisis-y-agrupación-temporal>Parte B: Análisis y Agrupación Temporal</h2><h3 id=tareas-1>Tareas</h3><ol><li><p><strong>Agregación por Año y Mes</strong></p><ul><li>Contar la cantidad de recetas publicadas por año y mes.</li><li>Visualizar la cantidad de recetas publicadas a lo largo del tiempo con un gráfico de líneas.</li></ul></li><li><p><strong>Distribución de Publicaciones por Día de la Semana</strong></p><ul><li>Crear un gráfico de barras que muestre cuántas recetas se publicaron cada día de la semana.</li></ul></li><li><p><strong>Análisis de Temporadas (Estaciones del Año)</strong></p><ul><li>Identificar patrones estacionales en la publicación de recetas.</li><li>Crear un gráfico que muestre la distribución de publicaciones por estación del año.</li></ul></li><li><p><strong>Análisis de Ventanas Móviles</strong></p><ul><li>Aplicar una ventana móvil de 30 días para suavizar la tendencia de publicaciones.</li><li>Comparar la serie original con la suavizada en un gráfico de líneas.</li></ul></li></ol><pre tabindex=0><code>import matplotlib.pyplot as plt
+</code></pre><h2 id="parte-b-análisis-y-agrupación-temporal">Parte B: Análisis y Agrupación Temporal</h2>
+<h3 id="tareas-1">Tareas</h3>
+<ol>
+<li>
+<p><strong>Agregación por Año y Mes</strong></p>
+<ul>
+<li>Contar la cantidad de recetas publicadas por año y mes.</li>
+<li>Visualizar la cantidad de recetas publicadas a lo largo del tiempo con un gráfico de líneas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Distribución de Publicaciones por Día de la Semana</strong></p>
+<ul>
+<li>Crear un gráfico de barras que muestre cuántas recetas se publicaron cada día de la semana.</li>
+</ul>
+</li>
+<li>
+<p><strong>Análisis de Temporadas (Estaciones del Año)</strong></p>
+<ul>
+<li>Identificar patrones estacionales en la publicación de recetas.</li>
+<li>Crear un gráfico que muestre la distribución de publicaciones por estación del año.</li>
+</ul>
+</li>
+<li>
+<p><strong>Análisis de Ventanas Móviles</strong></p>
+<ul>
+<li>Aplicar una ventana móvil de 30 días para suavizar la tendencia de publicaciones.</li>
+<li>Comparar la serie original con la suavizada en un gráfico de líneas.</li>
+</ul>
+</li>
+</ol>
+<pre tabindex="0"><code>import matplotlib.pyplot as plt
 import seaborn as sns
 
 # TODO: Implementar las tareas de análisis y visualización
-</code></pre><h2 id=parte-c-visualización-avanzada-de-series-temporales>Parte C: Visualización Avanzada de Series Temporales</h2><h3 id=tareas-2>Tareas</h3><ol><li><p><strong>Tendencias Anuales y Mensuales</strong></p><ul><li>Graficar el número de recetas publicadas por año y mes usando Matplotlib o Seaborn.</li><li>Usar <code>hue</code> para diferenciar por categoría de receta.</li></ul></li><li><p><strong>Publicaciones por Día de la Semana</strong></p><ul><li>Crear un gráfico de barras con Seaborn para mostrar qué días de la semana se publican más recetas.</li><li>Comparar si ciertos tipos de recetas tienen patrones específicos de publicación.</li></ul></li><li><p><strong>Análisis de Temporadas</strong></p><ul><li>Graficar las publicaciones por mes y resaltar las estaciones del año con colores.</li><li>Identificar tendencias de recetas populares en invierno, verano, otoño y primavera.</li></ul></li><li><p><strong>Resampling y Media Móvil</strong></p><ul><li>Aplicar un <code>resample('M')</code> para visualizar la tendencia mensual.</li><li>Aplicar <code>.rolling(30).mean()</code> para suavizar los datos y comparar con la serie original.</li></ul></li></ol><pre tabindex=0><code># TODO: Implementar las visualizaciones avanzadas
-</code></pre><h2 id=entrega-esperada>Entrega Esperada</h2><ul><li>Código en Python bien estructurado utilizando Pandas, Matplotlib y Seaborn.</li><li>Gráficos claros y correctamente etiquetados.</li><li>Análisis de los resultados con reflexiones sobre las tendencias temporales y estacionales.</li></ul><div class=edit-meta><br></div><nav class=pagination><a class="nav nav-prev" href=https://matuteiglesias.github.io/ldd-nbs/notebooks/14/ title="Ejercicio 14: Análisis de Datos y Visualización con Python"><i class="fas fa-arrow-left" aria-hidden=true></i>&nbsp;Prev - Ejercicio 14: Análisis de Datos y Visualización con Python</a>
-<a class="nav nav-next" href=https://matuteiglesias.github.io/ldd-nbs/notebooks/16/ title="Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas">Next - Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas <i class="fas fa-arrow-right" aria-hidden=true></i></a></nav><footer><p class=powered>Powered by <a href=https://gohugo.io>Hugo</a>. Theme by <a href=https://themes.gohugo.io/hugo-theme-techdoc/>TechDoc</a>. Designed by <a href=https://github.com/thingsym/hugo-theme-techdoc>Thingsym</a>.</p></footer></main><div class=sidebar><div class=sidebar-footer></div></div></div><a href=# id=backtothetop-fixed class=backtothetop data-backtothetop-duration=600 data-backtothetop-easing=easeOutQuart data-backtothetop-fixed-fadein=1000 data-backtothetop-fixed-fadeout=1000 data-backtothetop-fixed-bottom=10 data-backtothetop-fixed-right=20><span class="fa-layers fa-fw"><i class="fas fa-circle"></i>
-<i class="fas fa-arrow-circle-up"></i></span></a></div></body></html>
+</code></pre><h2 id="parte-c-visualización-avanzada-de-series-temporales">Parte C: Visualización Avanzada de Series Temporales</h2>
+<h3 id="tareas-2">Tareas</h3>
+<ol>
+<li>
+<p><strong>Tendencias Anuales y Mensuales</strong></p>
+<ul>
+<li>Graficar el número de recetas publicadas por año y mes usando Matplotlib o Seaborn.</li>
+<li>Usar <code>hue</code> para diferenciar por categoría de receta.</li>
+</ul>
+</li>
+<li>
+<p><strong>Publicaciones por Día de la Semana</strong></p>
+<ul>
+<li>Crear un gráfico de barras con Seaborn para mostrar qué días de la semana se publican más recetas.</li>
+<li>Comparar si ciertos tipos de recetas tienen patrones específicos de publicación.</li>
+</ul>
+</li>
+<li>
+<p><strong>Análisis de Temporadas</strong></p>
+<ul>
+<li>Graficar las publicaciones por mes y resaltar las estaciones del año con colores.</li>
+<li>Identificar tendencias de recetas populares en invierno, verano, otoño y primavera.</li>
+</ul>
+</li>
+<li>
+<p><strong>Resampling y Media Móvil</strong></p>
+<ul>
+<li>Aplicar un <code>resample('M')</code> para visualizar la tendencia mensual.</li>
+<li>Aplicar <code>.rolling(30).mean()</code> para suavizar los datos y comparar con la serie original.</li>
+</ul>
+</li>
+</ol>
+<pre tabindex="0"><code># TODO: Implementar las visualizaciones avanzadas
+</code></pre><h2 id="entrega-esperada">Entrega Esperada</h2>
+<ul>
+<li>Código en Python bien estructurado utilizando Pandas, Matplotlib y Seaborn.</li>
+<li>Gráficos claros y correctamente etiquetados.</li>
+<li>Análisis de los resultados con reflexiones sobre las tendencias temporales y estacionales.</li>
+</ul>
+<div class="edit-meta">
+
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/ldd-uba/notebooks/14/" title="Ejercicio 14: Análisis de Datos y Visualización con Python"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Ejercicio 14: Análisis de Datos y Visualización con Python</a>
+<a class="nav nav-next" href="http://localhost:1313/ldd-uba/notebooks/16/" title="Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas">Next - Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav>
+
+</article>
+
+</div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+
+
+
+
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
