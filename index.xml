@@ -1,0 +1,1607 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ejercicios en Notebooks</title><link>https://matuteiglesias.github.io/ldd-uba/</link><description>Recent content on Ejercicios en Notebooks</description><generator>Hugo</generator><language>es</language><atom:link href="https://matuteiglesias.github.io/ldd-uba/index.xml" rel="self" type="application/rss+xml"/><item><title>Conexiones a Bases de Datos desde Python</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/23/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/23/</guid><description>&lt;h1 id="conexiones-a-bases-de-datos-desde-python">Conexiones a Bases de Datos desde Python&lt;/h1>
+&lt;p>En este ejercicio, exploraremos diferentes métodos para conectarse a bases de datos utilizando Python, con un enfoque en el uso de la biblioteca &lt;code>SQLAlchemy&lt;/code> y otras herramientas relevantes. Este ejercicio es de tipo práctico y tiene una dificultad intermedia. El resultado esperado es un código funcional que permita establecer conexiones a bases de datos y ejecutar consultas básicas.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Comprender cómo establecer conexiones a diferentes sistemas de gestión de bases de datos (DBMS) utilizando Python.&lt;/li>
+&lt;li>Ejecutar consultas SQL para interactuar con bases de datos.&lt;/li>
+&lt;li>Implementar prácticas seguras y eficientes al trabajar con bases de datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Una base de datos PostgreSQL accesible localmente.&lt;/li>
+&lt;li>Una base de datos MySQL accesible localmente.&lt;/li>
+&lt;li>Un archivo de base de datos SQLite.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>A continuación, se proporciona un código base que ilustra cómo establecer conexiones a diferentes tipos de bases de datos. Complete las secciones indicadas para ejecutar consultas y manipular datos.&lt;/p></description></item><item><title>Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/01/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/01/</guid><description>&lt;h1 id="ejercicio-1-fundamentos-de-python---lógica-funciones-y-manipulación-de-strings">Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo introducir a los estudiantes en el uso de estructuras de datos, control de flujo y manipulación de strings en Python. A través de tres problemas fundamentales, se espera que los estudiantes desarrollen habilidades básicas en programación con Python.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Desarrollar funciones que verifiquen la pertenencia de un elemento en una lista sin utilizar el operador &lt;code>in&lt;/code>.&lt;/li>
+&lt;li>Comparar listas y retornar la más larga, implementando diferentes enfoques.&lt;/li>
+&lt;li>Familiarizarse con el uso de bucles y comprensiones de listas en Python.&lt;/li>
+&lt;/ul>
+&lt;h2 id="tareas">Tareas&lt;/h2>
+&lt;h3 id="1-verificar-pertenencia-en-una-lista">1. Verificar Pertenencia en una Lista&lt;/h3>
+&lt;p>Implemente una función que determine si un elemento está presente en una lista sin utilizar el operador &lt;code>in&lt;/code>. Resuelva este problema utilizando dos enfoques diferentes: uno con un bucle &lt;code>for&lt;/code> y otro con un bucle &lt;code>while&lt;/code>.&lt;/p></description></item><item><title>Ejercicio 10: Indexación y Filtrado</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/10/</guid><description>&lt;h1 id="ejercicio-10-indexación-y-filtrado">Ejercicio 10: Indexación y Filtrado&lt;/h1>
+&lt;p>En este ejercicio, se busca que los estudiantes aprendan a seleccionar datos de un DataFrame de manera eficiente utilizando la biblioteca Pandas. Se espera que los estudiantes apliquen técnicas de indexación y filtrado para manipular y analizar datos de manera efectiva.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Aprender a utilizar métodos de selección de datos en Pandas como &lt;code>.loc[]&lt;/code>, &lt;code>.iloc[]&lt;/code>, &lt;code>.query()&lt;/code>, y boolean indexing.&lt;/li>
+&lt;li>Practicar la extracción de subconjuntos de datos basados en condiciones específicas.&lt;/li>
+&lt;li>Identificar las especies más comunes en un conjunto de datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;p>Se proporcionará un DataFrame con la siguiente estructura:&lt;/p></description></item><item><title>Ejercicio 11: Combinación de Datos</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/11/</guid><description>&lt;h1 id="ejercicio-11-combinación-de-datos">Ejercicio 11: Combinación de Datos&lt;/h1>
+&lt;p>En este ejercicio, se busca que el estudiante aprenda a combinar datos provenientes de diferentes fuentes utilizando la biblioteca Pandas en Python. Se trabajará con dos conjuntos de datos relacionados con árboles ubicados en parques y veredas de una ciudad. El objetivo es integrar estos datos en un único DataFrame y analizar las diferencias en las características de los árboles según su entorno.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ol>
+&lt;li>Cargar y preparar los conjuntos de datos de árboles en parques y veredas.&lt;/li>
+&lt;li>Unir los datos de ambos conjuntos en un único DataFrame.&lt;/li>
+&lt;li>Analizar las diferencias en altura y diámetro de los árboles según su entorno.&lt;/li>
+&lt;/ol>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>Dataset de árboles en parques&lt;/strong>: Contiene información sobre los árboles ubicados en parques.&lt;/li>
+&lt;li>&lt;strong>Dataset de árboles en veredas&lt;/strong>: Contiene información sobre los árboles ubicados en veredas.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+
+# Cargar datasets
+# TODO: Implementar la carga de los datasets de parques y veredas
+
+# Seleccionar columnas relevantes
+# TODO: Implementar la selección de columnas relevantes
+
+# Unir datasets usando merge()
+# TODO: Implementar la unión de los datasets
+
+# Agregar columna &amp;#34;tipo_entorno&amp;#34;
+# TODO: Implementar la adición de la columna &amp;#34;tipo_entorno&amp;#34;
+
+# Concatenar datasets
+# TODO: Implementar la concatenación de los datasets
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejemplo de prueba para verificar la correcta implementación del ejercicio:&lt;/p></description></item><item><title>Ejercicio 12: Agregaciones y Análisis</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/12/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/12/</guid><description>&lt;h1 id="ejercicio-12-agregaciones-y-análisis">Ejercicio 12: Agregaciones y Análisis&lt;/h1>
+&lt;p>En este ejercicio, se espera que los estudiantes apliquen funciones de agregación utilizando la biblioteca Pandas para extraer insights significativos de un conjunto de datos relacionado con especies de árboles en diferentes entornos. El objetivo es desarrollar habilidades en el uso de funciones de agrupamiento y agregación para realizar análisis descriptivos y comparativos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Calcular la altura promedio de cada especie de árbol en parques y veredas.&lt;/li>
+&lt;li>Identificar qué especie de árbol tiene la mayor inclinación promedio.&lt;/li>
+&lt;li>Crear una tabla pivot que compare las alturas de árboles en parques versus veredas.&lt;/li>
+&lt;li>Graficar la distribución de alturas de los Jacarandás.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Un DataFrame de Pandas que contiene información sobre árboles, con las siguientes columnas:
+&lt;ul>
+&lt;li>&lt;code>especie&lt;/code>: Nombre de la especie del árbol.&lt;/li>
+&lt;li>&lt;code>entorno&lt;/code>: Indica si el árbol está en un parque o en una vereda.&lt;/li>
+&lt;li>&lt;code>altura&lt;/code>: Altura del árbol en metros.&lt;/li>
+&lt;li>&lt;code>inclinacion&lt;/code>: Inclinación del árbol en grados.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Ejemplo de creación de DataFrame
+datos = {
+ &amp;#39;especie&amp;#39;: [&amp;#39;Jacarandá&amp;#39;, &amp;#39;Eucalipto&amp;#39;, &amp;#39;Jacarandá&amp;#39;, &amp;#39;Pino&amp;#39;, &amp;#39;Eucalipto&amp;#39;],
+ &amp;#39;entorno&amp;#39;: [&amp;#39;parque&amp;#39;, &amp;#39;vereda&amp;#39;, &amp;#39;vereda&amp;#39;, &amp;#39;parque&amp;#39;, &amp;#39;parque&amp;#39;],
+ &amp;#39;altura&amp;#39;: [10, 20, 15, 25, 30],
+ &amp;#39;inclinacion&amp;#39;: [5, 10, 3, 7, 2]
+}
+
+df = pd.DataFrame(datos)
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="tareas">Tareas&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Calcular la altura promedio de cada especie de árbol en parques y veredas.&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 13: Agrupación y Transformaciones en Pandas con el Dataset Diamonds</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/13/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/13/</guid><description>&lt;h1 id="ejercicio-13-agrupación-y-transformaciones-en-pandas-con-el-dataset-diamonds">Ejercicio 13: Agrupación y Transformaciones en Pandas con el Dataset Diamonds&lt;/h1>
+&lt;p>Este ejercicio está diseñado para que los estudiantes practiquen operaciones avanzadas de Pandas, incluyendo el uso de funciones como &lt;code>groupby&lt;/code>, &lt;code>aggregation&lt;/code>, &lt;code>transformation&lt;/code>, &lt;code>apply&lt;/code>, filtrado flexible y &lt;code>mapping&lt;/code>. Se trabajará con el dataset &lt;code>diamonds&lt;/code> de Seaborn, explorando diferentes técnicas de manipulación y análisis de datos en una sola línea de código.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Practicar operaciones avanzadas de Pandas.&lt;/li>
+&lt;li>Aplicar técnicas de agrupación, transformación y cálculo personalizado.&lt;/li>
+&lt;li>Utilizar funciones avanzadas de Pandas en una sola línea de código.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>carat&lt;/code>: Peso del diamante&lt;/li>
+&lt;li>&lt;code>cut&lt;/code>: Calidad del corte (&lt;code>Fair&lt;/code>, &lt;code>Good&lt;/code>, &lt;code>Very Good&lt;/code>, &lt;code>Premium&lt;/code>, &lt;code>Ideal&lt;/code>)&lt;/li>
+&lt;li>&lt;code>color&lt;/code>: Clasificación del color (&lt;code>D&lt;/code> a &lt;code>J&lt;/code>, donde &lt;code>D&lt;/code> es el mejor)&lt;/li>
+&lt;li>&lt;code>clarity&lt;/code>: Nivel de claridad (&lt;code>IF&lt;/code>, &lt;code>VVS1&lt;/code>, &lt;code>VVS2&lt;/code>, &lt;code>VS1&lt;/code>, &lt;code>VS2&lt;/code>, &lt;code>SI1&lt;/code>, &lt;code>SI2&lt;/code>, &lt;code>I1&lt;/code>)&lt;/li>
+&lt;li>&lt;code>depth&lt;/code>: Profundidad porcentual&lt;/li>
+&lt;li>&lt;code>table&lt;/code>: Ancho de la parte superior del diamante&lt;/li>
+&lt;li>&lt;code>price&lt;/code>: Precio en dólares&lt;/li>
+&lt;li>&lt;code>x, y, z&lt;/code>: Dimensiones del diamante&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-carga-y-exploración-del-dataset">Parte A: Carga y Exploración del Dataset&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Cargar el dataset desde &lt;code>seaborn&lt;/code> y visualizar sus primeras filas.&lt;/li>
+&lt;li>Obtener un resumen estadístico con &lt;code>.describe()&lt;/code>.&lt;/li>
+&lt;li>Verificar valores nulos y contar datos por categoría (&lt;code>cut&lt;/code>, &lt;code>color&lt;/code>, &lt;code>clarity&lt;/code>).&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code>import seaborn as sns
+import pandas as pd
+
+# Cargar el dataset
+diamonds = sns.load_dataset(&amp;#39;diamonds&amp;#39;)
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="parte-b-agrupaciones-y-cálculos-avanzados-con-one-liners">Parte B: Agrupaciones y Cálculos Avanzados con One-Liners&lt;/h2>
+&lt;h3 id="tareas-1">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Calcular la media de &lt;code>price&lt;/code> agrupada por &lt;code>cut&lt;/code> usando &lt;code>groupby&lt;/code> y &lt;code>mean()&lt;/code>.&lt;/li>
+&lt;li>Obtener el precio máximo de cada combinación de &lt;code>cut&lt;/code> y &lt;code>color&lt;/code>.&lt;/li>
+&lt;li>Contar cuántos diamantes hay en cada grupo de &lt;code>clarity&lt;/code>.&lt;/li>
+&lt;li>Calcular la proporción de cada &lt;code>cut&lt;/code> sobre el total de diamantes con &lt;code>.transform()&lt;/code>.&lt;/li>
+&lt;li>Obtener el precio promedio por &lt;code>cut&lt;/code>, pero solo si el grupo tiene más de 5000 observaciones.&lt;/li>
+&lt;li>Aplicar una transformación para escalar los valores de &lt;code>price&lt;/code> dentro de cada &lt;code>color&lt;/code> usando &lt;code>lambda&lt;/code>.&lt;/li>
+&lt;li>Agregar múltiples estadísticas (&lt;code>min&lt;/code>, &lt;code>max&lt;/code>, &lt;code>mean&lt;/code>) de &lt;code>price&lt;/code> agrupadas por &lt;code>color&lt;/code>.&lt;/li>
+&lt;li>Filtrar solo los grupos donde la media de &lt;code>carat&lt;/code> es mayor a 1.&lt;/li>
+&lt;li>Crear una nueva columna &lt;code>price_per_carat&lt;/code> y agrupar su media por &lt;code>cut&lt;/code>.&lt;/li>
+&lt;li>Aplicar &lt;code>map()&lt;/code> para convertir &lt;code>cut&lt;/code> en un puntaje numérico (&lt;code>Fair = 1&lt;/code>, &lt;code>Good = 2&lt;/code>, etc.).&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base-1">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code># TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="parte-c-análisis-de-transformaciones-y-aplicaciones-flexibles">Parte C: Análisis de Transformaciones y Aplicaciones Flexibles&lt;/h2>
+&lt;h3 id="tareas-2">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Aplicar una función personalizada con &lt;code>apply()&lt;/code> para calcular una métrica no estándar por &lt;code>cut&lt;/code>.&lt;/li>
+&lt;li>Usar &lt;code>filter()&lt;/code> para dejar solo los grupos de &lt;code>color&lt;/code> con precio promedio mayor a $4000.&lt;/li>
+&lt;li>Aplicar una transformación con &lt;code>applymap()&lt;/code> para redondear todos los valores numéricos a 2 decimales.&lt;/li>
+&lt;li>Usar &lt;code>map()&lt;/code> para crear una nueva columna indicando si el &lt;code>carat&lt;/code> es alto (&lt;code>&amp;gt;=1&lt;/code>) o bajo (&lt;code>&amp;lt;1&lt;/code>).&lt;/li>
+&lt;li>Generar una tabla pivote con &lt;code>pivot_table()&lt;/code> para comparar &lt;code>price&lt;/code> por &lt;code>cut&lt;/code> y &lt;code>clarity&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base-2">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code># TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="parte-d-visualización-de-resultados">Parte D: Visualización de Resultados&lt;/h2>
+&lt;h3 id="tareas-3">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Crear un &lt;code>barplot&lt;/code> con &lt;code>seaborn&lt;/code> para mostrar el precio promedio por &lt;code>cut&lt;/code>.&lt;/li>
+&lt;li>Hacer un &lt;code>boxplot&lt;/code> del precio según &lt;code>clarity&lt;/code> para detectar outliers.&lt;/li>
+&lt;li>Graficar la relación entre &lt;code>carat&lt;/code> y &lt;code>price&lt;/code> con un &lt;code>scatterplot&lt;/code>.&lt;/li>
+&lt;li>Generar un gráfico de calor (&lt;code>heatmap&lt;/code>) de la matriz de correlación entre variables numéricas.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base-3">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code>import matplotlib.pyplot as plt
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="entrega-esperada">Entrega Esperada&lt;/h2>
+&lt;ul>
+&lt;li>Código limpio y estructurado resolviendo cada consigna en una sola línea de código.&lt;/li>
+&lt;li>Tablas con estadísticas calculadas correctamente.&lt;/li>
+&lt;li>Visualizaciones con &lt;code>seaborn&lt;/code> para analizar los datos gráficamente.&lt;/li>
+&lt;li>Reflexiones sobre el uso de técnicas avanzadas de Pandas en análisis de datos.&lt;/li>
+&lt;/ul></description></item><item><title>Ejercicio 14: Análisis de Datos y Visualización con Python</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/14/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/14/</guid><description>&lt;h1 id="ejercicio-14-análisis-de-datos-y-visualización-con-python">Ejercicio 14: Análisis de Datos y Visualización con Python&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes trabajen con procesamiento de datos utilizando Pandas y NumPy, y visualización de datos con Plotnine. Se analizarán datos de una base sobre asesinos en serie, realizando transformaciones, normalizaciones y distintas representaciones gráficas.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Cargar y explorar un dataset utilizando Pandas.&lt;/li>
+&lt;li>Realizar transformaciones y normalizaciones de datos.&lt;/li>
+&lt;li>Crear visualizaciones para analizar tendencias y patrones.&lt;/li>
+&lt;li>Ajustar modelos de regresión y evaluar su ajuste a los datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Archivo CSV: &lt;code>serial_killers.csv&lt;/code> con las siguientes columnas:
+&lt;ul>
+&lt;li>&lt;code>Country&lt;/code>: País&lt;/li>
+&lt;li>&lt;code>Serial killers&lt;/code>: Cantidad total de asesinos en serie registrados&lt;/li>
+&lt;li>&lt;code>Population (millions)&lt;/code>: Población en millones&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-carga-y-exploración-de-datos">Parte A: Carga y Exploración de Datos&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Cargar el dataset en un DataFrame de Pandas y explorar su contenido.&lt;/li>
+&lt;li>Crear una nueva columna llamada &lt;code>serial_killers_norm&lt;/code>, que represente el número de asesinos en serie por millón de habitantes.&lt;/li>
+&lt;li>Ordenar los datos por el número total de asesinos (&lt;code>serial_killers&lt;/code>) y asignar un ranking en la columna &lt;code>rank&lt;/code>.&lt;/li>
+&lt;li>Reordenar los datos por &lt;code>serial_killers_norm&lt;/code> y asignar un nuevo ranking en &lt;code>rank_norm&lt;/code>.&lt;/li>
+&lt;li>Normalizar ambas métricas (&lt;code>serial_killers&lt;/code> y &lt;code>serial_killers_norm&lt;/code>) dividiendo por su valor máximo, almacenando los resultados en &lt;code>serial_killers_nondim&lt;/code> y &lt;code>serial_killers_norm_nondim&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h3 id="pregunta-de-reflexión">Pregunta de reflexión&lt;/h3>
+&lt;ul>
+&lt;li>¿Por qué es importante normalizar los datos antes de compararlos?&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+
+# Cargar el dataset
+# TODO: Implementar
+
+# Crear la columna &amp;#39;serial_killers_norm&amp;#39;
+# TODO: Implementar
+
+# Ordenar y asignar rankings
+# TODO: Implementar
+
+# Normalizar las métricas
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="parte-b-visualización-de-datos">Parte B: Visualización de Datos&lt;/h2>
+&lt;h3 id="tareas-1">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Gráfico: Relación entre población y número de asesinos en serie&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 15: Análisis de Datos Temporales con Pandas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/15/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/15/</guid><description>&lt;h1 id="ejercicio-15-análisis-de-datos-temporales-con-pandas">Ejercicio 15: Análisis de Datos Temporales con Pandas&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de datos temporales en Pandas, visualización de series temporales y transformaciones avanzadas en datos con fechas y tiempos. Se trabajará con un dataset real de registros de recetas en el tiempo para aprender cómo manejar fechas, agrupar datos y visualizar tendencias.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Manipular datos temporales utilizando Pandas.&lt;/li>
+&lt;li>Visualizar series temporales para identificar tendencias.&lt;/li>
+&lt;li>Aplicar transformaciones avanzadas en datos con fechas y tiempos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>id&lt;/code>: Identificador único de la receta.&lt;/li>
+&lt;li>&lt;code>name&lt;/code>: Nombre de la receta.&lt;/li>
+&lt;li>&lt;code>ingredients&lt;/code>: Lista de ingredientes como texto.&lt;/li>
+&lt;li>&lt;code>date&lt;/code>: Fecha de publicación de la receta.&lt;/li>
+&lt;li>&lt;code>category&lt;/code>: Categoría de la receta (postres, pastas, carnes, etc.).&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-carga-y-exploración-de-datos">Parte A: Carga y Exploración de Datos&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Cargar el dataset en un &lt;code>DataFrame&lt;/code> de Pandas y explorar su contenido.&lt;/li>
+&lt;li>Convertir la columna &lt;code>date&lt;/code> a formato &lt;code>datetime64&lt;/code> para facilitar su manipulación.&lt;/li>
+&lt;li>Extraer año, mes, día de la semana y día del año en nuevas columnas para análisis posterior.&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+
+# Cargar el dataset
+# TODO: Implementar la carga del dataset
+# df = pd.read_csv(&amp;#39;ruta_al_dataset.csv&amp;#39;)
+
+# Convertir la columna &amp;#39;date&amp;#39; a formato datetime
+# TODO: Implementar la conversión de la columna &amp;#39;date&amp;#39;
+
+# Extraer año, mes, día de la semana y día del año
+# TODO: Implementar la extracción de componentes de fecha
+&lt;/code>&lt;/pre>&lt;h2 id="parte-b-análisis-y-agrupación-temporal">Parte B: Análisis y Agrupación Temporal&lt;/h2>
+&lt;h3 id="tareas-1">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Agregación por Año y Mes&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/16/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/16/</guid><description>&lt;h1 id="ejercicio-16-operaciones-vectorizadas-con-cadenas-en-pandas">Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes trabajen con manipulación de cadenas de texto en Pandas, uso de expresiones regulares y vectorización de operaciones sobre texto. Se trabajará con un dataset de recetas recopiladas de internet para realizar limpieza y análisis de datos textuales.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Aplicar técnicas de manipulación de texto con Pandas.&lt;/li>
+&lt;li>Utilizar expresiones regulares para extraer información.&lt;/li>
+&lt;li>Implementar operaciones vectorizadas sobre texto.&lt;/li>
+&lt;li>Desarrollar un sistema simple de recomendación de recetas.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;p>El dataset contiene información sobre recetas recopiladas de diversas fuentes en la web, con las siguientes columnas:&lt;/p></description></item><item><title>Ejercicio 17: Cargando un Google Sheet como un DataFrame en Python desde Google Cloud Platform (GCP)</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/17/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/17/</guid><description>&lt;h1 id="ejercicio-17-cargando-un-google-sheet-como-un-dataframe-en-python-desde-google-cloud-platform-gcp">Ejercicio 17: Cargando un Google Sheet como un DataFrame en Python desde Google Cloud Platform (GCP)&lt;/h1>
+&lt;p>En este ejercicio, aprenderás a configurar un proyecto en Google Cloud, crear una Service Account y utilizarla para acceder a un Google Sheet desde Python como un pandas.DataFrame. Este ejercicio es de tipo práctico y tiene una dificultad intermedia.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Configurar un proyecto en Google Cloud Platform.&lt;/li>
+&lt;li>Crear y gestionar una Service Account.&lt;/li>
+&lt;li>Acceder a un Google Sheet desde Python y cargar los datos en un DataFrame de Pandas.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Proyecto en Google Cloud Platform con Google Sheets API habilitada.&lt;/li>
+&lt;li>Google Sheet de prueba compartido con la Service Account.&lt;/li>
+&lt;li>Clave JSON de la Service Account.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import gspread
+import pandas as pd
+from oauth2client.service_account import ServiceAccountCredentials
+
+# 1️⃣ Configurar la autenticación
+# Reemplaza &amp;#39;ruta_a_tu_archivo.json&amp;#39; por la ruta de tu clave JSON de Service Account
+credenciales = ServiceAccountCredentials.from_json_keyfile_name(
+ &amp;#34;ruta_a_tu_archivo.json&amp;#34;, 
+ [&amp;#34;https://spreadsheets.google.com/feeds&amp;#34;, &amp;#34;https://www.googleapis.com/auth/drive&amp;#34;]
+)
+
+# 2️⃣ Conectarse a Google Sheets
+cliente = gspread.authorize(credenciales)
+
+# 3️⃣ Abrir el Sheet (Reemplaza con el nombre de tu Google Sheet)
+spreadsheet = cliente.open_by_url(&amp;#34;https://docs.google.com/spreadsheets/d/1QbDZ78JYbDwecFea1tRbHyzfEpQ7pCHqA_A1ISXYWxM/edit&amp;#34;)
+
+# 4️⃣ Seleccionar la primera hoja
+hoja = spreadsheet.sheet1 
+
+# 5️⃣ Leer los datos como listas y convertirlos en un DataFrame
+datos = hoja.get_all_records()
+df = pd.DataFrame(datos)
+
+# ✅ Imprimir para verificar
+print(&amp;#34;✅ Datos cargados desde Google Sheets:&amp;#34;)
+print(df.head())
+&lt;/code>&lt;/pre>&lt;h2 id="tareas">Tareas&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Configurar un Proyecto en Google Cloud Platform (GCP)&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 18: Limpieza y Visualización de Datos Geoespaciales con GeoPandas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/18/</guid><description>&lt;h1 id="ejercicio-18-limpieza-y-visualización-de-datos-geoespaciales-con-geopandas">Ejercicio 18: Limpieza y Visualización de Datos Geoespaciales con GeoPandas&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes trabajen con limpieza de datos geoespaciales, conversión de datos tabulares a GeoDataFrame, y visualización de datos geográficos con GeoPandas y Folium. Se trabajará con un dataset de puntos de acceso WiFi en Argentina y se mapearán sobre un mapa del país.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Limpiar datos geoespaciales eliminando valores inválidos.&lt;/li>
+&lt;li>Convertir datos tabulares a un GeoDataFrame.&lt;/li>
+&lt;li>Guardar los datos limpios en formato GeoJSON.&lt;/li>
+&lt;li>Visualizar datos geográficos sobre un mapa de Argentina.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>id&lt;/code>: Identificador único del punto.&lt;/li>
+&lt;li>&lt;code>identificador&lt;/code>: Código del punto de acceso.&lt;/li>
+&lt;li>&lt;code>ubicacion&lt;/code>: Nombre o referencia del punto.&lt;/li>
+&lt;li>&lt;code>latitud&lt;/code>: Coordenada geográfica (latitud).&lt;/li>
+&lt;li>&lt;code>longitud&lt;/code>: Coordenada geográfica (longitud).&lt;/li>
+&lt;li>&lt;code>municipio_id&lt;/code>: Identificador del municipio.&lt;/li>
+&lt;li>&lt;code>provincia_id&lt;/code>: Identificador de la provincia.&lt;/li>
+&lt;li>&lt;code>id_departamento&lt;/code>: Código del departamento.&lt;/li>
+&lt;li>&lt;code>municipio&lt;/code>: Nombre del municipio.&lt;/li>
+&lt;li>&lt;code>provincia&lt;/code>: Nombre de la provincia.&lt;/li>
+&lt;li>&lt;code>departamento&lt;/code>: Nombre del departamento.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-carga-y-limpieza-de-datos">Parte A: Carga y Limpieza de Datos&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Cargar el dataset en un &lt;code>DataFrame&lt;/code> de Pandas y explorar su contenido.&lt;/li>
+&lt;li>Identificar y eliminar registros con coordenadas inválidas (&lt;code>0,0&lt;/code>) o valores nulos en las columnas clave (&lt;code>latitud&lt;/code>, &lt;code>longitud&lt;/code>).&lt;/li>
+&lt;li>Verificar que los datos filtrados sean consistentes con la estructura geográfica de Argentina.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+
+# Cargar el dataset
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="parte-b-conversión-a-geodataframe-y-guardado-en-geojson">Parte B: Conversión a &lt;code>GeoDataFrame&lt;/code> y Guardado en GeoJSON&lt;/h2>
+&lt;h3 id="tareas-1">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Crear una geometría de puntos a partir de &lt;code>latitud&lt;/code> y &lt;code>longitud&lt;/code> usando &lt;code>shapely.geometry.Point&lt;/code>.&lt;/li>
+&lt;li>Convertir el &lt;code>DataFrame&lt;/code> a un &lt;code>GeoDataFrame&lt;/code> utilizando la proyección geográfica adecuada (&lt;code>EPSG:4326&lt;/code>).&lt;/li>
+&lt;li>Guardar el &lt;code>GeoDataFrame&lt;/code> en formato &lt;code>GeoJSON&lt;/code> para su posterior visualización.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base-1">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code>from shapely.geometry import Point
+import geopandas as gpd
+
+# Crear geometría de puntos
+# TODO: Implementar
+
+# Convertir a GeoDataFrame
+# TODO: Implementar
+
+# Guardar en GeoJSON
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="parte-c-visualización-de-puntos-wifi-sobre-un-mapa-de-argentina">Parte C: Visualización de Puntos WiFi sobre un Mapa de Argentina&lt;/h2>
+&lt;h3 id="tareas-2">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Descargar o utilizar un shapefile abierto con los límites administrativos de Argentina (provincias o departamentos).&lt;/li>
+&lt;li>Cargar los polígonos en un &lt;code>GeoDataFrame&lt;/code> y visualizar la estructura geográfica.&lt;/li>
+&lt;li>Superponer los puntos WiFi en el mapa de Argentina utilizando &lt;code>Folium&lt;/code>.&lt;/li>
+&lt;li>Ajustar la visualización para resaltar las ubicaciones de los puntos de acceso.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base-2">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code>import folium
+
+# Cargar polígonos de Argentina
+# TODO: Implementar
+
+# Mapear los puntos WiFi
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="entrega-esperada">Entrega Esperada&lt;/h2>
+&lt;ul>
+&lt;li>Código en Python bien estructurado utilizando Pandas, GeoPandas y Folium.&lt;/li>
+&lt;li>Un archivo &lt;code>GeoJSON&lt;/code> con los datos limpios de los puntos de acceso WiFi.&lt;/li>
+&lt;li>Un mapa de Argentina con los puntos de acceso WiFi correctamente visualizados.&lt;/li>
+&lt;li>Reflexiones sobre la importancia de la limpieza de datos geoespaciales y su impacto en los análisis.&lt;/li>
+&lt;/ul></description></item><item><title>Ejercicio 19: Limpieza y Análisis Exploratorio de Datos (EDA) en Pandas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/19/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/19/</guid><description>&lt;h1 id="ejercicio-19-limpieza-y-análisis-exploratorio-de-datos-eda-en-pandas">Ejercicio 19: Limpieza y Análisis Exploratorio de Datos (EDA) en Pandas&lt;/h1>
+&lt;p>Este ejercicio está diseñado para que los estudiantes trabajen con procesamiento de datos en Pandas, enfocándose en la limpieza de datos y el análisis exploratorio (EDA). Se utilizará un dataset de encuestas sobre el transporte utilizado por los estudiantes para llegar a Ciudad Universitaria. El objetivo es procesar respuestas abiertas y eliminar información redundante.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Cargar y limpiar datos eliminando información innecesaria.&lt;/li>
+&lt;li>Normalizar respuestas abiertas y estandarizar valores.&lt;/li>
+&lt;li>Realizar un Análisis Exploratorio de Datos (EDA) para identificar patrones.&lt;/li>
+&lt;li>Generar visualizaciones que resuman la distribución del uso de transporte.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Dataset de encuestas sobre medios de transporte utilizados por los estudiantes.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-carga-y-limpieza-de-datos">Parte A: Carga y Limpieza de Datos&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Cargar el dataset en un DataFrame de Pandas y explorar su contenido.&lt;/li>
+&lt;li>Eliminar columnas irrelevantes como &lt;code>Timestamp&lt;/code>, &lt;code>Email Address&lt;/code>, &lt;code>Ingrese su nombre&lt;/code>, e &lt;code>Ingrese su apellido&lt;/code>.&lt;/li>
+&lt;li>Estandarizar las respuestas en la columna de transporte, unificando variantes similares (por ejemplo, &amp;ldquo;Colectivo-Tren-Colectivo&amp;rdquo; → &amp;ldquo;Combinado&amp;rdquo;).&lt;/li>
+&lt;li>Limpiar los comentarios, eliminando caracteres extraños, saltos de línea innecesarios y asegurando coherencia en el formato.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+
+# Cargar el dataset
+# TODO: Implementar la carga del dataset en un DataFrame de Pandas
+
+# Eliminar columnas irrelevantes
+# TODO: Implementar la eliminación de columnas irrelevantes
+
+# Estandarizar respuestas de transporte
+# TODO: Implementar la estandarización de respuestas
+
+# Limpiar comentarios
+# TODO: Implementar la limpieza de comentarios
+&lt;/code>&lt;/pre>&lt;h3 id="pregunta-de-reflexión">Pregunta de reflexión&lt;/h3>
+&lt;p>¿Por qué es importante la estandarización en los datos abiertos?&lt;/p></description></item><item><title>Ejercicio 2: Traductor Geringoso y Clases en Python</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/02/</guid><description>&lt;h1 id="ejercicio-2-traductor-geringoso-y-clases-en-python">Ejercicio 2: Traductor Geringoso y Clases en Python&lt;/h1>
+&lt;p>En este ejercicio, se busca que el estudiante practique la definición de clases, métodos y la manipulación de cadenas de caracteres en Python. Se requiere implementar un traductor que convierta palabras al lenguaje &amp;ldquo;geringoso&amp;rdquo;, utilizando clases para estructurar el código de manera modular y extensible.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Implementar una función que traduzca palabras al lenguaje &amp;ldquo;geringoso&amp;rdquo;.&lt;/li>
+&lt;li>Desarrollar una clase que encapsule la funcionalidad del traductor, permitiendo la adición de nuevas estrategias de traducción.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Una lista de palabras que se desean traducir al lenguaje &amp;ldquo;geringoso&amp;rdquo;.&lt;/li>
+&lt;/ul>
+&lt;h2 id="instrucciones">Instrucciones&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Implementar la función &lt;code>traductor_geringoso(lista)&lt;/code>&lt;/strong>:&lt;/p></description></item><item><title>Ejercicio 20: Instalación y Configuración de PostgreSQL en Sistemas Operativos Comunes</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/20/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/20/</guid><description>&lt;h1 id="ejercicio-20-instalación-y-configuración-de-postgresql-en-sistemas-operativos-comunes">Ejercicio 20: Instalación y Configuración de PostgreSQL en Sistemas Operativos Comunes&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo guiar al estudiante en la instalación y configuración de PostgreSQL en diferentes sistemas operativos, así como en la creación y gestión de bases de datos desde la terminal utilizando &lt;code>psql&lt;/code>.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Instalar PostgreSQL en sistemas operativos Windows, macOS y Linux.&lt;/li>
+&lt;li>Configurar PostgreSQL para su uso inicial.&lt;/li>
+&lt;li>Verificar la instalación y realizar configuraciones básicas de seguridad.&lt;/li>
+&lt;li>Crear y gestionar bases de datos y tablas desde la terminal.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Sistema operativo del usuario (Windows, macOS, Linux).&lt;/li>
+&lt;li>Acceso a la terminal o consola de comandos.&lt;/li>
+&lt;li>Conexión a internet para descargar los instaladores necesarios.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>El siguiente código base proporciona comandos para la instalación y configuración de PostgreSQL en diferentes sistemas operativos. Los estudiantes deben completar las secciones indicadas para verificar y asegurar la instalación.&lt;/p></description></item><item><title>Ejercicio 21: Exploración y Consulta de Datos en PostgreSQL con DBeaver</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/21/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/21/</guid><description>&lt;h1 id="ejercicio-21-exploración-y-consulta-de-datos-en-postgresql-con-dbeaver">Ejercicio 21: Exploración y Consulta de Datos en PostgreSQL con DBeaver&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes trabajen con herramientas de administración de bases de datos, explorando bases y ejecutando consultas en PostgreSQL con DBeaver. Se introducirá la interfaz gráfica, la gestión de conexiones y la ejecución de consultas SQL para analizar un dataset de muestra.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Instalar y configurar DBeaver para conectarse a PostgreSQL.&lt;/li>
+&lt;li>Cargar y explorar un dataset en PostgreSQL utilizando DBeaver.&lt;/li>
+&lt;li>Ejecutar consultas SQL y analizar los resultados.&lt;/li>
+&lt;li>Conectar DBeaver a una base de datos previamente creada.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Dataset en formato CSV (ejemplo: películas, ventas o clientes).&lt;/li>
+&lt;li>Base de datos PostgreSQL previamente creada.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Código base para crear una tabla en PostgreSQL
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> peliculas (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> id SERIAL &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> titulo VARCHAR(&lt;span style="color:#ae81ff">255&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rating DECIMAL,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> recaudacion DECIMAL
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- TODO: Implementar la importación de datos desde un archivo CSV
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parte-a-instalación-y-configuración-de-dbeaver">Parte A: Instalación y Configuración de DBeaver&lt;/h2>
+&lt;ol>
+&lt;li>Instalar DBeaver Community en tu sistema.&lt;/li>
+&lt;li>Abrir DBeaver y crear una conexión a PostgreSQL.&lt;/li>
+&lt;li>Configurar la conexión ingresando host, puerto, base de datos, usuario y contraseña.&lt;/li>
+&lt;li>Verificar la conexión con el botón &amp;ldquo;Test Connection&amp;rdquo;.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-b-cargar-un-dataset-en-postgresql">Parte B: Cargar un Dataset en PostgreSQL&lt;/h2>
+&lt;ol>
+&lt;li>Descargar un dataset CSV de muestra.&lt;/li>
+&lt;li>Crear una tabla en PostgreSQL para almacenar los datos.&lt;/li>
+&lt;li>Importar los datos del CSV en PostgreSQL desde DBeaver.&lt;/li>
+&lt;li>Verificar que los datos se hayan cargado correctamente con &lt;code>SELECT * FROM tabla LIMIT 10;&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-c-exploración-de-la-base-de-datos">Parte C: Exploración de la Base de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Abrir la base de datos en el explorador de DBeaver.&lt;/li>
+&lt;li>Inspeccionar el esquema de la base (tablas, relaciones, claves primarias).&lt;/li>
+&lt;li>Explorar los datos desde la interfaz gráfica (&lt;code>View Data&lt;/code>).&lt;/li>
+&lt;li>Generar un esquema ERD automáticamente en DBeaver.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-d-escribir-y-ejecutar-consultas-sql">Parte D: Escribir y Ejecutar Consultas SQL&lt;/h2>
+&lt;ol>
+&lt;li>Obtener los primeros 10 registros de la tabla principal.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">FROM&lt;/span> peliculas &lt;span style="color:#66d9ef">LIMIT&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Contar cuántos registros hay en la tabla.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#66d9ef">FROM&lt;/span> peliculas;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Filtrar por una condición específica (ej. películas con más de 8 de rating).
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">FROM&lt;/span> peliculas &lt;span style="color:#66d9ef">WHERE&lt;/span> rating &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Obtener el top 5 de películas más taquilleras.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> titulo, recaudacion &lt;span style="color:#66d9ef">FROM&lt;/span> peliculas &lt;span style="color:#66d9ef">ORDER&lt;/span> &lt;span style="color:#66d9ef">BY&lt;/span> recaudacion &lt;span style="color:#66d9ef">DESC&lt;/span> &lt;span style="color:#66d9ef">LIMIT&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-e-conectar-a-la-base-del-ejercicio-anterior">Parte E: Conectar a la Base del Ejercicio Anterior&lt;/h2>
+&lt;ol>
+&lt;li>Agregar una nueva conexión en DBeaver para la base creada en PostgreSQL.&lt;/li>
+&lt;li>Verificar que se pueda acceder a las tablas creadas en el ejercicio anterior.&lt;/li>
+&lt;li>Comparar las estructuras y analizar los datos almacenados.&lt;/li>
+&lt;/ol>
+&lt;h2 id="entrega-esperada">Entrega Esperada&lt;/h2>
+&lt;ul>
+&lt;li>Capturas de pantalla de la base de datos cargada en DBeaver.&lt;/li>
+&lt;li>Código SQL de las consultas ejecutadas.&lt;/li>
+&lt;li>Reflexiones sobre el uso de herramientas gráficas para la administración de bases de datos.&lt;/li>
+&lt;/ul>
+&lt;p>Este ejercicio permitirá a los estudiantes familiarizarse con el uso de DBeaver para la gestión y consulta de bases de datos en PostgreSQL, facilitando el análisis de datos a través de una interfaz gráfica.&lt;/p></description></item><item><title>Ejercicio 22: Administración y Consultas en PostgreSQL con pgAdmin</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/22/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/22/</guid><description>&lt;h1 id="ejercicio-22-administración-y-consultas-en-postgresql-con-pgadmin">Ejercicio 22: Administración y Consultas en PostgreSQL con pgAdmin&lt;/h1>
+&lt;p>En este ejercicio, los estudiantes aprenderán a gestionar bases de datos utilizando pgAdmin, la herramienta oficial de gestión visual de PostgreSQL. El objetivo es explorar, visualizar y ejecutar consultas SQL, comparando la experiencia con otras herramientas administrativas.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Instalar y configurar pgAdmin.&lt;/li>
+&lt;li>Conectar pgAdmin a una base de datos existente.&lt;/li>
+&lt;li>Explorar esquemas, tablas y relaciones de la base de datos.&lt;/li>
+&lt;li>Ejecutar consultas SQL y visualizar los resultados.&lt;/li>
+&lt;li>Comparar la experiencia de uso entre pgAdmin y DBeaver.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Base de datos PostgreSQL previamente creada.&lt;/li>
+&lt;li>Herramientas: pgAdmin 4 y DBeaver.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-instalación-y-configuración-de-pgadmin">Parte A: Instalación y Configuración de pgAdmin&lt;/h2>
+&lt;ol>
+&lt;li>Instalar pgAdmin 4 en su sistema operativo.&lt;/li>
+&lt;li>Abrir pgAdmin y establecer una conexión con PostgreSQL utilizando los siguientes parámetros:
+&lt;ul>
+&lt;li>Host&lt;/li>
+&lt;li>Puerto&lt;/li>
+&lt;li>Base de datos&lt;/li>
+&lt;li>Usuario&lt;/li>
+&lt;li>Contraseña&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Verificar que pgAdmin detecte correctamente la base de datos creada anteriormente.&lt;/li>
+&lt;/ol>
+&lt;h3 id="pregunta-de-reflexión">Pregunta de reflexión&lt;/h3>
+&lt;ul>
+&lt;li>¿Qué diferencias notas en la configuración de pgAdmin comparado con DBeaver?&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-b-exploración-de-la-base-de-datos">Parte B: Exploración de la Base de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Navegar por la estructura de la base de datos en pgAdmin.&lt;/li>
+&lt;li>Visualizar las tablas y sus relaciones en el panel lateral.&lt;/li>
+&lt;li>Inspeccionar los detalles de cada tabla, incluyendo claves primarias y tipos de datos.&lt;/li>
+&lt;li>Utilizar la herramienta de diseño gráfico para visualizar el esquema de la base de datos.&lt;/li>
+&lt;/ol>
+&lt;h3 id="pregunta-de-reflexión-1">Pregunta de reflexión&lt;/h3>
+&lt;ul>
+&lt;li>¿Cómo ayuda la interfaz visual de pgAdmin en la administración de bases de datos?&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-c-ejecución-de-consultas-sql">Parte C: Ejecución de Consultas SQL&lt;/h2>
+&lt;ol>
+&lt;li>Obtener los primeros 10 registros de la tabla principal.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">FROM&lt;/span> clientes &lt;span style="color:#66d9ef">LIMIT&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Contar el número total de registros en la tabla.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#66d9ef">FROM&lt;/span> clientes;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Filtrar registros según una condición (clientes con más de 5 compras).
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">FROM&lt;/span> clientes &lt;span style="color:#66d9ef">WHERE&lt;/span> compras &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Obtener los 5 productos más vendidos.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> producto, &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#66d9ef">FROM&lt;/span> ventas &lt;span style="color:#66d9ef">GROUP&lt;/span> &lt;span style="color:#66d9ef">BY&lt;/span> producto &lt;span style="color:#66d9ef">ORDER&lt;/span> &lt;span style="color:#66d9ef">BY&lt;/span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#66d9ef">DESC&lt;/span> &lt;span style="color:#66d9ef">LIMIT&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="pregunta-de-reflexión-2">Pregunta de reflexión&lt;/h3>
+&lt;ul>
+&lt;li>¿Qué ventajas tiene pgAdmin sobre DBeaver al ejecutar consultas SQL?&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-d-comparación-entre-dbeaver-y-pgadmin">Parte D: Comparación entre DBeaver y pgAdmin&lt;/h2>
+&lt;ol>
+&lt;li>Reflexionar sobre las diferencias en usabilidad entre DBeaver y pgAdmin.&lt;/li>
+&lt;li>Comparar las opciones de exportación de datos en cada herramienta.&lt;/li>
+&lt;li>Evaluar cuál es más útil para administración diaria y cuál para análisis de datos.&lt;/li>
+&lt;/ol>
+&lt;h3 id="pregunta-de-reflexión-3">Pregunta de reflexión&lt;/h3>
+&lt;ul>
+&lt;li>¿En qué casos usarías pgAdmin y en cuáles DBeaver?&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrega-esperada">Entrega Esperada&lt;/h2>
+&lt;ul>
+&lt;li>Capturas de pantalla mostrando la conexión a la base en pgAdmin.&lt;/li>
+&lt;li>Código SQL de las consultas ejecutadas.&lt;/li>
+&lt;li>Comparación entre DBeaver y pgAdmin en términos de facilidad de uso.&lt;/li>
+&lt;/ul>
+&lt;p>Este ejercicio está diseñado para proporcionar una comprensión profunda de la administración de bases de datos utilizando pgAdmin, fomentando la reflexión crítica sobre las herramientas disponibles para la gestión de datos.&lt;/p></description></item><item><title>Ejercicio 24: Comparación de Operaciones en Pandas y SQL</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/24/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/24/</guid><description>&lt;h1 id="ejercicio-24-comparación-de-operaciones-en-pandas-y-sql">Ejercicio 24: Comparación de Operaciones en Pandas y SQL&lt;/h1>
+&lt;p>El objetivo de este ejercicio es comparar el uso de Pandas y SQL para realizar operaciones comunes en bases de datos, ejecutando cada consulta en dos formatos: usando Pandas sobre un DataFrame y ejecutando SQL sobre una base SQLite dentro del mismo notebook.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Comparar la sintaxis y el rendimiento de operaciones comunes en Pandas y SQL.&lt;/li>
+&lt;li>Desarrollar habilidades para decidir cuándo utilizar Pandas o SQL en función de la tarea.&lt;/li>
+&lt;/ul>
+&lt;h2 id="requerimientos-previos">Requerimientos Previos&lt;/h2>
+&lt;p>Antes de comenzar, asegúrese de instalar las siguientes dependencias:&lt;/p></description></item><item><title>Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/25/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/25/</guid><description>&lt;h1 id="ejercicio-25-web-scraping-y-almacenamiento-en-mongodb">Ejercicio 25: Web Scraping y Almacenamiento en MongoDB&lt;/h1>
+&lt;p>Este ejercicio introduce a los estudiantes en la extracción de datos de la web mediante web scraping y su almacenamiento en una base de datos NoSQL (MongoDB).&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Realizar web scraping para extraer datos de un sitio web de noticias.&lt;/li>
+&lt;li>Convertir los datos extraídos en formato JSON.&lt;/li>
+&lt;li>Almacenar los datos en una base de datos MongoDB.&lt;/li>
+&lt;li>Realizar consultas en MongoDB para verificar los datos almacenados.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>URL de un sitio web de noticias, por ejemplo, &amp;ldquo;&lt;a href="https://www.bbc.com/news%22">https://www.bbc.com/news&amp;quot;&lt;/a>.&lt;/li>
+&lt;li>Datos extraídos: títulos y enlaces de artículos.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;h3 id="requerimientos-previos">Requerimientos Previos&lt;/h3>
+&lt;p>Antes de comenzar, instale las siguientes dependencias:&lt;/p></description></item><item><title>Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/26/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/26/</guid><description>&lt;h1 id="ejercicio-26-consultas-en-bigquery-solo-usando-la-interfaz-web">Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)&lt;/h1>
+&lt;p>En este ejercicio, los estudiantes se familiarizarán con la ventana de consulta de BigQuery en Google Cloud utilizando datasets públicos. El objetivo es que los estudiantes aprendan a ejecutar consultas SQL directamente en la consola de BigQuery, explorando y analizando datos abiertos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Aprender a utilizar la consola de Google Cloud para ejecutar consultas en BigQuery.&lt;/li>
+&lt;li>Explorar y analizar datasets públicos disponibles en Google Cloud.&lt;/li>
+&lt;li>Practicar consultas SQL básicas y avanzadas en BigQuery.&lt;/li>
+&lt;li>Interpretar los resultados obtenidos de las consultas.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Dataset público: &lt;code>bigquery-public-data.new_york_trees.tree_census_2015&lt;/code>&lt;/li>
+&lt;li>Dataset público: &lt;code>bigquery-public-data.usa_names.usa_1910_2013&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>A continuación, se presentan ejemplos de consultas SQL que deben ser ejecutadas en la consola de BigQuery. Los estudiantes deben completar las tareas y responder las preguntas planteadas.&lt;/p></description></item><item><title>Ejercicio 27: Modelado de Bases de Datos con DBML</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/27/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/27/</guid><description>&lt;h1 id="ejercicio-27-modelado-de-bases-de-datos-con-dbml">Ejercicio 27: Modelado de Bases de Datos con DBML&lt;/h1>
+&lt;p>En este ejercicio, se abordará el modelado de bases de datos relacionales utilizando DBML (Database Markup Language). El objetivo es desarrollar habilidades en la creación de diagramas Entidad-Relación (ER) y en la definición de estructuras de datos complejas mediante DBML.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Desarrollar un modelo de base de datos relacional utilizando DBML.&lt;/li>
+&lt;li>Identificar entidades, atributos y relaciones en un contexto académico.&lt;/li>
+&lt;li>Dibujar diagramas ER que representen correctamente las estructuras de datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Información sobre proyectos finales de estudiantes.&lt;/li>
+&lt;li>Datos sobre tutorías entre estudiantes.&lt;/li>
+&lt;li>Detalles de unidades temáticas en materias.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>A continuación se presenta un ejemplo de cómo definir una tabla en DBML:&lt;/p></description></item><item><title>Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/28/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/28/</guid><description>&lt;h1 id="ejercicio-28-normalización---de-csv-a-base-de-datos-relacional">Ejercicio 28: Normalización - De CSV a Base de Datos Relacional&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ol>
+&lt;li>Explorar y analizar un dataset desnormalizado en BigQuery.&lt;/li>
+&lt;li>Aplicar el proceso de normalización hasta la tercera forma normal (3FN).&lt;/li>
+&lt;li>Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas.&lt;/li>
+&lt;li>Implementar el esquema normalizado en SQL y poblar las tablas con datos.&lt;/li>
+&lt;/ol>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Dataset: &lt;code>census_data.censo_2010_geo&lt;/code> en BigQuery.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-1-exploración-del-dataset-y-análisis-de-redundancias">Parte 1: Exploración del Dataset y Análisis de Redundancias&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset.&lt;/li>
+&lt;li>Obtener el número total de filas y la cantidad de valores únicos por columna.&lt;/li>
+&lt;li>Detectar redundancias en los identificadores geográficos.&lt;/li>
+&lt;/ol>
+&lt;h3 id="ejemplo-de-consultas-en-sql">Ejemplo de consultas en SQL&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Contar filas totales en el dataset
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#66d9ef">AS&lt;/span> total_rows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> &lt;span style="color:#f92672">`&lt;/span>argentinianpovertyatlas.census_data.censo_2010_geo&lt;span style="color:#f92672">`&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Contar valores únicos por nivel geográfico
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#66d9ef">DISTINCT&lt;/span> PROV_REF_ID) &lt;span style="color:#66d9ef">AS&lt;/span> unique_provinces,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#66d9ef">DISTINCT&lt;/span> DPTO_REF_ID) &lt;span style="color:#66d9ef">AS&lt;/span> unique_departments,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#66d9ef">DISTINCT&lt;/span> FRAC_REF_ID) &lt;span style="color:#66d9ef">AS&lt;/span> unique_fractions,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">COUNT&lt;/span>(&lt;span style="color:#66d9ef">DISTINCT&lt;/span> RADIO_REF_ID) &lt;span style="color:#66d9ef">AS&lt;/span> unique_radios
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> &lt;span style="color:#f92672">`&lt;/span>argentinianpovertyatlas.census_data.censo_2010_geo&lt;span style="color:#f92672">`&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parte-2-diseño-relacional-normalizado">Parte 2: Diseño Relacional Normalizado&lt;/h2>
+&lt;h3 id="tareas-1">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Aplicar normalización en tres fases (1FN, 2FN, 3FN).&lt;/li>
+&lt;li>Separar los niveles geográficos en tablas independientes con claves primarias y foráneas.&lt;/li>
+&lt;li>Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido.&lt;/li>
+&lt;/ol>
+&lt;h3 id="normalización-por-niveles-geográficos">Normalización por Niveles Geográficos&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Nivel&lt;/th>
+ &lt;th>Clave Primaria (PK)&lt;/th>
+ &lt;th>Clave Foránea (FK)&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Provincia&lt;/td>
+ &lt;td>&lt;code>PROV_REF_ID&lt;/code>&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Departamento&lt;/td>
+ &lt;td>&lt;code>DPTO_REF_ID&lt;/code>&lt;/td>
+ &lt;td>&lt;code>PROV_REF_ID&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Fracción&lt;/td>
+ &lt;td>&lt;code>FRAC_REF_ID&lt;/code>&lt;/td>
+ &lt;td>&lt;code>DPTO_REF_ID&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Radio&lt;/td>
+ &lt;td>&lt;code>RADIO_REF_ID&lt;/code>&lt;/td>
+ &lt;td>&lt;code>FRAC_REF_ID&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="parte-3-creación-del-esquema-normalizado-en-sql">Parte 3: Creación del Esquema Normalizado en SQL&lt;/h2>
+&lt;h3 id="tareas-2">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Escribir el código SQL para crear las tablas normalizadas.&lt;/li>
+&lt;li>Poblarlas con los datos desde BigQuery, asegurando integridad referencial.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-sql">Código SQL&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> Provincia (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PROV_REF_ID INT &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IDPROV INT &lt;span style="color:#66d9ef">UNIQUE&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> NOMPROV VARCHAR(&lt;span style="color:#ae81ff">100&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> Departamento (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DPTO_REF_ID INT &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IDDPTO INT &lt;span style="color:#66d9ef">UNIQUE&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PROV_REF_ID INT,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> NOMDPTO VARCHAR(&lt;span style="color:#ae81ff">100&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">FOREIGN&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span> (PROV_REF_ID) &lt;span style="color:#66d9ef">REFERENCES&lt;/span> Provincia(PROV_REF_ID)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> Fraccion (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FRAC_REF_ID INT &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IDFRAC INT &lt;span style="color:#66d9ef">UNIQUE&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DPTO_REF_ID INT,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">FOREIGN&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span> (DPTO_REF_ID) &lt;span style="color:#66d9ef">REFERENCES&lt;/span> Departamento(DPTO_REF_ID)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> Radio (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> RADIO_REF_ID INT &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IDRADIO INT &lt;span style="color:#66d9ef">UNIQUE&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FRAC_REF_ID INT,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">FOREIGN&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span> (FRAC_REF_ID) &lt;span style="color:#66d9ef">REFERENCES&lt;/span> Fraccion(FRAC_REF_ID)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parte-4-inserción-de-datos-y-verificación">Parte 4: Inserción de Datos y Verificación&lt;/h2>
+&lt;h3 id="tareas-3">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Insertar datos extraídos de BigQuery en las nuevas tablas.&lt;/li>
+&lt;li>Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente.&lt;/li>
+&lt;/ol>
+&lt;h3 id="ejemplo-de-consulta-para-verificar-la-normalización">Ejemplo de consulta para verificar la normalización&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Contar cuántos departamentos tiene cada provincia
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> p.NOMPROV, &lt;span style="color:#66d9ef">COUNT&lt;/span>(d.DPTO_REF_ID) &lt;span style="color:#66d9ef">AS&lt;/span> total_departamentos
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> Provincia p
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">JOIN&lt;/span> Departamento d &lt;span style="color:#66d9ef">ON&lt;/span> p.PROV_REF_ID &lt;span style="color:#f92672">=&lt;/span> d.PROV_REF_ID
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GROUP&lt;/span> &lt;span style="color:#66d9ef">BY&lt;/span> p.NOMPROV;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Verificar la estructura de fracciones dentro de un departamento específico
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> d.NOMDPTO, &lt;span style="color:#66d9ef">COUNT&lt;/span>(f.FRAC_REF_ID) &lt;span style="color:#66d9ef">AS&lt;/span> total_fracciones
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> Departamento d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">JOIN&lt;/span> Fraccion f &lt;span style="color:#66d9ef">ON&lt;/span> d.DPTO_REF_ID &lt;span style="color:#f92672">=&lt;/span> f.DPTO_REF_ID
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">WHERE&lt;/span> d.NOMDPTO &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Buenos Aires&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GROUP&lt;/span> &lt;span style="color:#66d9ef">BY&lt;/span> d.NOMDPTO;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reflexión-y-preguntas-finales">Reflexión y Preguntas Finales&lt;/h2>
+&lt;ol>
+&lt;li>¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta?&lt;/li>
+&lt;li>¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido?&lt;/li>
+&lt;li>¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región?&lt;/li>
+&lt;/ol>
+&lt;h2 id="entrega-esperada">Entrega Esperada&lt;/h2>
+&lt;ul>
+&lt;li>Esquema en DBML o en Draw.io con el modelo normalizado.&lt;/li>
+&lt;li>Código SQL para crear y poblar las tablas.&lt;/li>
+&lt;li>Consultas en BigQuery que justifiquen las decisiones de normalización.&lt;/li>
+&lt;/ul>
+&lt;p>Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional.&lt;/p></description></item><item><title>Ejercicio 3: Simulación de Rebotes y Tablas de Multiplicar sin Multiplicar</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/03/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/03/</guid><description>&lt;h1 id="ejercicio-3-simulación-de-rebotes-y-tablas-de-multiplicar-sin-multiplicar">Ejercicio 3: Simulación de Rebotes y Tablas de Multiplicar sin Multiplicar&lt;/h1>
+&lt;p>En este ejercicio, se busca aplicar estructuras de control como bucles &lt;code>for&lt;/code> y &lt;code>while&lt;/code>, junto con operaciones matemáticas básicas, para resolver problemas de simulación numérica. El ejercicio está diseñado para ser de dificultad intermedia y se espera que el resultado sea un código funcional que simule los escenarios planteados.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Implementar una simulación de rebotes de una pelota utilizando estructuras de control.&lt;/li>
+&lt;li>Calcular tablas de multiplicar utilizando únicamente sumas sucesivas.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Altura inicial de la pelota: 100 metros.&lt;/li>
+&lt;li>Número de rebotes a simular: 10.&lt;/li>
+&lt;li>Rango de tablas de multiplicar: 1 a 9.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>A continuación, se proporciona un código base que debe ser completado para lograr los objetivos del ejercicio.&lt;/p></description></item><item><title>Ejercicio 30: Diseño de DER para una Productora de Cine</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/30/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/30/</guid><description>&lt;h1 id="ejercicio-30-diseño-de-der-para-una-productora-de-cine">Ejercicio 30: Diseño de DER para una Productora de Cine&lt;/h1>
+&lt;p>En este ejercicio, se requiere modelar una base de datos relacional para una productora de cine. El objetivo es crear un Diagrama Entidad-Relación (DER) que represente la información sobre películas, directores, actores y productoras, así como las relaciones entre estas entidades.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Diseñar un Diagrama Entidad-Relación que modele adecuadamente las entidades y relaciones de una productora de cine.&lt;/li>
+&lt;li>Identificar y documentar atributos clave para cada entidad.&lt;/li>
+&lt;li>Asegurar que el modelo respete las restricciones y políticas de la productora.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Información de las películas:&lt;/p></description></item><item><title>Ejercicio 31: Mapeo al Modelo Relacional</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/31/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/31/</guid><description>&lt;h1 id="ejercicio-31-mapeo-al-modelo-relacional">Ejercicio 31: Mapeo al Modelo Relacional&lt;/h1>
+&lt;p>En este ejercicio, se requiere transformar los Diagramas Entidad-Relación (DER) generados en ejercicios previos en un Modelo Relacional. El objetivo es asegurar la correcta representación de entidades, relaciones y restricciones de integridad en un contexto de bases de datos relacionales.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Transformar entidades en tablas dentro de un modelo relacional.&lt;/li>
+&lt;li>Representar relaciones mediante claves foráneas.&lt;/li>
+&lt;li>Aplicar normalización para evitar redundancias y mejorar la integridad de los datos.&lt;/li>
+&lt;li>Implementar restricciones de integridad como claves primarias, claves foráneas y unicidad.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Diagramas Entidad-Relación (DER) de los Ejercicios 3 y 4.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>A continuación, se proporciona una estructura básica para guiar la implementación del modelo relacional. Se espera que el estudiante complete las sentencias SQL necesarias para crear las tablas y definir las relaciones y restricciones.&lt;/p></description></item><item><title>Ejercicio 32: Mapeo de un Diagrama Entidad-Relación al Modelo Relacional</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/32/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/32/</guid><description>&lt;h1 id="ejercicio-32-mapeo-de-un-diagrama-entidad-relación-al-modelo-relacional">Ejercicio 32: Mapeo de un Diagrama Entidad-Relación al Modelo Relacional&lt;/h1>
+&lt;p>En este ejercicio, se requiere convertir un Diagrama Entidad-Relación (DER) proporcionado en un modelo relacional formal. El objetivo es identificar las entidades, relaciones, claves primarias y claves foráneas, y definir las tablas correspondientes en el modelo relacional.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Convertir un DER en un modelo relacional.&lt;/li>
+&lt;li>Identificar entidades, relaciones, claves primarias y claves foráneas.&lt;/li>
+&lt;li>Definir tablas y relaciones en el modelo relacional.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Diagrama Entidad-Relación que modela un sistema de gestión de clientes, empleados, productos y facturas.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- TODO: Implementar el modelo relacional basado en el DER proporcionado.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Ejemplo de estructura de tabla
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> cliente (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> numero_cliente INT &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nombre VARCHAR(&lt;span style="color:#ae81ff">50&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> apellido VARCHAR(&lt;span style="color:#ae81ff">50&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cuil VARCHAR(&lt;span style="color:#ae81ff">11&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email VARCHAR(&lt;span style="color:#ae81ff">100&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> codigo_postal VARCHAR(&lt;span style="color:#ae81ff">10&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fecha_nacimiento DATE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- TODO: Crear las tablas restantes y definir las claves foráneas.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tareas-a-resolver">Tareas a Resolver&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Identificar claves primarias y foráneas:&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 33: Modelado Entidad-Relación para Bases de Datos MAIL_ORDER y MOVIE</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/33/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/33/</guid><description>&lt;h1 id="ejercicio-33-modelado-entidad-relación-para-bases-de-datos-mail_order-y-movie">Ejercicio 33: Modelado Entidad-Relación para Bases de Datos MAIL_ORDER y MOVIE&lt;/h1>
+&lt;p>En este ejercicio, se solicita diseñar diagramas Entidad-Relación (ER) para dos bases de datos distintas: una de pedidos por correo (MAIL_ORDER) y otra de películas (MOVIE). Este ejercicio se centra en el modelado de bases de datos, un aspecto crucial en la gestión de datos y diseño de sistemas.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Diseñar diagramas ER para dos escenarios distintos.&lt;/li>
+&lt;li>Identificar entidades, atributos y claves primarias.&lt;/li>
+&lt;li>Definir relaciones y sus cardinalidades.&lt;/li>
+&lt;li>Representar las reglas del negocio en un esquema visual.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Base de Datos de Pedidos por Correo (MAIL_ORDER):&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 34: Modelado de la Base de Datos GRADE_BOOK</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/34/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/34/</guid><description>&lt;h1 id="ejercicio-34-modelado-de-la-base-de-datos-grade_book">Ejercicio 34: Modelado de la Base de Datos GRADE_BOOK&lt;/h1>
+&lt;p>En este ejercicio, se requiere modelar una base de datos denominada GRADE_BOOK, que será utilizada por un departamento académico para registrar las calificaciones de los estudiantes en los cursos que toman. Este ejercicio se centra en el modelado de bases de datos y tiene un nivel de dificultad avanzado.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Diseñar un diagrama Entidad-Relación Mejorado (EER) para el sistema GRADE_BOOK.&lt;/li>
+&lt;li>Implementar el modelo utilizando una herramienta de modelado de bases de datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="requisitos-del-modelo">Requisitos del Modelo&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Estudiantes&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 35: Modelado de la Base de Datos ONLINE_AUCTION</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/35/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/35/</guid><description>&lt;h1 id="ejercicio-35-modelado-de-la-base-de-datos-online_auction">Ejercicio 35: Modelado de la Base de Datos ONLINE_AUCTION&lt;/h1>
+&lt;p>En este ejercicio, se requiere modelar una base de datos para una plataforma de subastas en línea, denominada &lt;strong>ONLINE_AUCTION&lt;/strong>, donde los usuarios pueden comprar y vender artículos a través de un sistema de pujas. Este ejercicio es de tipo práctico, con un resultado esperado de un diagrama Entidad-Relación Mejorado (EER). La dificultad es avanzada.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Diseñar un diagrama EER que represente adecuadamente las entidades, relaciones, atributos y restricciones del sistema de subastas en línea.&lt;/li>
+&lt;li>Implementar el modelo utilizando una herramienta de modelado de bases de datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="requisitos-del-modelo">Requisitos del Modelo&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Miembros de la Plataforma&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 36: Modelado de la Base de Datos de una Liga de Hockey Femenino</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/36/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/36/</guid><description>&lt;h1 id="ejercicio-36-modelado-de-la-base-de-datos-de-una-liga-de-hockey-femenino">Ejercicio 36: Modelado de la Base de Datos de una Liga de Hockey Femenino&lt;/h1>
+&lt;p>En este ejercicio, se solicita diseñar un modelo de base de datos para gestionar la información de los equipos, jugadoras, entrenadoras y partidos en una liga de hockey femenino profesional. El objetivo es crear un diagrama Entidad-Relación Mejorado (EER) que represente adecuadamente las entidades, relaciones, herencia, cardinalidades y restricciones pertinentes.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Diseñar un diagrama Entidad-Relación Mejorado (EER) para una liga de hockey femenino.&lt;/li>
+&lt;li>Representar adecuadamente herencia, cardinalidades y restricciones en el modelo.&lt;/li>
+&lt;/ul>
+&lt;h2 id="requisitos-del-modelo">Requisitos del Modelo&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Personal de la Liga&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 38: Gestión de Notas de Examen</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/38/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/38/</guid><description>&lt;h1 id="ejercicio-38-gestión-de-notas-de-examen">Ejercicio 38: Gestión de Notas de Examen&lt;/h1>
+&lt;p>En este ejercicio, se busca practicar consultas SQL para transformar y analizar datos relacionados con los exámenes de estudiantes. El objetivo es aplicar técnicas de transformación de datos y creación de tablas en SQL.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Transformar datos de exámenes en una estructura tabular consolidada.&lt;/li>
+&lt;li>Determinar el estado de aprobación de los estudiantes.&lt;/li>
+&lt;li>Crear una tabla final con los datos transformados.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;p>La base de datos contiene una tabla con la siguiente estructura:&lt;/p></description></item><item><title>Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/39/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/39/</guid><description>&lt;h1 id="ejercicio-39-gestión-de-reservas-en-una-base-de-datos-de-aerolínea">Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea&lt;/h1>
+&lt;p>Este ejercicio se centra en la gestión de reservas dentro de un sistema de base de datos de una aerolínea. Se trabajará en la actualización de reservas, la identificación de restricciones y el análisis de integridad de datos en el esquema relacional.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Implementar operaciones de actualización de reservas en una base de datos.&lt;/li>
+&lt;li>Verificar y aplicar restricciones de integridad de datos.&lt;/li>
+&lt;li>Analizar y clasificar restricciones de integridad referencial.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;p>El esquema de la base de datos de la aerolínea incluye las siguientes entidades y relaciones clave:&lt;/p></description></item><item><title>Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/04/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/04/</guid><description>&lt;h1 id="ejercicio-4-importar-traductor-y-crear-un-programa-en-traductorpy">Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py&lt;/h1>
+&lt;p>En este ejercicio, se busca que el estudiante desarrolle habilidades en el uso de módulos en Python y la interacción con el usuario a través de la terminal. Se trabajará con la importación de clases desde otros archivos y la manipulación de cadenas de texto.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Implementar un script en Python que importe una clase desde otro archivo.&lt;/li>
+&lt;li>Manejar la interacción con el usuario mediante la función &lt;code>input()&lt;/code>.&lt;/li>
+&lt;li>Ejecutar un script desde la terminal utilizando la estructura &lt;code>if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code>.&lt;/li>
+&lt;li>Manipular listas y cadenas de texto.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Archivo &lt;code>utils.py&lt;/code> que contiene la clase &lt;code>Traductor&lt;/code>.&lt;/li>
+&lt;li>Palabras ingresadas por el usuario separadas por comas.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>A continuación se presenta el código base que debe ser utilizado como punto de partida para el desarrollo del ejercicio:&lt;/p></description></item><item><title>Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/40/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/40/</guid><description>&lt;h1 id="ejercicio-40-identificación-de-claves-foráneas-y-restricciones-de-integridad-en-bases-de-datos-relacionales">Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes identifiquen claves foráneas en distintos esquemas de bases de datos y propongan restricciones de integridad. Se presentarán múltiples contextos de bases de datos empresariales y académicas, lo que permitirá aplicar conocimientos sobre dependencias referenciales, normalización y reglas de negocio.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Identificar claves primarias y foráneas en esquemas de bases de datos.&lt;/li>
+&lt;li>Proponer restricciones de integridad para mantener la coherencia de los datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Esquema de base de datos de procesamiento de pedidos.&lt;/li>
+&lt;li>Esquema de base de datos de viajes de vendedores.&lt;/li>
+&lt;li>Esquema de base de datos de inscripción de estudiantes.&lt;/li>
+&lt;li>Esquema de base de datos de ventas de automóviles.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-a-base-de-datos-de-procesamiento-de-pedidos">Parte A: Base de Datos de Procesamiento de Pedidos&lt;/h2>
+&lt;p>Una empresa necesita gestionar pedidos, clientes, productos, envíos y almacenes. El esquema de la base de datos es el siguiente:&lt;/p></description></item><item><title>Ejercicio 41: Consultas y Actualizaciones SQL en Bases de Datos Relacionales</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/41/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/41/</guid><description>&lt;h1 id="ejercicio-41-consultas-y-actualizaciones-sql-en-bases-de-datos-relacionales">Ejercicio 41: Consultas y Actualizaciones SQL en Bases de Datos Relacionales&lt;/h1>
+&lt;p>Este ejercicio tiene como propósito que los estudiantes practiquen consultas SQL avanzadas y operaciones de actualización en bases de datos relacionales. Se trabajará con diferentes esquemas de bases de datos, aplicando filtrados, combinaciones de tablas, agregaciones y modificaciones de datos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Practicar la escritura de consultas SQL avanzadas.&lt;/li>
+&lt;li>Realizar operaciones de actualización en bases de datos relacionales.&lt;/li>
+&lt;li>Analizar y optimizar la estructura de bases de datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Esquema de base de datos empresarial que incluye tablas de empleados, departamentos y proyectos.&lt;/li>
+&lt;li>Esquema de base de datos académica que incluye tablas de cursos, estudiantes e inscripciones.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-consultas-sql-en-una-base-de-datos-empresarial">Parte A: Consultas SQL en una Base de Datos Empresarial&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Obtener los nombres de todos los empleados del departamento 5 que trabajen más de 10 horas por semana en el proyecto ‘ProductX’.&lt;/li>
+&lt;li>Listar los nombres de todos los empleados que tengan un dependiente con el mismo nombre que ellos.&lt;/li>
+&lt;li>Encontrar los nombres de todos los empleados que son directamente supervisados por ‘Franklin Wong’.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-b-consultas-sql-en-una-base-de-datos-académica">Parte B: Consultas SQL en una Base de Datos Académica&lt;/h2>
+&lt;h3 id="tareas-1">Tareas&lt;/h3>
+&lt;ol start="4">
+&lt;li>Obtener los nombres de todos los estudiantes de último año (Class = 4) cuya especialización sea ‘CS’ (Computer Science).&lt;/li>
+&lt;li>Listar los nombres de todos los cursos impartidos por el Profesor King en los años 2007 y 2008.&lt;/li>
+&lt;li>Para cada sección impartida por el Profesor King, obtener el número del curso, el semestre, el año y el número de estudiantes inscritos en la sección.&lt;/li>
+&lt;li>Obtener el nombre y el historial académico (transcript) de cada estudiante de último año (Class = 4) en CS. El historial debe incluir el nombre del curso, número del curso, créditos, semestre, año y calificación en cada curso completado.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-c-operaciones-de-actualización-en-sql">Parte C: Operaciones de Actualización en SQL&lt;/h2>
+&lt;h3 id="tareas-2">Tareas&lt;/h3>
+&lt;ol start="8">
+&lt;li>Insertar un nuevo estudiante en la base de datos con los siguientes datos: Nombre: Johnson, Edad: 25, Clase: 1, Especialización: Matemáticas.&lt;/li>
+&lt;li>Cambiar la clase del estudiante Smith a 2.&lt;/li>
+&lt;li>Insertar un nuevo curso en la base de datos con los siguientes datos: Nombre: Knowledge Engineering, Código: cs4390, Créditos: 3, Departamento: CS.&lt;/li>
+&lt;li>Eliminar el registro del estudiante llamado Smith cuyo número de estudiante es 17.&lt;/li>
+&lt;/ol>
+&lt;h2 id="preguntas-de-análisis-final">Preguntas de Análisis Final&lt;/h2>
+&lt;ol>
+&lt;li>¿Cómo afectan estas operaciones a la integridad referencial de la base de datos?&lt;/li>
+&lt;li>¿Existen claves foráneas que deban considerarse al realizar las eliminaciones e inserciones?&lt;/li>
+&lt;li>¿Qué estrategias se pueden aplicar para optimizar las consultas en bases de datos grandes?&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- TODO: Implementar las consultas y operaciones de actualización según las tareas especificadas.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejemplo de prueba para la tarea 1:&lt;/p></description></item><item><title>Ejercicio 42: Análisis y Visualización de Datos con Gráficos en Pandas y Seaborn</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/42/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/42/</guid><description>&lt;h1 id="ejercicio-42-análisis-y-visualización-de-datos-con-gráficos-en-pandas-y-seaborn">Ejercicio 42: Análisis y Visualización de Datos con Gráficos en Pandas y Seaborn&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes trabajen con visualización de datos en Python, utilizando Pandas y Seaborn para explorar, analizar y comunicar información de manera efectiva. Se proporcionarán dos conjuntos de datos con información sobre precios del biodiésel en Argentina y posesión de teléfonos móviles.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ol>
+&lt;li>Cargar los datasets y explorar su estructura.&lt;/li>
+&lt;li>Generar visualizaciones adecuadas para cada conjunto de datos.&lt;/li>
+&lt;li>Analizar y justificar la elección del tipo de gráfico.&lt;/li>
+&lt;li>Reflexionar sobre el propósito de la visualización.&lt;/li>
+&lt;li>Responder preguntas basadas en los datos, justificando con evidencia gráfica.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-a-carga-y-exploración-de-los-datos">Parte A: Carga y Exploración de los Datos&lt;/h2>
+&lt;p>Se proporcionan los siguientes datasets:&lt;/p></description></item><item><title>Ejercicio 43: Análisis Visual de Datos con Penguins e Iris</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/43/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/43/</guid><description>&lt;h1 id="ejercicio-43-análisis-visual-de-datos-con-penguins-e-iris">Ejercicio 43: Análisis Visual de Datos con Penguins e Iris&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes practiquen la visualización de datos en Python utilizando las bibliotecas Matplotlib y Seaborn. Se trabajará con los datasets &lt;code>penguins&lt;/code> e &lt;code>iris&lt;/code> de Seaborn, explorando diferentes técnicas para representar gráficamente la distribución y relaciones entre variables.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Cargar y explorar los datasets &lt;code>penguins&lt;/code> e &lt;code>iris&lt;/code>.&lt;/li>
+&lt;li>Crear gráficos de dispersión con color por categoría.&lt;/li>
+&lt;li>Generar boxplots con swarmplots superpuestos para analizar distribuciones.&lt;/li>
+&lt;li>Construir histogramas y representar distribuciones utilizando &lt;code>pd.cut&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Dataset &lt;code>penguins&lt;/code>: Información sobre tres especies de pingüinos, incluyendo medidas como &lt;code>bill_length_mm&lt;/code>, &lt;code>bill_depth_mm&lt;/code> y &lt;code>flipper_length_mm&lt;/code>.&lt;/li>
+&lt;li>Dataset &lt;code>iris&lt;/code>: Información sobre tres especies de flores, incluyendo medidas como &lt;code>sepal_length&lt;/code>, &lt;code>sepal_width&lt;/code>, &lt;code>petal_length&lt;/code> y &lt;code>petal_width&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-carga-y-exploración-de-datos">Parte A: Carga y Exploración de Datos&lt;/h2>
+&lt;h3 id="tareas">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>Cargar ambos datasets y visualizar sus primeras filas.&lt;/li>
+&lt;li>Verificar valores nulos y realizar un resumen estadístico.&lt;/li>
+&lt;li>Identificar qué tipo de variables contiene cada dataset.&lt;/li>
+&lt;/ol>
+&lt;h3 id="código-base">Código Base&lt;/h3>
+&lt;pre tabindex="0">&lt;code>import seaborn as sns
+import pandas as pd
+
+# Cargar datasets
+penguins = sns.load_dataset(&amp;#39;penguins&amp;#39;)
+iris = sns.load_dataset(&amp;#39;iris&amp;#39;)
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="parte-b-gráficos-de-dispersión-scatter-plots">Parte B: Gráficos de Dispersión (Scatter Plots)&lt;/h2>
+&lt;h3 id="tareas-1">Tareas&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Dataset: Penguins&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 44: Limpieza y Manejo de Datos Faltantes, Duplicados y Variables Categóricas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/44/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/44/</guid><description>&lt;h1 id="ejercicio-44-limpieza-y-manejo-de-datos-faltantes-duplicados-y-variables-categóricas">Ejercicio 44: Limpieza y Manejo de Datos Faltantes, Duplicados y Variables Categóricas&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes practiquen técnicas esenciales de limpieza de datos en Pandas, incluyendo el manejo de valores faltantes, duplicados y variables categóricas. Se trabajará con el dataset &amp;ldquo;Titanic&amp;rdquo; (&lt;em>sns.load_dataset(&amp;rsquo;titanic&amp;rsquo;)&lt;/em>), un conjunto de datos realista que presenta valores nulos, duplicados y variables categóricas que requieren tratamiento especial.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Identificar y manejar valores faltantes (&lt;code>NaN&lt;/code>).&lt;/li>
+&lt;li>Detectar y corregir valores duplicados o inconsistentes.&lt;/li>
+&lt;li>Trabajar con variables categóricas y convertirlas en formatos adecuados.&lt;/li>
+&lt;li>Identificar valores atípicos y analizarlos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-carga-y-exploración-del-dataset">Parte A: Carga y Exploración del Dataset&lt;/h2>
+&lt;p>El dataset Titanic contiene información sobre pasajeros, con variables como:&lt;/p></description></item><item><title>Ejercicio 45: Análisis Estadístico y Visualización de Datos con `tips` y `ventaCasas`</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/45/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/45/</guid><description>&lt;h1 id="ejercicio-45-análisis-estadístico-y-visualización-de-datos-con-tips-y-ventacasas">Ejercicio 45: Análisis Estadístico y Visualización de Datos con &lt;code>tips&lt;/code> y &lt;code>ventaCasas&lt;/code>&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes practiquen medidas estadísticas descriptivas y visualización de datos en Python utilizando Pandas, Matplotlib y Seaborn. Se trabajará con los datasets &lt;code>tips&lt;/code> y &lt;code>ventaCasas&lt;/code>, explorando técnicas como boxplots, violin plots, análisis de tendencias y formatos gráficos mejorados.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ol>
+&lt;li>Calcular medidas de tendencia central y dispersión.&lt;/li>
+&lt;li>Crear gráficos de boxplots y violin plots con personalización avanzada.&lt;/li>
+&lt;li>Aplicar transformaciones y análisis en variables derivadas.&lt;/li>
+&lt;li>Interpretar patrones y diferencias entre grupos dentro de los datos.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-a-carga-y-exploración-de-datos">Parte A: Carga y Exploración de Datos&lt;/h2>
+&lt;p>Se trabajará con los siguientes datasets:&lt;/p></description></item><item><title>Ejercicio 46: Implementación Manual de Regresión Lineal con NumPy</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/46/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/46/</guid><description>&lt;h1 id="ejercicio-46-implementación-manual-de-regresión-lineal-con-numpy">Ejercicio 46: Implementación Manual de Regresión Lineal con NumPy&lt;/h1>
+&lt;p>En este ejercicio, se solicita implementar un regresor lineal simple utilizando NumPy, replicando el funcionamiento esencial de &lt;code>regplot&lt;/code> en Seaborn. El objetivo es comprender y aplicar los principios básicos de la regresión lineal ordinaria (OLS) mediante álgebra lineal, específicamente utilizando la pseudoinversa de Moore-Penrose.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ol>
+&lt;li>Implementar un modelo de regresión lineal simple utilizando NumPy.&lt;/li>
+&lt;li>Generar un gráfico de dispersión de los datos.&lt;/li>
+&lt;li>Dibujar la línea de regresión ajustada sobre el gráfico de dispersión.&lt;/li>
+&lt;li>Evitar opciones de robustez adicionales para mantener el enfoque educativo.&lt;/li>
+&lt;/ol>
+&lt;h2 id="tipo-de-ejercicio">Tipo de Ejercicio&lt;/h2>
+&lt;ul>
+&lt;li>Práctico&lt;/li>
+&lt;/ul>
+&lt;h2 id="resultado-esperado">Resultado Esperado&lt;/h2>
+&lt;ul>
+&lt;li>Visualización&lt;/li>
+&lt;/ul>
+&lt;h2 id="dificultad">Dificultad&lt;/h2>
+&lt;ul>
+&lt;li>Intermedio&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>x&lt;/code>: Lista o array de valores independientes.&lt;/li>
+&lt;li>&lt;code>y&lt;/code>: Lista o array de valores dependientes.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import numpy as np
+import matplotlib.pyplot as plt
+
+class SimpleRegressionPlot:
+ def __init__(self, x, y):
+ &amp;#34;&amp;#34;&amp;#34;Inicializa con datos x e y.&amp;#34;&amp;#34;&amp;#34;
+ self.x = np.asarray(x)
+ self.y = np.asarray(y)
+
+ def fit_ols(self, x, y):
+ &amp;#34;&amp;#34;&amp;#34;Calcula los coeficientes de regresión OLS usando álgebra lineal.&amp;#34;&amp;#34;&amp;#34;
+ X = np.c_[np.ones(len(x)), x] # Añadir término de intercepto
+ beta = np.linalg.pinv(X) @ y # Calcular solución OLS
+ return beta # Retorna [intercepto, pendiente]
+
+ def predict(self, x_new):
+ &amp;#34;&amp;#34;&amp;#34;Predice valores de y para valores de x dados usando el modelo ajustado.&amp;#34;&amp;#34;&amp;#34;
+ beta = self.fit_ols(self.x, self.y)
+ X_new = np.c_[np.ones(len(x_new)), x_new]
+ return X_new @ beta # Calcular y predicho
+
+ def plot(self):
+ &amp;#34;&amp;#34;&amp;#34;Genera gráfico de dispersión con línea de regresión ajustada.&amp;#34;&amp;#34;&amp;#34;
+ # TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;pre tabindex="0">&lt;code># Ejemplo de uso
+np.random.seed(42)
+x = np.random.rand(50) * 10
+y = 2.5 * x + np.random.randn(50) * 5 # Relación verdadera con ruido
+
+reg_plot = SimpleRegressionPlot(x, y)
+reg_plot.plot()
+&lt;/code>&lt;/pre>&lt;p>Este ejercicio proporciona una base sólida para comprender la implementación manual de un regresor lineal simple y su visualización, replicando el comportamiento básico de &lt;code>regplot&lt;/code> en Seaborn.&lt;/p></description></item><item><title>Ejercicio 47: Análisis de Correlaciones y Visualización con Heatmaps</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/47/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/47/</guid><description>&lt;h1 id="ejercicio-47-análisis-de-correlaciones-y-visualización-con-heatmaps">Ejercicio 47: Análisis de Correlaciones y Visualización con Heatmaps&lt;/h1>
+&lt;p>En este ejercicio, se busca que los estudiantes practiquen el análisis de correlaciones y su visualización mediante heatmaps. Se explorarán distintas técnicas para representar matrices de correlación utilizando Pandas Styling, Matplotlib y Seaborn.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Generar un dataset de 10 entidades con una serie temporal.&lt;/li>
+&lt;li>Calcular la matriz de correlación entre las entidades.&lt;/li>
+&lt;li>Aplicar Pandas Styling para visualizar la matriz con formato de heatmap.&lt;/li>
+&lt;li>Representar la matriz de correlación con &lt;code>imshow&lt;/code> de Matplotlib y anotaciones.&lt;/li>
+&lt;li>Usar Seaborn para generar un heatmap de la correlación.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-generación-de-datos-y-cálculo-de-correlaciones">Parte A: Generación de Datos y Cálculo de Correlaciones&lt;/h2>
+&lt;p>Se generará un dataset sintético con 10 entidades y valores temporales aleatorios.&lt;/p></description></item><item><title>Ejercicio 48: Construcción y Análisis de Redes Basadas en Similitud</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/48/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/48/</guid><description>&lt;h1 id="ejercicio-48-construcción-y-análisis-de-redes-basadas-en-similitud">Ejercicio 48: Construcción y Análisis de Redes Basadas en Similitud&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes trabajen con redes basadas en similitud, utilizando cosine similarity o correlación para construir grafos y analizar sus componentes. Se explorará cómo construir redes a partir de datos estructurados y cómo analizar la estructura resultante con NetworkX y Pandas.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Construir una matriz de similitud a partir de un dataset seleccionado.&lt;/li>
+&lt;li>Aplicar un umbral para definir conexiones en la red.&lt;/li>
+&lt;li>Construir un grafo con NetworkX y analizar sus componentes conexas.&lt;/li>
+&lt;li>Convertir el grafo en un DataFrame de Pandas para análisis estadístico.&lt;/li>
+&lt;li>Visualizar la red resultante.&lt;/li>
+&lt;/ul>
+&lt;h2 id="selección-del-dataset">Selección del Dataset&lt;/h2>
+&lt;p>Los estudiantes deben elegir uno de los siguientes datasets, cada uno de los cuales es adecuado para construir redes basadas en similitud:&lt;/p></description></item><item><title>Ejercicio 49: Creación de Figuras Científicas de Publicación con Matplotlib</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/49/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/49/</guid><description>&lt;h1 id="ejercicio-49-creación-de-figuras-científicas-de-publicación-con-matplotlib">Ejercicio 49: Creación de Figuras Científicas de Publicación con Matplotlib&lt;/h1>
+&lt;p>Este ejercicio tiene como objetivo que los estudiantes generen gráficos de calidad para papers científicos en disciplinas como física, matemáticas o ingeniería. Se trabajará con la ley de Zipf, representándola en una escala log-log, asegurando que la figura cumpla con estándares de publicación en revistas científicas.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ol>
+&lt;li>Obtener datos que sigan la ley de Zipf a partir de un corpus de texto.&lt;/li>
+&lt;li>Generar un gráfico en escala log-log con Matplotlib.&lt;/li>
+&lt;li>Optimizar la figura para que sea adecuada para una publicación científica.&lt;/li>
+&lt;li>Incluir una leyenda, etiquetas, formato en blanco y negro, y seguir buenas prácticas en visualización científica.&lt;/li>
+&lt;li>Escribir un caption claro y preciso para la figura.&lt;/li>
+&lt;/ol>
+&lt;h2 id="parte-a-construcción-del-dataset-ley-de-zipf-en-texto">Parte A: Construcción del Dataset (Ley de Zipf en Texto)&lt;/h2>
+&lt;p>Se analizará la distribución de frecuencia de palabras en un texto para verificar la ley de Zipf.&lt;/p></description></item><item><title>Ejercicio 5: Cálculo de una Hipoteca con Pagos Extras</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/05/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/05/</guid><description>&lt;h1 id="ejercicio-5-cálculo-de-una-hipoteca-con-pagos-extras">Ejercicio 5: Cálculo de una Hipoteca con Pagos Extras&lt;/h1>
+&lt;p>En este ejercicio, se requiere modelar el pago de una hipoteca considerando pagos extras en diferentes periodos. El objetivo es calcular el monto total pagado y el tiempo necesario para saldar la deuda bajo diferentes escenarios de pagos extras.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Implementar un programa en Python que calcule el monto total pagado por una hipoteca.&lt;/li>
+&lt;li>Incorporar lógica condicional para manejar pagos extras en diferentes periodos.&lt;/li>
+&lt;li>Determinar el número total de meses requeridos para pagar la hipoteca bajo diferentes condiciones.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Monto del préstamo: $500,000&lt;/li>
+&lt;li>Tasa de interés nominal anual: 5%&lt;/li>
+&lt;li>Pago mensual fijo: $2,684.11&lt;/li>
+&lt;li>Pagos extras:
+&lt;ul>
+&lt;li>Escenario 1: $1,000/mes durante los primeros 12 meses.&lt;/li>
+&lt;li>Escenario 2: $1,000/mes durante cuatro años, comenzando en el sexto año de la hipoteca.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code># Definición de variables iniciales
+monto_prestamo = 500000
+tasa_interes_anual = 0.05
+pago_mensual_fijo = 2684.11
+
+# Parámetros para pagos extras
+pago_extra_monto = 1000 # Monto del pago extra
+pago_extra_mes_comienzo = 1 # Mes de inicio del pago extra
+pago_extra_mes_fin = 12 # Mes de fin del pago extra
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Escenario sin pagos extras:&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 50: Creación de un Reporte Exploratorio con Python y Markdown</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/50/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/50/</guid><description>&lt;h1 id="ejercicio-50-creación-de-un-reporte-exploratorio-con-python-y-markdown">Ejercicio 50: Creación de un Reporte Exploratorio con Python y Markdown&lt;/h1>
+&lt;p>En este ejercicio, los estudiantes realizarán un análisis exploratorio de datos (EDA) utilizando un dataset abierto. El objetivo es documentar el dataset, realizar el análisis y exportar el reporte en formatos PDF y HTML. Este ejercicio está diseñado para estudiantes de nivel avanzado en ciencia de datos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Seleccionar y documentar un dataset abierto.&lt;/li>
+&lt;li>Describir las variables y la estructura del dataset.&lt;/li>
+&lt;li>Realizar un análisis exploratorio con al menos un cuadro y dos gráficos.&lt;/li>
+&lt;li>Generar un reporte en Jupyter Notebook usando Markdown y Python.&lt;/li>
+&lt;li>Exportar el reporte a formatos PDF y HTML.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-a-selección-y-documentación-del-dataset">Parte A: Selección y Documentación del Dataset&lt;/h2>
+&lt;p>Cada estudiante deberá elegir un dataset abierto y documentarlo correctamente.&lt;/p></description></item><item><title>Ejercicio 51: Contar Historias con Datos - Más Allá de los Gráficos</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/51/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/51/</guid><description>&lt;h1 id="ejercicio-51-contar-historias-con-datos---más-allá-de-los-gráficos">Ejercicio 51: Contar Historias con Datos - Más Allá de los Gráficos&lt;/h1>
+&lt;p>En este ejercicio, el objetivo es desarrollar la habilidad de construir una narrativa significativa a partir de datos. Más allá de la simple visualización, se busca comunicar un mensaje poderoso que invite a la reflexión y a una nueva comprensión del mundo.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Seleccionar un conjunto de datos relevante para construir una narrativa.&lt;/li>
+&lt;li>Analizar los datos para identificar patrones y tendencias significativas.&lt;/li>
+&lt;li>Crear visualizaciones que apoyen y enriquezcan la narrativa.&lt;/li>
+&lt;li>Desarrollar un relato coherente y convincente basado en los datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Cambio Climático&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 52: Simulación de la Paradoja del Cumpleaños</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/52/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/52/</guid><description>&lt;h1 id="ejercicio-52-simulación-de-la-paradoja-del-cumpleaños">Ejercicio 52: Simulación de la Paradoja del Cumpleaños&lt;/h1>
+&lt;p>En este ejercicio, se explorará la paradoja del cumpleaños mediante la simulación de grupos de personas con fechas de cumpleaños aleatorias. El objetivo es determinar cuántas personas se necesitan para que exista una alta probabilidad de que al menos dos de ellas compartan la misma fecha de cumpleaños. Este fenómeno es conocido por ser contraintuitivo, ya que se requiere un número menor de personas del que se podría esperar inicialmente.&lt;/p></description></item><item><title>Ejercicio 53: Ley de los Grandes Números en Acción</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/53/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/53/</guid><description>&lt;h1 id="ejercicio-53-ley-de-los-grandes-números-en-acción">Ejercicio 53: Ley de los Grandes Números en Acción&lt;/h1>
+&lt;p>En este ejercicio práctico, exploraremos la Ley de los Grandes Números mediante simulaciones. El objetivo es visualizar cómo la media muestral converge a la media poblacional al aumentar el tamaño de la muestra.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Simular lanzamientos de una moneda justa y graficar la convergencia de la proporción de caras al 50%.&lt;/li>
+&lt;li>Repetir la simulación con una distribución normal y analizar cómo cambia la media muestral.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Simulación de lanzamientos de una moneda justa.&lt;/li>
+&lt;li>Generación de datos a partir de una distribución normal con &lt;code>np.random.normal(loc=0, scale=1, size=1000)&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import numpy as np
+import matplotlib.pyplot as plt
+
+# Simulación de lanzamientos de una moneda justa
+def simular_monedas(n_lanzamientos):
+ resultados = np.random.choice([0, 1], size=n_lanzamientos)
+ proporciones_caras = np.cumsum(resultados) / np.arange(1, n_lanzamientos + 1)
+ return proporciones_caras
+
+# Simulación de una distribución normal
+def simular_normal(n_muestras):
+ muestras = np.random.normal(loc=0, scale=1, size=n_muestras)
+ medias_muestrales = np.cumsum(muestras) / np.arange(1, n_muestras + 1)
+ return medias_muestrales
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejemplo de uso para la simulación de lanzamientos de una moneda justa:&lt;/p></description></item><item><title>Ejercicio 54: Simulación del P-Value y Rechazo de H₀</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/54/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/54/</guid><description>&lt;h1 id="ejercicio-54-simulación-del-p-value-y-rechazo-de-h">Ejercicio 54: Simulación del P-Value y Rechazo de H₀&lt;/h1>
+&lt;p>En este ejercicio, se busca comprender la frecuencia con la que se obtienen valores extremos bajo la hipótesis nula (H₀) mediante la simulación de una prueba t. Se evaluará la proporción de veces que los valores simulados caen en la región crítica para diferentes niveles de significancia.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Simular la distribución de una prueba t bajo la hipótesis nula (H₀).&lt;/li>
+&lt;li>Determinar la frecuencia de valores en la región crítica.&lt;/li>
+&lt;li>Comparar los resultados para diferentes niveles de significancia (α = 0.05, α = 0.01).&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Tamaño de la muestra.&lt;/li>
+&lt;li>Número de simulaciones a realizar.&lt;/li>
+&lt;li>Niveles de significancia: 0.05 y 0.01.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import numpy as np
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+
+# Parámetros de la simulación
+n_muestra = 30 # Tamaño de la muestra
+n_simulaciones = 10000 # Número de simulaciones
+niveles_significancia = [0.05, 0.01] # Niveles de significancia
+
+# TODO: Implementar
+# Simular la distribución t bajo la hipótesis nula
+# Calcular cuántas veces los valores caen en la región crítica
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejemplo de ejecución:&lt;/p></description></item><item><title>Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/55/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/55/</guid><description>&lt;h1 id="ejercicio-55-diseño-y-evaluación-de-un-ab-testing-en-python">Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python&lt;/h1>
+&lt;p>Introducción: En este ejercicio, se explorará el diseño, análisis y validación de un experimento A/B. El objetivo es evaluar si un nuevo diseño de página de pago en una empresa de e-commerce mejora la tasa de conversión de los usuarios. Se abordarán la formulación de hipótesis, la simulación de datos, la aplicación de pruebas estadísticas y la interpretación de resultados.&lt;/p></description></item><item><title>Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/56/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/56/</guid><description>&lt;h1 id="ejercicio-56-simulación-de-una-variable-aleatoria-usando-la-transformada-inversa">Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa&lt;/h1>
+&lt;p>En este ejercicio, se explorará la técnica de transformación inversa para generar variables aleatorias de una distribución exponencial a partir de una distribución uniforme. Este método es fundamental en la simulación de variables aleatorias y en la generación de datos en ciencia de datos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Implementar la técnica de transformación inversa para generar variables aleatorias de una distribución exponencial.&lt;/li>
+&lt;li>Comparar los resultados obtenidos con la función &lt;code>numpy.random.exponential()&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Distribución uniforme ( U \sim U(0,1) ).&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetro de la distribución exponencial
+lambda_param = 1.0
+
+# Generar números aleatorios de una distribución uniforme
+uniform_random_numbers = np.random.uniform(0, 1, 1000)
+
+# TODO: Implementar la transformación inversa para obtener una distribución exponencial
+# exponential_random_numbers = ...
+
+# Comparar con numpy.random.exponential
+numpy_exponential_numbers = np.random.exponential(1/lambda_param, 1000)
+
+# Visualización de los resultados
+plt.hist(exponential_random_numbers, bins=30, alpha=0.5, label=&amp;#39;Transformada Inversa&amp;#39;)
+plt.hist(numpy_exponential_numbers, bins=30, alpha=0.5, label=&amp;#39;Numpy Exponential&amp;#39;)
+plt.legend(loc=&amp;#39;upper right&amp;#39;)
+plt.title(&amp;#39;Comparación de Distribuciones Exponenciales&amp;#39;)
+plt.show()
+&lt;/code>&lt;/pre>&lt;h2 id="tareas">Tareas&lt;/h2>
+&lt;ol>
+&lt;li>Implementar la técnica de transformación inversa para convertir los números aleatorios uniformes en números aleatorios exponenciales.&lt;/li>
+&lt;li>Comparar visualmente los resultados obtenidos con la función &lt;code>numpy.random.exponential()&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejemplo de prueba para verificar la implementación:&lt;/p></description></item><item><title>Ejercicio 57: Regresión Lineal Simple en Datos Reales</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/57/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/57/</guid><description>&lt;h1 id="ejercicio-57-regresión-lineal-simple-en-datos-reales">Ejercicio 57: Regresión Lineal Simple en Datos Reales&lt;/h1>
+&lt;p>En este ejercicio, se aplicará un modelo de regresión lineal simple a un conjunto de datos reales para explorar la relación entre el PIB per cápita y la esperanza de vida. Se utilizará el dataset de Gapminder, que proporciona datos económicos y demográficos de diversos países a lo largo del tiempo.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Cargar y explorar el dataset de Gapminder.&lt;/li>
+&lt;li>Modelar la relación entre el PIB per cápita y la esperanza de vida utilizando un modelo de regresión lineal simple.&lt;/li>
+&lt;li>Evaluar la bondad del ajuste del modelo mediante el coeficiente de determinación (R²) y un gráfico de residuos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Dataset de Gapminder: Este conjunto de datos incluye información sobre el PIB per cápita y la esperanza de vida de varios países.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code># Importar las bibliotecas necesarias
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+# Cargar el dataset de Gapminder
+# Asegúrese de que el archivo &amp;#39;gapminder.csv&amp;#39; esté en el mismo directorio que este notebook
+data = pd.read_csv(&amp;#39;gapminder.csv&amp;#39;)
+
+# Seleccionar las columnas relevantes
+pib_per_capita = data[&amp;#39;gdpPercap&amp;#39;]
+esperanza_vida = data[&amp;#39;lifeExp&amp;#39;]
+
+# Inicializar el modelo de regresión lineal
+modelo = LinearRegression()
+
+# TODO: Implementar
+# Ajustar el modelo a los datos
+# modelo.fit(...)
+
+# Predecir los valores de esperanza de vida
+# predicciones = modelo.predict(...)
+
+# Calcular el coeficiente de determinación R²
+# r2 = r2_score(...)
+
+# Graficar los residuos
+# plt.scatter(...)
+
+# Mostrar el gráfico
+# plt.show()
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejemplo de ejecución:&lt;/p></description></item><item><title>Ejercicio 58: Evaluación de Suposiciones de la Regresión Lineal</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/58/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/58/</guid><description>&lt;h1 id="ejercicio-58-evaluación-de-suposiciones-de-la-regresión-lineal">Ejercicio 58: Evaluación de Suposiciones de la Regresión Lineal&lt;/h1>
+&lt;p>En este ejercicio, se evaluarán las suposiciones fundamentales de un modelo de regresión lineal, específicamente heterocedasticidad, normalidad de residuos y colinealidad. Estas suposiciones son cruciales para asegurar la validez de los resultados de un modelo de regresión.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Diagnosticar la presencia de heterocedasticidad en un modelo de regresión lineal.&lt;/li>
+&lt;li>Evaluar la normalidad de los residuos del modelo.&lt;/li>
+&lt;li>Identificar colinealidad entre las variables independientes.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Un conjunto de datos con variables independientes y una variable dependiente para ajustar un modelo de regresión lineal.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from statsmodels.stats.diagnostic import het_breuschpagan
+
+# Cargar los datos
+# TODO: Reemplazar &amp;#39;ruta_a_los_datos.csv&amp;#39; con la ruta del archivo de datos
+datos = pd.read_csv(&amp;#39;ruta_a_los_datos.csv&amp;#39;)
+
+# Definir variables independientes y dependiente
+# TODO: Ajustar los nombres de las columnas según el conjunto de datos
+X = datos[[&amp;#39;variable_independiente1&amp;#39;, &amp;#39;variable_independiente2&amp;#39;]]
+y = datos[&amp;#39;variable_dependiente&amp;#39;]
+
+# Agregar constante para el modelo
+X = sm.add_constant(X)
+
+# Ajustar el modelo de regresión lineal
+modelo = sm.OLS(y, X).fit()
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="tareas">Tareas&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Diagnóstico de Heterocedasticidad:&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 59: Análisis de Datos de Ventas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/59/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/59/</guid><description>&lt;h1 id="ejercicio-59-análisis-de-datos-de-ventas">Ejercicio 59: Análisis de Datos de Ventas&lt;/h1>
+&lt;p>En este ejercicio, se realizará un análisis de datos de ventas utilizando técnicas de estadística descriptiva y visualización de datos. El objetivo es identificar patrones y tendencias en los datos proporcionados, así como generar visualizaciones que faciliten la interpretación de los resultados.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ol>
+&lt;li>Aplicar técnicas de estadística descriptiva para resumir los datos de ventas.&lt;/li>
+&lt;li>Generar visualizaciones que representen de manera clara las tendencias y patrones en los datos.&lt;/li>
+&lt;li>Interpretar los resultados obtenidos y extraer conclusiones relevantes.&lt;/li>
+&lt;/ol>
+&lt;h2 id="tipo-de-ejercicio">Tipo de Ejercicio&lt;/h2>
+&lt;p>Análisis de datos.&lt;/p></description></item><item><title>Ejercicio 6: Corrección de Errores Comunes en Python</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/06/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/06/</guid><description>&lt;h1 id="ejercicio-6-corrección-de-errores-comunes-en-python">Ejercicio 6: Corrección de Errores Comunes en Python&lt;/h1>
+&lt;p>Este ejercicio está diseñado para que los estudiantes experimenten y resuelvan los errores más frecuentes al programar en Python. A través de la corrección de estos errores, se busca mejorar la comprensión de los conceptos básicos y avanzados de Python.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Identificar y corregir errores comunes en Python.&lt;/li>
+&lt;li>Comprender la naturaleza de los errores y cómo evitarlos en el futuro.&lt;/li>
+&lt;li>Desarrollar habilidades de depuración y resolución de problemas.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Código Python con errores predefinidos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;p>A continuación se presenta el código base con errores comunes. Cada línea contiene un error que debe ser corregido. Las pistas están proporcionadas en los comentarios.&lt;/p></description></item><item><title>Ejercicio 60: Análisis de Datos de Ventas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/60/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/60/</guid><description>&lt;h1 id="ejercicio-60-análisis-de-datos-de-ventas">Ejercicio 60: Análisis de Datos de Ventas&lt;/h1>
+&lt;p>En este ejercicio, se realizará un análisis de datos de ventas utilizando técnicas de estadística descriptiva y visualización de datos. El objetivo es identificar patrones y tendencias en los datos de ventas de una empresa ficticia. Este ejercicio es de tipo práctico y se espera como resultado un reporte que incluya visualizaciones y análisis descriptivo. La dificultad es intermedia.&lt;/p>
+&lt;h2 id="introducción">Introducción&lt;/h2>
+&lt;p>El análisis de datos de ventas es fundamental para comprender el comportamiento del mercado y tomar decisiones informadas. En este ejercicio, se trabajará con un conjunto de datos que contiene información sobre las ventas de productos de una empresa ficticia durante un año. Se espera que los estudiantes apliquen técnicas de estadística descriptiva y generen visualizaciones para identificar patrones y tendencias en los datos.&lt;/p></description></item><item><title>Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/07/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/07/</guid><description>&lt;h1 id="ejercicio-7-de-listas-anidadas-a-arrays-y-dataframes">Ejercicio 7: De Listas Anidadas a Arrays y DataFrames&lt;/h1>
+&lt;p>En este ejercicio, los estudiantes explorarán las dificultades de trabajar con listas de listas, cómo NumPy puede facilitar las operaciones y, finalmente, comprenderán por qué Pandas es la herramienta ideal para manipular datos estructurados.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Experimentar con listas de listas en Python.&lt;/li>
+&lt;li>Convertir listas de listas a arrays utilizando NumPy.&lt;/li>
+&lt;li>Manipular datos estructurados utilizando Pandas.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Una lista de listas que contiene información de empleados:
+&lt;ul>
+&lt;li>&lt;strong>DNI&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Edad&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cantidad de Hijos&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Salario&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>empleados = [
+ [20222333, 45, 2, 20000],
+ [33456234, 40, 0, 25000],
+ [45432345, 41, 1, 10000],
+ [43967304, 37, 0, 12000],
+ [42236276, 36, 0, 18000]
+]
+&lt;/code>&lt;/pre>&lt;h2 id="ejercicio">Ejercicio&lt;/h2>
+&lt;h3 id="1-manipulación-de-listas-de-listas">1. Manipulación de Listas de Listas&lt;/h3>
+&lt;h4 id="tareas">Tareas&lt;/h4>
+&lt;ul>
+&lt;li>Filtrar manualmente los empleados que ganan más de $15,000.&lt;/li>
+&lt;li>Calcular el salario promedio de la lista.&lt;/li>
+&lt;li>Obtener el DNI del empleado más joven.&lt;/li>
+&lt;/ul>
+&lt;h4 id="código-base">Código Base&lt;/h4>
+&lt;pre tabindex="0">&lt;code># TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h3 id="2-convertir-a-un-numpy-array">2. Convertir a un NumPy Array&lt;/h3>
+&lt;h4 id="tareas-1">Tareas&lt;/h4>
+&lt;ul>
+&lt;li>Convertir la lista a un &lt;code>NumPy array&lt;/code>.&lt;/li>
+&lt;li>Usar NumPy para filtrar los empleados con salario mayor a $15,000.&lt;/li>
+&lt;li>Calcular la media del salario.&lt;/li>
+&lt;li>Obtener el DNI del empleado más joven.&lt;/li>
+&lt;/ul>
+&lt;h4 id="código-base-1">Código Base&lt;/h4>
+&lt;pre tabindex="0">&lt;code>import numpy as np
+
+empleados_array = np.array(empleados)
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h3 id="3-convertir-a-un-pandasdataframe">3. Convertir a un pandas.DataFrame&lt;/h3>
+&lt;h4 id="tareas-2">Tareas&lt;/h4>
+&lt;ul>
+&lt;li>Convertir el array a un &lt;code>pandas.DataFrame&lt;/code>.&lt;/li>
+&lt;li>Filtrar empleados con salario mayor a $15,000.&lt;/li>
+&lt;li>Obtener el salario promedio.&lt;/li>
+&lt;li>Encontrar el empleado más joven.&lt;/li>
+&lt;/ul>
+&lt;h4 id="código-base-2">Código Base&lt;/h4>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+
+df = pd.DataFrame(empleados_array, columns=[&amp;#34;DNI&amp;#34;, &amp;#34;Edad&amp;#34;, &amp;#34;Cantidad de Hijos&amp;#34;, &amp;#34;Salario&amp;#34;])
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;h3 id="ejemplo-de-prueba">Ejemplo de Prueba&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Listas de Listas&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 8: Maestría en Input/Output con Pandas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/08/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/08/</guid><description>&lt;h1 id="ejercicio-8-maestría-en-inputoutput-con-pandas">Ejercicio 8: Maestría en Input/Output con Pandas&lt;/h1>
+&lt;p>En este ejercicio, se busca que los estudiantes adquieran habilidades avanzadas en la manipulación de datos utilizando la biblioteca Pandas, específicamente en la conversión de datos entre múltiples formatos. Este ejercicio es de tipo práctico y tiene un nivel de dificultad intermedio. El resultado esperado es un código funcional que demuestre la capacidad de leer y escribir datos en diferentes formatos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Convertir datos entre múltiples formatos utilizando Pandas.&lt;/li>
+&lt;li>Demostrar dominio en la lectura y escritura de datos en formatos como CSV, JSON, Excel, Parquet, HTML, XML y SQL.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ol>
+&lt;li>Dataset Iris en formato CSV disponible en: &lt;a href="https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv">Iris Dataset&lt;/a>.&lt;/li>
+&lt;/ol>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+import sqlite3
+
+# 1️⃣ Cargar dataset en CSV
+df = pd.read_csv(&amp;#34;https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv&amp;#34;)
+
+# 2️⃣ Guardar en diferentes formatos
+df.to_json(&amp;#34;iris.json&amp;#34;, orient=&amp;#34;records&amp;#34;)
+df.to_excel(&amp;#34;iris.xlsx&amp;#34;, index=False)
+df.to_parquet(&amp;#34;iris.parquet&amp;#34;, index=False)
+df.to_html(&amp;#34;iris.html&amp;#34;, index=False)
+df.to_xml(&amp;#34;iris.xml&amp;#34;, index=False)
+
+# 3️⃣ Leer desde distintos formatos
+df_json = pd.read_json(&amp;#34;iris.json&amp;#34;)
+df_excel = pd.read_excel(&amp;#34;iris.xlsx&amp;#34;)
+df_parquet = pd.read_parquet(&amp;#34;iris.parquet&amp;#34;)
+df_html = pd.read_html(&amp;#34;iris.html&amp;#34;)[0]
+df_xml = pd.read_xml(&amp;#34;iris.xml&amp;#34;)
+
+# 4️⃣ Guardar y leer en SQL
+conn = sqlite3.connect(&amp;#34;:memory:&amp;#34;) # Base de datos temporal en memoria
+df.to_sql(&amp;#34;iris_table&amp;#34;, conn, index=False, if_exists=&amp;#34;replace&amp;#34;)
+df_sql = pd.read_sql(&amp;#34;SELECT * FROM iris_table&amp;#34;, conn)
+
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejecute el siguiente código para verificar que los datos se han cargado correctamente en múltiples formatos:&lt;/p></description></item><item><title>Ejercicio 9: Fundamentos de Pandas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/09/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/09/</guid><description>&lt;h1 id="ejercicio-9-fundamentos-de-pandas">Ejercicio 9: Fundamentos de Pandas&lt;/h1>
+&lt;p>En este ejercicio, se busca que los estudiantes se familiaricen con la biblioteca Pandas, aprendiendo a cargar, explorar y limpiar un conjunto de datos. Este ejercicio es de tipo práctico y se espera como resultado un código funcional. La dificultad es básica.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Cargar un dataset en un DataFrame utilizando Pandas.&lt;/li>
+&lt;li>Explorar el dataset para obtener información básica sobre su estructura y contenido.&lt;/li>
+&lt;li>Limpiar el dataset eliminando valores nulos y renombrando columnas para mayor claridad.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrada-de-datos">Entrada de Datos&lt;/h2>
+&lt;ul>
+&lt;li>Un archivo CSV que contiene información sobre árboles en parques.&lt;/li>
+&lt;/ul>
+&lt;h2 id="código-base">Código Base&lt;/h2>
+&lt;pre tabindex="0">&lt;code>import pandas as pd
+
+# Cargar el dataset de árboles en parques
+# TODO: Implementar
+
+# Inspeccionar las primeras 5 filas
+# TODO: Implementar
+
+# Mostrar las columnas y su tipo de dato
+# TODO: Implementar
+
+# Obtener estadísticas generales
+# TODO: Implementar
+
+# Identificar si hay valores nulos
+# TODO: Implementar
+
+# Renombrar algunas columnas para mayor claridad
+# TODO: Implementar
+
+# Eliminar filas con valores nulos
+# TODO: Implementar
+&lt;/code>&lt;/pre>&lt;h2 id="pruebas">Pruebas&lt;/h2>
+&lt;p>Ejemplo de cómo debería ser el resultado esperado:&lt;/p></description></item><item><title>Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/29/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/29/</guid><description>&lt;h1 id="ejercicio-de-modelado-de-base-de-datos-relacional---der-y-cardinalidades">Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades&lt;/h1>
+&lt;p>El presente ejercicio tiene como objetivo que los estudiantes analicen un conjunto de requisitos y diseñen un Diagrama Entidad-Relación (DER) que modele correctamente la estructura de datos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;ul>
+&lt;li>Analizar y comprender los requisitos de un sistema de información.&lt;/li>
+&lt;li>Diseñar un Diagrama Entidad-Relación (DER) que represente adecuadamente las entidades, relaciones y cardinalidades.&lt;/li>
+&lt;li>Aplicar conceptos de modelado de bases de datos relacionales, incluyendo entidades, atributos, relaciones y cardinalidades.&lt;/li>
+&lt;/ul>
+&lt;h2 id="parte-1-modelado-de-la-relación-entre-empleados-y-departamentos">Parte 1: Modelado de la Relación entre Empleados y Departamentos&lt;/h2>
+&lt;p>La universidad necesita organizar la información sobre empleados y los departamentos en los que trabajan.&lt;/p></description></item><item><title>Ejercicio: Consultas SQL sobre Vuelos y Reservas</title><link>https://matuteiglesias.github.io/ldd-uba/notebooks/37/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-uba/notebooks/37/</guid><description>&lt;h1 id="ejercicio-consultas-sql-sobre-vuelos-y-reservas">Ejercicio: Consultas SQL sobre Vuelos y Reservas&lt;/h1>
+&lt;p>Objetivo: Practicar consultas SQL sobre una base de datos relacional de vuelos, aeropuertos, pasajeros y reservas.&lt;/p>
+&lt;h2 id="esquema-de-la-base-de-datos">Esquema de la base de datos:&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>VUELO (Número, Origen, Destino, Salida)&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>AEROPUERTO (Código, Nombre, Ciudad)&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>PASAJERO (DNI, Nombre)&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>RESERVA (DNI, Nro_Vuelo, Fecha, Precio)&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="tareas">Tareas:&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Búsquedas básicas&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Obtener el &lt;strong>Código y Nombre&lt;/strong> de los aeropuertos ubicados en Londres.&lt;/li>
+&lt;li>Retornar la &lt;strong>ciudad de origen&lt;/strong> del vuelo número 165.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Filtrado y condiciones&lt;/strong>:&lt;/p></description></item></channel></rss>

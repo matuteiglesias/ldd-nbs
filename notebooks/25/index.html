@@ -1,0 +1,61 @@
+<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Ejercicio 25: Web Scraping y Almacenamiento en MongoDB - Ejercicios en Notebooks</title>
+<meta name=generator content="Hugo 0.145.0"><link href=https://matuteiglesias.github.io/ldd-uba//index.xml rel=alternate type=application/rss+xml><link rel=canonical href=https://matuteiglesias.github.io/ldd-uba/notebooks/25/><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-uba/css/theme.min.css><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-uba/css/chroma.min.css><script defer src=https://matuteiglesias.github.io/ldd-uba//js/fontawesome6/all.min.js></script><script src=https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin=anonymous></script><script src=https://matuteiglesias.github.io/ldd-uba/js/bundle.js></script><style>:root{}</style><meta property="og:url" content="https://matuteiglesias.github.io/ldd-uba/notebooks/25/"><meta property="og:site_name" content="Ejercicios en Notebooks"><meta property="og:title" content="Ejercicio 25: Web Scraping y Almacenamiento en MongoDB"><meta property="og:description" content='Ejercicio 25: Web Scraping y Almacenamiento en MongoDB Este ejercicio introduce a los estudiantes en la extracción de datos de la web mediante web scraping y su almacenamiento en una base de datos NoSQL (MongoDB).
+Objetivos Realizar web scraping para extraer datos de un sitio web de noticias. Convertir los datos extraídos en formato JSON. Almacenar los datos en una base de datos MongoDB. Realizar consultas en MongoDB para verificar los datos almacenados. Entrada de Datos URL de un sitio web de noticias, por ejemplo, “https://www.bbc.com/news". Datos extraídos: títulos y enlaces de artículos. Código Base Requerimientos Previos Antes de comenzar, instale las siguientes dependencias:'><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="notebooks"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ejercicio 25: Web Scraping y Almacenamiento en MongoDB"><meta name=twitter:description content='Ejercicio 25: Web Scraping y Almacenamiento en MongoDB Este ejercicio introduce a los estudiantes en la extracción de datos de la web mediante web scraping y su almacenamiento en una base de datos NoSQL (MongoDB).
+Objetivos Realizar web scraping para extraer datos de un sitio web de noticias. Convertir los datos extraídos en formato JSON. Almacenar los datos en una base de datos MongoDB. Realizar consultas en MongoDB para verificar los datos almacenados. Entrada de Datos URL de un sitio web de noticias, por ejemplo, “https://www.bbc.com/news". Datos extraídos: títulos y enlaces de artículos. Código Base Requerimientos Previos Antes de comenzar, instale las siguientes dependencias:'><meta itemprop=name content="Ejercicio 25: Web Scraping y Almacenamiento en MongoDB"><meta itemprop=description content='Ejercicio 25: Web Scraping y Almacenamiento en MongoDB Este ejercicio introduce a los estudiantes en la extracción de datos de la web mediante web scraping y su almacenamiento en una base de datos NoSQL (MongoDB).
+Objetivos Realizar web scraping para extraer datos de un sitio web de noticias. Convertir los datos extraídos en formato JSON. Almacenar los datos en una base de datos MongoDB. Realizar consultas en MongoDB para verificar los datos almacenados. Entrada de Datos URL de un sitio web de noticias, por ejemplo, “https://www.bbc.com/news". Datos extraídos: títulos y enlaces de artículos. Código Base Requerimientos Previos Antes de comenzar, instale las siguientes dependencias:'><meta itemprop=wordCount content="413"></head><body><div class=container><header><h1>Ejercicios en Notebooks</h1></header><div class=global-menu><nav><ul><li><a href=/ldd-uba/>Inicio</a></li><li><a href=/ldd-uba/notebooks/>Notebooks</a></li><li><a href=/ldd-uba/notebooks/python-pandas/>Python y Pandas</a></li><li><a href=/ldd-uba/notebooks/bases-de-datos/>Bases de Datos y SQL</a></li><li><a href=/ldd-uba/notebooks/visualizacion/>Visualización de Datos</a></li><li><a href=/ldd-uba/notebooks/estadistica/>Estadística y Probabilidad</a></li></ul></nav></div><div class=content-container><main><h1>Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</h1><h1 id=ejercicio-25-web-scraping-y-almacenamiento-en-mongodb>Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</h1><p>Este ejercicio introduce a los estudiantes en la extracción de datos de la web mediante web scraping y su almacenamiento en una base de datos NoSQL (MongoDB).</p><h2 id=objetivos>Objetivos</h2><ul><li>Realizar web scraping para extraer datos de un sitio web de noticias.</li><li>Convertir los datos extraídos en formato JSON.</li><li>Almacenar los datos en una base de datos MongoDB.</li><li>Realizar consultas en MongoDB para verificar los datos almacenados.</li></ul><h2 id=entrada-de-datos>Entrada de Datos</h2><ol><li>URL de un sitio web de noticias, por ejemplo, &ldquo;<a href=https://www.bbc.com/news%22>https://www.bbc.com/news"</a>.</li><li>Datos extraídos: títulos y enlaces de artículos.</li></ol><h2 id=código-base>Código Base</h2><h3 id=requerimientos-previos>Requerimientos Previos</h3><p>Antes de comenzar, instale las siguientes dependencias:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip install requests beautifulsoup4 pymongo
+</span></span></code></pre></div><p>Asegúrese de tener MongoDB instalado y ejecutándose en localhost. En sistemas Ubuntu/Debian, puede instalarlo con:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt update
+</span></span><span style=display:flex><span>sudo apt install -y mongodb
+</span></span><span style=display:flex><span>sudo systemctl start mongodb
+</span></span></code></pre></div><p>Para verificar que MongoDB está funcionando:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mongo --eval <span style=color:#e6db74>&#34;db.runCommand({ ping: 1 })&#34;</span>
+</span></span></code></pre></div><h3 id=1-obtener-y-analizar-datos-de-una-página-web>1. Obtener y Analizar Datos de una Página Web</h3><pre tabindex=0><code>import requests
+from bs4 import BeautifulSoup
+
+# URL de ejemplo
+url = &#34;https://www.bbc.com/news&#34;
+
+# Obtener HTML de la página
+response = requests.get(url)
+soup = BeautifulSoup(response.text, &#34;html.parser&#34;)
+
+# Extraer títulos y enlaces de noticias
+noticias = []
+for articulo in soup.find_all(&#34;a&#34;, class_=&#34;gs-c-promo-heading&#34;):
+    titulo = articulo.get_text(strip=True)
+    enlace = articulo[&#34;href&#34;]
+    if not enlace.startswith(&#34;http&#34;):
+        enlace = &#34;https://www.bbc.com&#34; + enlace
+    noticias.append({&#34;titulo&#34;: titulo, &#34;enlace&#34;: enlace})
+
+# Mostrar algunas noticias extraídas
+print(noticias[:5])
+</code></pre><h3 id=2-guardar-los-datos-en-un-archivo-json>2. Guardar los Datos en un Archivo JSON</h3><pre tabindex=0><code>import json
+
+# Guardar en un archivo JSON
+with open(&#34;noticias.json&#34;, &#34;w&#34;, encoding=&#34;utf-8&#34;) as file:
+    json.dump(noticias, file, indent=4, ensure_ascii=False)
+
+print(&#34;Noticias guardadas en noticias.json&#34;)
+</code></pre><h3 id=3-insertar-datos-en-mongodb>3. Insertar Datos en MongoDB</h3><pre tabindex=0><code>from pymongo import MongoClient
+
+# Conectar a MongoDB
+client = MongoClient(&#34;mongodb://localhost:27017/&#34;)
+
+# Crear base de datos y colección
+db = client[&#34;web_scraping&#34;]
+collection = db[&#34;noticias&#34;]
+
+# Cargar el JSON y guardarlo en MongoDB
+with open(&#34;noticias.json&#34;, &#34;r&#34;, encoding=&#34;utf-8&#34;) as file:
+    data = json.load(file)
+    collection.insert_many(data)
+
+print(&#34;Noticias insertadas en MongoDB&#34;)
+</code></pre><h3 id=4-consultar-la-base-de-datos>4. Consultar la Base de Datos</h3><pre tabindex=0><code># Ver cantidad de noticias almacenadas
+print(f&#34;Total de noticias almacenadas: {collection.count_documents({})}&#34;)
+
+# Mostrar 5 documentos sin el campo HTML
+for noticia in collection.find({}, {&#34;_id&#34;: 0, &#34;titulo&#34;: 1, &#34;enlace&#34;: 1}).limit(5):
+    print(noticia)
+</code></pre><h2 id=reflexión-final>Reflexión Final</h2><ol><li>¿Qué dificultades encontraste al extraer datos del HTML?</li><li>¿Cómo podrías mejorar la estructura del JSON almacenado?</li><li>¿Cómo manejarías un scraping con múltiples páginas?</li><li>¿En qué casos sería más útil MongoDB que una base relacional como PostgreSQL?</li></ol><h2 id=entrega-esperada>Entrega Esperada</h2><p>Un script en Python (<code>.py</code>) que:</p><ul><li>Realice scraping de un sitio de noticias.</li><li>Guarde los datos en un JSON.</li><li>Inserte el JSON en una colección de MongoDB.</li><li>Ejecute consultas para verificar la información almacenada.</li></ul><div class=edit-meta><br></div><nav class=pagination><a class="nav nav-prev" href=https://matuteiglesias.github.io/ldd-uba/notebooks/24/ title="Ejercicio 24: Comparación de Operaciones en Pandas y SQL"><i class="fas fa-arrow-left" aria-hidden=true></i>&nbsp;Prev - Ejercicio 24: Comparación de Operaciones en Pandas y SQL</a>
+<a class="nav nav-next" href=https://matuteiglesias.github.io/ldd-uba/notebooks/26/ title="Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)">Next - Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web) <i class="fas fa-arrow-right" aria-hidden=true></i></a></nav><footer><p class=powered>Powered by <a href=https://gohugo.io>Hugo</a>. Theme by <a href=https://themes.gohugo.io/hugo-theme-techdoc/>TechDoc</a>. Designed by <a href=https://github.com/thingsym/hugo-theme-techdoc>Thingsym</a>.</p></footer></main><div class=sidebar><div class=sidebar-footer></div></div></div><a href=# id=backtothetop-fixed class=backtothetop data-backtothetop-duration=600 data-backtothetop-easing=easeOutQuart data-backtothetop-fixed-fadein=1000 data-backtothetop-fixed-fadeout=1000 data-backtothetop-fixed-bottom=10 data-backtothetop-fixed-right=20><span class="fa-layers fa-fw"><i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i></span></a></div></body></html>

@@ -1,0 +1,44 @@
+<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python - Ejercicios en Notebooks</title>
+<meta name=generator content="Hugo 0.145.0"><link href=https://matuteiglesias.github.io/ldd-uba//index.xml rel=alternate type=application/rss+xml><link rel=canonical href=https://matuteiglesias.github.io/ldd-uba/notebooks/55/><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-uba/css/theme.min.css><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-uba/css/chroma.min.css><script defer src=https://matuteiglesias.github.io/ldd-uba//js/fontawesome6/all.min.js></script><script src=https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin=anonymous></script><script src=https://matuteiglesias.github.io/ldd-uba/js/bundle.js></script><style>:root{}</style><meta property="og:url" content="https://matuteiglesias.github.io/ldd-uba/notebooks/55/"><meta property="og:site_name" content="Ejercicios en Notebooks"><meta property="og:title" content="Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python"><meta property="og:description" content="Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python Introducción: En este ejercicio, se explorará el diseño, análisis y validación de un experimento A/B. El objetivo es evaluar si un nuevo diseño de página de pago en una empresa de e-commerce mejora la tasa de conversión de los usuarios. Se abordarán la formulación de hipótesis, la simulación de datos, la aplicación de pruebas estadísticas y la interpretación de resultados."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="notebooks"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python"><meta name=twitter:description content="Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python Introducción: En este ejercicio, se explorará el diseño, análisis y validación de un experimento A/B. El objetivo es evaluar si un nuevo diseño de página de pago en una empresa de e-commerce mejora la tasa de conversión de los usuarios. Se abordarán la formulación de hipótesis, la simulación de datos, la aplicación de pruebas estadísticas y la interpretación de resultados."><meta itemprop=name content="Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python"><meta itemprop=description content="Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python Introducción: En este ejercicio, se explorará el diseño, análisis y validación de un experimento A/B. El objetivo es evaluar si un nuevo diseño de página de pago en una empresa de e-commerce mejora la tasa de conversión de los usuarios. Se abordarán la formulación de hipótesis, la simulación de datos, la aplicación de pruebas estadísticas y la interpretación de resultados."><meta itemprop=wordCount content="329"></head><body><div class=container><header><h1>Ejercicios en Notebooks</h1></header><div class=global-menu><nav><ul><li><a href=/ldd-uba/>Inicio</a></li><li><a href=/ldd-uba/notebooks/>Notebooks</a></li><li><a href=/ldd-uba/notebooks/python-pandas/>Python y Pandas</a></li><li><a href=/ldd-uba/notebooks/bases-de-datos/>Bases de Datos y SQL</a></li><li><a href=/ldd-uba/notebooks/visualizacion/>Visualización de Datos</a></li><li><a href=/ldd-uba/notebooks/estadistica/>Estadística y Probabilidad</a></li></ul></nav></div><div class=content-container><main><h1>Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</h1><h1 id=ejercicio-55-diseño-y-evaluación-de-un-ab-testing-en-python>Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</h1><p>Introducción: En este ejercicio, se explorará el diseño, análisis y validación de un experimento A/B. El objetivo es evaluar si un nuevo diseño de página de pago en una empresa de e-commerce mejora la tasa de conversión de los usuarios. Se abordarán la formulación de hipótesis, la simulación de datos, la aplicación de pruebas estadísticas y la interpretación de resultados.</p><h2 id=objetivos>Objetivos</h2><ul><li>Simular datos de conversión para un experimento A/B.</li><li>Realizar un análisis exploratorio y visualización de datos.</li><li>Aplicar una prueba estadística para evaluar la significancia de los resultados.</li><li>Interpretar los resultados y tomar decisiones basadas en datos.</li></ul><h2 id=entrada-de-datos>Entrada de Datos</h2><ul><li>Simulación de 10,000 usuarios con conversiones siguiendo una distribución binomial.</li><li>Grupo A (Control): Conversión con tasa <code>p_A = 0.10</code>.</li><li>Grupo B (Tratamiento): Conversión con tasa <code>p_B = 0.12</code>.</li></ul><h2 id=código-base>Código Base</h2><pre tabindex=0><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import norm
+
+# Simulación de datos
+np.random.seed(42)
+
+# TODO: Implementar
+# Simular conversiones para el Grupo A
+conversiones_a = np.random.binomial(1, 0.10, 5000)
+
+# Simular conversiones para el Grupo B
+conversiones_b = np.random.binomial(1, 0.12, 5000)
+
+# Crear DataFrame
+datos = pd.DataFrame({
+    &#39;usuario_id&#39;: np.arange(1, 10001),
+    &#39;grupo&#39;: [&#39;A&#39;]*5000 + [&#39;B&#39;]*5000,
+    &#39;conversion&#39;: np.concatenate([conversiones_a, conversiones_b])
+})
+
+# Visualización de datos
+# TODO: Implementar
+</code></pre><h2 id=pruebas>Pruebas</h2><pre tabindex=0><code># Cálculo de tasas de conversión
+tasa_conversion_a = datos[datos[&#39;grupo&#39;] == &#39;A&#39;][&#39;conversion&#39;].mean()
+tasa_conversion_b = datos[datos[&#39;grupo&#39;] == &#39;B&#39;][&#39;conversion&#39;].mean()
+
+print(f&#34;Tasa de conversión Grupo A: {tasa_conversion_a:.2%}&#34;)
+print(f&#34;Tasa de conversión Grupo B: {tasa_conversion_b:.2%}&#34;)
+
+# Visualización
+plt.figure(figsize=(10, 5))
+sns.histplot(data=datos, x=&#39;conversion&#39;, hue=&#39;grupo&#39;, multiple=&#39;dodge&#39;, shrink=0.8)
+plt.title(&#39;Histograma de Conversiones por Grupo&#39;)
+plt.show()
+
+# Prueba estadística
+# TODO: Implementar
+</code></pre><h2 id=desafío-final>Desafío Final</h2><p>El desafío consiste en completar el análisis estadístico aplicando una prueba Z para proporciones, interpretando los resultados y tomando una decisión informada sobre si implementar el nuevo diseño de la página de pago. Se espera un reporte bien estructurado que incluya visualizaciones y una discusión sobre la importancia de las pruebas A/B en la toma de decisiones basada en datos.</p><div class=edit-meta><br></div><nav class=pagination><a class="nav nav-prev" href=https://matuteiglesias.github.io/ldd-uba/notebooks/54/ title="Ejercicio 54: Simulación del P-Value y Rechazo de H₀"><i class="fas fa-arrow-left" aria-hidden=true></i>&nbsp;Prev - Ejercicio 54: Simulación del P-Value y Rechazo de H₀</a>
+<a class="nav nav-next" href=https://matuteiglesias.github.io/ldd-uba/notebooks/56/ title="Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa">Next - Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa <i class="fas fa-arrow-right" aria-hidden=true></i></a></nav><footer><p class=powered>Powered by <a href=https://gohugo.io>Hugo</a>. Theme by <a href=https://themes.gohugo.io/hugo-theme-techdoc/>TechDoc</a>. Designed by <a href=https://github.com/thingsym/hugo-theme-techdoc>Thingsym</a>.</p></footer></main><div class=sidebar><div class=sidebar-footer></div></div></div><a href=# id=backtothetop-fixed class=backtothetop data-backtothetop-duration=600 data-backtothetop-easing=easeOutQuart data-backtothetop-fixed-fadein=1000 data-backtothetop-fixed-fadeout=1000 data-backtothetop-fixed-bottom=10 data-backtothetop-fixed-right=20><span class="fa-layers fa-fw"><i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i></span></a></div></body></html>
