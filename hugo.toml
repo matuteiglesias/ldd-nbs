@@ -2,7 +2,7 @@
 baseURL = "https://matuteiglesias.github.io/ldd-uba/"
 languageCode = "es"
 title = "Ejercicios en Notebooks"
-theme = "techdoc"
+theme = "techdoc-custom"
 
 
 [markup]
