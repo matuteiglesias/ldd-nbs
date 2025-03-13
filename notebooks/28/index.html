@@ -1,391 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
-<head><script src="/ldd-uba/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ldd-uba/livereload" data-no-instant defer></script><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Ejercicio 28: Normalización - De CSV a Base de Datos Relacional - Ejercicios en Notebooks</title>
-<meta name="generator" content="Hugo 0.145.0">
-<link href="http://localhost:1313/ldd-uba//index.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="http://localhost:1313/ldd-uba/notebooks/28/">
-<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/theme.min.css">
-<link rel="stylesheet" href="http://localhost:1313/ldd-uba/css/chroma.min.css">
-<script defer src="http://localhost:1313/ldd-uba//js/fontawesome6/all.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
-<script src="http://localhost:1313/ldd-uba/js/bundle.js"></script><style>
-:root {}
-</style>
-<meta property="og:url" content="http://localhost:1313/ldd-uba/notebooks/28/">
-  <meta property="og:site_name" content="Ejercicios en Notebooks">
-  <meta property="og:title" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional">
-  <meta property="og:description" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.
-Objetivos Explorar y analizar un dataset desnormalizado en BigQuery. Aplicar el proceso de normalización hasta la tercera forma normal (3FN). Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas. Implementar el esquema normalizado en SQL y poblar las tablas con datos. Entrada de Datos Dataset: census_data.censo_2010_geo en BigQuery. Parte 1: Exploración del Dataset y Análisis de Redundancias Tareas Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset. Obtener el número total de filas y la cantidad de valores únicos por columna. Detectar redundancias en los identificadores geográficos. Ejemplo de consultas en SQL -- Contar filas totales en el dataset SELECT COUNT(*) AS total_rows FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; -- Contar valores únicos por nivel geográfico SELECT COUNT(DISTINCT PROV_REF_ID) AS unique_provinces, COUNT(DISTINCT DPTO_REF_ID) AS unique_departments, COUNT(DISTINCT FRAC_REF_ID) AS unique_fractions, COUNT(DISTINCT RADIO_REF_ID) AS unique_radios FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; Parte 2: Diseño Relacional Normalizado Tareas Aplicar normalización en tres fases (1FN, 2FN, 3FN). Separar los niveles geográficos en tablas independientes con claves primarias y foráneas. Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido. Normalización por Niveles Geográficos Nivel Clave Primaria (PK) Clave Foránea (FK) Provincia PROV_REF_ID - Departamento DPTO_REF_ID PROV_REF_ID Fracción FRAC_REF_ID DPTO_REF_ID Radio RADIO_REF_ID FRAC_REF_ID Parte 3: Creación del Esquema Normalizado en SQL Tareas Escribir el código SQL para crear las tablas normalizadas. Poblarlas con los datos desde BigQuery, asegurando integridad referencial. Código SQL CREATE TABLE Provincia ( PROV_REF_ID INT PRIMARY KEY, IDPROV INT UNIQUE, NOMPROV VARCHAR(100) ); CREATE TABLE Departamento ( DPTO_REF_ID INT PRIMARY KEY, IDDPTO INT UNIQUE, PROV_REF_ID INT, NOMDPTO VARCHAR(100), FOREIGN KEY (PROV_REF_ID) REFERENCES Provincia(PROV_REF_ID) ); CREATE TABLE Fraccion ( FRAC_REF_ID INT PRIMARY KEY, IDFRAC INT UNIQUE, DPTO_REF_ID INT, FOREIGN KEY (DPTO_REF_ID) REFERENCES Departamento(DPTO_REF_ID) ); CREATE TABLE Radio ( RADIO_REF_ID INT PRIMARY KEY, IDRADIO INT UNIQUE, FRAC_REF_ID INT, FOREIGN KEY (FRAC_REF_ID) REFERENCES Fraccion(FRAC_REF_ID) ); Parte 4: Inserción de Datos y Verificación Tareas Insertar datos extraídos de BigQuery en las nuevas tablas. Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente. Ejemplo de consulta para verificar la normalización -- Contar cuántos departamentos tiene cada provincia SELECT p.NOMPROV, COUNT(d.DPTO_REF_ID) AS total_departamentos FROM Provincia p JOIN Departamento d ON p.PROV_REF_ID = d.PROV_REF_ID GROUP BY p.NOMPROV; -- Verificar la estructura de fracciones dentro de un departamento específico SELECT d.NOMDPTO, COUNT(f.FRAC_REF_ID) AS total_fracciones FROM Departamento d JOIN Fraccion f ON d.DPTO_REF_ID = f.DPTO_REF_ID WHERE d.NOMDPTO = &#39;Buenos Aires&#39; GROUP BY d.NOMDPTO; Reflexión y Preguntas Finales ¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta? ¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido? ¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región? Entrega Esperada Esquema en DBML o en Draw.io con el modelo normalizado. Código SQL para crear y poblar las tablas. Consultas en BigQuery que justifiquen las decisiones de normalización. Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional.">
-  <meta property="og:locale" content="es">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="notebooks">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional">
-  <meta name="twitter:description" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.
-Objetivos Explorar y analizar un dataset desnormalizado en BigQuery. Aplicar el proceso de normalización hasta la tercera forma normal (3FN). Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas. Implementar el esquema normalizado en SQL y poblar las tablas con datos. Entrada de Datos Dataset: census_data.censo_2010_geo en BigQuery. Parte 1: Exploración del Dataset y Análisis de Redundancias Tareas Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset. Obtener el número total de filas y la cantidad de valores únicos por columna. Detectar redundancias en los identificadores geográficos. Ejemplo de consultas en SQL -- Contar filas totales en el dataset SELECT COUNT(*) AS total_rows FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; -- Contar valores únicos por nivel geográfico SELECT COUNT(DISTINCT PROV_REF_ID) AS unique_provinces, COUNT(DISTINCT DPTO_REF_ID) AS unique_departments, COUNT(DISTINCT FRAC_REF_ID) AS unique_fractions, COUNT(DISTINCT RADIO_REF_ID) AS unique_radios FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; Parte 2: Diseño Relacional Normalizado Tareas Aplicar normalización en tres fases (1FN, 2FN, 3FN). Separar los niveles geográficos en tablas independientes con claves primarias y foráneas. Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido. Normalización por Niveles Geográficos Nivel Clave Primaria (PK) Clave Foránea (FK) Provincia PROV_REF_ID - Departamento DPTO_REF_ID PROV_REF_ID Fracción FRAC_REF_ID DPTO_REF_ID Radio RADIO_REF_ID FRAC_REF_ID Parte 3: Creación del Esquema Normalizado en SQL Tareas Escribir el código SQL para crear las tablas normalizadas. Poblarlas con los datos desde BigQuery, asegurando integridad referencial. Código SQL CREATE TABLE Provincia ( PROV_REF_ID INT PRIMARY KEY, IDPROV INT UNIQUE, NOMPROV VARCHAR(100) ); CREATE TABLE Departamento ( DPTO_REF_ID INT PRIMARY KEY, IDDPTO INT UNIQUE, PROV_REF_ID INT, NOMDPTO VARCHAR(100), FOREIGN KEY (PROV_REF_ID) REFERENCES Provincia(PROV_REF_ID) ); CREATE TABLE Fraccion ( FRAC_REF_ID INT PRIMARY KEY, IDFRAC INT UNIQUE, DPTO_REF_ID INT, FOREIGN KEY (DPTO_REF_ID) REFERENCES Departamento(DPTO_REF_ID) ); CREATE TABLE Radio ( RADIO_REF_ID INT PRIMARY KEY, IDRADIO INT UNIQUE, FRAC_REF_ID INT, FOREIGN KEY (FRAC_REF_ID) REFERENCES Fraccion(FRAC_REF_ID) ); Parte 4: Inserción de Datos y Verificación Tareas Insertar datos extraídos de BigQuery en las nuevas tablas. Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente. Ejemplo de consulta para verificar la normalización -- Contar cuántos departamentos tiene cada provincia SELECT p.NOMPROV, COUNT(d.DPTO_REF_ID) AS total_departamentos FROM Provincia p JOIN Departamento d ON p.PROV_REF_ID = d.PROV_REF_ID GROUP BY p.NOMPROV; -- Verificar la estructura de fracciones dentro de un departamento específico SELECT d.NOMDPTO, COUNT(f.FRAC_REF_ID) AS total_fracciones FROM Departamento d JOIN Fraccion f ON d.DPTO_REF_ID = f.DPTO_REF_ID WHERE d.NOMDPTO = &#39;Buenos Aires&#39; GROUP BY d.NOMDPTO; Reflexión y Preguntas Finales ¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta? ¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido? ¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región? Entrega Esperada Esquema en DBML o en Draw.io con el modelo normalizado. Código SQL para crear y poblar las tablas. Consultas en BigQuery que justifiquen las decisiones de normalización. Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional.">
-
-  <meta itemprop="name" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional">
-  <meta itemprop="description" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.
-Objetivos Explorar y analizar un dataset desnormalizado en BigQuery. Aplicar el proceso de normalización hasta la tercera forma normal (3FN). Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas. Implementar el esquema normalizado en SQL y poblar las tablas con datos. Entrada de Datos Dataset: census_data.censo_2010_geo en BigQuery. Parte 1: Exploración del Dataset y Análisis de Redundancias Tareas Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset. Obtener el número total de filas y la cantidad de valores únicos por columna. Detectar redundancias en los identificadores geográficos. Ejemplo de consultas en SQL -- Contar filas totales en el dataset SELECT COUNT(*) AS total_rows FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; -- Contar valores únicos por nivel geográfico SELECT COUNT(DISTINCT PROV_REF_ID) AS unique_provinces, COUNT(DISTINCT DPTO_REF_ID) AS unique_departments, COUNT(DISTINCT FRAC_REF_ID) AS unique_fractions, COUNT(DISTINCT RADIO_REF_ID) AS unique_radios FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; Parte 2: Diseño Relacional Normalizado Tareas Aplicar normalización en tres fases (1FN, 2FN, 3FN). Separar los niveles geográficos en tablas independientes con claves primarias y foráneas. Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido. Normalización por Niveles Geográficos Nivel Clave Primaria (PK) Clave Foránea (FK) Provincia PROV_REF_ID - Departamento DPTO_REF_ID PROV_REF_ID Fracción FRAC_REF_ID DPTO_REF_ID Radio RADIO_REF_ID FRAC_REF_ID Parte 3: Creación del Esquema Normalizado en SQL Tareas Escribir el código SQL para crear las tablas normalizadas. Poblarlas con los datos desde BigQuery, asegurando integridad referencial. Código SQL CREATE TABLE Provincia ( PROV_REF_ID INT PRIMARY KEY, IDPROV INT UNIQUE, NOMPROV VARCHAR(100) ); CREATE TABLE Departamento ( DPTO_REF_ID INT PRIMARY KEY, IDDPTO INT UNIQUE, PROV_REF_ID INT, NOMDPTO VARCHAR(100), FOREIGN KEY (PROV_REF_ID) REFERENCES Provincia(PROV_REF_ID) ); CREATE TABLE Fraccion ( FRAC_REF_ID INT PRIMARY KEY, IDFRAC INT UNIQUE, DPTO_REF_ID INT, FOREIGN KEY (DPTO_REF_ID) REFERENCES Departamento(DPTO_REF_ID) ); CREATE TABLE Radio ( RADIO_REF_ID INT PRIMARY KEY, IDRADIO INT UNIQUE, FRAC_REF_ID INT, FOREIGN KEY (FRAC_REF_ID) REFERENCES Fraccion(FRAC_REF_ID) ); Parte 4: Inserción de Datos y Verificación Tareas Insertar datos extraídos de BigQuery en las nuevas tablas. Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente. Ejemplo de consulta para verificar la normalización -- Contar cuántos departamentos tiene cada provincia SELECT p.NOMPROV, COUNT(d.DPTO_REF_ID) AS total_departamentos FROM Provincia p JOIN Departamento d ON p.PROV_REF_ID = d.PROV_REF_ID GROUP BY p.NOMPROV; -- Verificar la estructura de fracciones dentro de un departamento específico SELECT d.NOMDPTO, COUNT(f.FRAC_REF_ID) AS total_fracciones FROM Departamento d JOIN Fraccion f ON d.DPTO_REF_ID = f.DPTO_REF_ID WHERE d.NOMDPTO = &#39;Buenos Aires&#39; GROUP BY d.NOMDPTO; Reflexión y Preguntas Finales ¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta? ¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido? ¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región? Entrega Esperada Esquema en DBML o en Draw.io con el modelo normalizado. Código SQL para crear y poblar las tablas. Consultas en BigQuery que justifiquen las decisiones de normalización. Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional.">
-  <meta itemprop="wordCount" content="550"></head>
-<body>
-
-<div class="container"><header>
-<h1>Ejercicios en Notebooks</h1>
-</header>
-<div class="global-menu">
-<nav>
-<ul>
-<li class=""><a href="/ldd-uba/">Inicio</a></li>
-<li class=""><a href="/ldd-uba/notebooks/">Notebooks</a></li>
-<li class=""><a href="/ldd-uba/notebooks/python-pandas/">Python y Pandas</a></li>
-<li class=""><a href="/ldd-uba/notebooks/bases-de-datos/">Bases de Datos y SQL</a></li>
-<li class=""><a href="/ldd-uba/notebooks/visualizacion/">Visualización de Datos</a></li>
-<li class=""><a href="/ldd-uba/notebooks/estadistica/">Estadística y Probabilidad</a></li></ul>
-</nav>
-</div>
-
-<div class="content-container">
-<main><div class="content-container">
-
-    
-    <aside class="sidebar">
-        <h3>📑 Contenidos</h3>
-        
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#objetivos">Objetivos</a></li>
-    <li><a href="#entrada-de-datos">Entrada de Datos</a></li>
-    <li><a href="#parte-1-exploración-del-dataset-y-análisis-de-redundancias">Parte 1: Exploración del Dataset y Análisis de Redundancias</a>
-      <ul>
-        <li><a href="#tareas">Tareas</a></li>
-        <li><a href="#ejemplo-de-consultas-en-sql">Ejemplo de consultas en SQL</a></li>
-      </ul>
-    </li>
-    <li><a href="#parte-2-diseño-relacional-normalizado">Parte 2: Diseño Relacional Normalizado</a>
-      <ul>
-        <li><a href="#tareas-1">Tareas</a></li>
-        <li><a href="#normalización-por-niveles-geográficos">Normalización por Niveles Geográficos</a></li>
-      </ul>
-    </li>
-    <li><a href="#parte-3-creación-del-esquema-normalizado-en-sql">Parte 3: Creación del Esquema Normalizado en SQL</a>
-      <ul>
-        <li><a href="#tareas-2">Tareas</a></li>
-        <li><a href="#código-sql">Código SQL</a></li>
-      </ul>
-    </li>
-    <li><a href="#parte-4-inserción-de-datos-y-verificación">Parte 4: Inserción de Datos y Verificación</a>
-      <ul>
-        <li><a href="#tareas-3">Tareas</a></li>
-        <li><a href="#ejemplo-de-consulta-para-verificar-la-normalización">Ejemplo de consulta para verificar la normalización</a></li>
-      </ul>
-    </li>
-    <li><a href="#reflexión-y-preguntas-finales">Reflexión y Preguntas Finales</a></li>
-    <li><a href="#entrega-esperada">Entrega Esperada</a></li>
-  </ul>
-</nav>
-        
-        
-        <h3>📂 Otros Notebooks</h3>
-        <ul>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/01/">Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/02/">Ejercicio 2: Traductor Geringoso y Clases en Python</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/03/">Ejercicio 3: Simulación de Rebotes y Tablas de Multiplicar sin Multiplicar</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/04/">Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/05/">Ejercicio 5: Cálculo de una Hipoteca con Pagos Extras</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/06/">Ejercicio 6: Corrección de Errores Comunes en Python</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/07/">Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/08/">Ejercicio 8: Maestría en Input/Output con Pandas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/09/">Ejercicio 9: Fundamentos de Pandas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/10/">Ejercicio 10: Indexación y Filtrado</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/11/">Ejercicio 11: Combinación de Datos</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/12/">Ejercicio 12: Agregaciones y Análisis</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/13/">Ejercicio 13: Agrupación y Transformaciones en Pandas con el Dataset Diamonds</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/14/">Ejercicio 14: Análisis de Datos y Visualización con Python</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/15/">Ejercicio 15: Análisis de Datos Temporales con Pandas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/16/">Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/17/">Ejercicio 17: Cargando un Google Sheet como un DataFrame en Python desde Google Cloud Platform (GCP)</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/18/">Ejercicio 18: Limpieza y Visualización de Datos Geoespaciales con GeoPandas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/19/">Ejercicio 19: Limpieza y Análisis Exploratorio de Datos (EDA) en Pandas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/20/">Ejercicio 20: Instalación y Configuración de PostgreSQL en Sistemas Operativos Comunes</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/21/">Ejercicio 21: Exploración y Consulta de Datos en PostgreSQL con DBeaver</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/22/">Ejercicio 22: Administración y Consultas en PostgreSQL con pgAdmin</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/23/">Conexiones a Bases de Datos desde Python</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/24/">Ejercicio 24: Comparación de Operaciones en Pandas y SQL</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/25/">Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/26/">Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/27/">Ejercicio 27: Modelado de Bases de Datos con DBML</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/28/">Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/29/">Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/30/">Ejercicio 30: Diseño de DER para una Productora de Cine</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/31/">Ejercicio 31: Mapeo al Modelo Relacional</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/32/">Ejercicio 32: Mapeo de un Diagrama Entidad-Relación al Modelo Relacional</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/33/">Ejercicio 33: Modelado Entidad-Relación para Bases de Datos MAIL_ORDER y MOVIE</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/34/">Ejercicio 34: Modelado de la Base de Datos GRADE_BOOK</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/35/">Ejercicio 35: Modelado de la Base de Datos ONLINE_AUCTION</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/36/">Ejercicio 36: Modelado de la Base de Datos de una Liga de Hockey Femenino</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/37/">Ejercicio: Consultas SQL sobre Vuelos y Reservas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/38/">Ejercicio 38: Gestión de Notas de Examen</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/39/">Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/40/">Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/41/">Ejercicio 41: Consultas y Actualizaciones SQL en Bases de Datos Relacionales</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/42/">Ejercicio 42: Análisis y Visualización de Datos con Gráficos en Pandas y Seaborn</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/43/">Ejercicio 43: Análisis Visual de Datos con Penguins e Iris</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/44/">Ejercicio 44: Limpieza y Manejo de Datos Faltantes, Duplicados y Variables Categóricas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/45/">Ejercicio 45: Análisis Estadístico y Visualización de Datos con `tips` y `ventaCasas`</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/46/">Ejercicio 46: Implementación Manual de Regresión Lineal con NumPy</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/47/">Ejercicio 47: Análisis de Correlaciones y Visualización con Heatmaps</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/48/">Ejercicio 48: Construcción y Análisis de Redes Basadas en Similitud</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/49/">Ejercicio 49: Creación de Figuras Científicas de Publicación con Matplotlib</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/50/">Ejercicio 50: Creación de un Reporte Exploratorio con Python y Markdown</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/51/">Ejercicio 51: Contar Historias con Datos - Más Allá de los Gráficos</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/52/">Ejercicio 52: Simulación de la Paradoja del Cumpleaños</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/53/">Ejercicio 53: Ley de los Grandes Números en Acción</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/54/">Ejercicio 54: Simulación del P-Value y Rechazo de H₀</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/55/">Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/56/">Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/57/">Ejercicio 57: Regresión Lineal Simple en Datos Reales</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/58/">Ejercicio 58: Evaluación de Suposiciones de la Regresión Lineal</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/59/">Ejercicio 59: Análisis de Datos de Ventas</a></li>
-            
-                <li><a href="http://localhost:1313/ldd-uba/notebooks/60/">Ejercicio 60: Análisis de Datos de Ventas</a></li>
-            
-        </ul>
-        
-
-    </aside>
-
-    
-    
-    <div class="main-content" style="margin-left: 20px; padding-left: 10px; max-width: 80%;">
-        <h1 id="ejercicio-28-normalización---de-csv-a-base-de-datos-relacional">Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</h1>
-<p>Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.</p>
-<h2 id="objetivos">Objetivos</h2>
-<ol>
-<li>Explorar y analizar un dataset desnormalizado en BigQuery.</li>
-<li>Aplicar el proceso de normalización hasta la tercera forma normal (3FN).</li>
-<li>Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas.</li>
-<li>Implementar el esquema normalizado en SQL y poblar las tablas con datos.</li>
-</ol>
-<h2 id="entrada-de-datos">Entrada de Datos</h2>
-<ul>
-<li>Dataset: <code>census_data.censo_2010_geo</code> en BigQuery.</li>
-</ul>
-<h2 id="parte-1-exploración-del-dataset-y-análisis-de-redundancias">Parte 1: Exploración del Dataset y Análisis de Redundancias</h2>
-<h3 id="tareas">Tareas</h3>
-<ol>
-<li>Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset.</li>
-<li>Obtener el número total de filas y la cantidad de valores únicos por columna.</li>
-<li>Detectar redundancias en los identificadores geográficos.</li>
-</ol>
-<h3 id="ejemplo-de-consultas-en-sql">Ejemplo de consultas en SQL</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Contar filas totales en el dataset
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> total_rows
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#f92672">`</span>argentinianpovertyatlas.census_data.censo_2010_geo<span style="color:#f92672">`</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Contar valores únicos por nivel geográfico
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> PROV_REF_ID) <span style="color:#66d9ef">AS</span> unique_provinces,
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> DPTO_REF_ID) <span style="color:#66d9ef">AS</span> unique_departments,
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> FRAC_REF_ID) <span style="color:#66d9ef">AS</span> unique_fractions,
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> RADIO_REF_ID) <span style="color:#66d9ef">AS</span> unique_radios
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#f92672">`</span>argentinianpovertyatlas.census_data.censo_2010_geo<span style="color:#f92672">`</span>;
-</span></span></code></pre></div><h2 id="parte-2-diseño-relacional-normalizado">Parte 2: Diseño Relacional Normalizado</h2>
-<h3 id="tareas-1">Tareas</h3>
-<ol>
-<li>Aplicar normalización en tres fases (1FN, 2FN, 3FN).</li>
-<li>Separar los niveles geográficos en tablas independientes con claves primarias y foráneas.</li>
-<li>Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido.</li>
-</ol>
-<h3 id="normalización-por-niveles-geográficos">Normalización por Niveles Geográficos</h3>
-<table>
-  <thead>
-      <tr>
-          <th>Nivel</th>
-          <th>Clave Primaria (PK)</th>
-          <th>Clave Foránea (FK)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Provincia</td>
-          <td><code>PROV_REF_ID</code></td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>Departamento</td>
-          <td><code>DPTO_REF_ID</code></td>
-          <td><code>PROV_REF_ID</code></td>
-      </tr>
-      <tr>
-          <td>Fracción</td>
-          <td><code>FRAC_REF_ID</code></td>
-          <td><code>DPTO_REF_ID</code></td>
-      </tr>
-      <tr>
-          <td>Radio</td>
-          <td><code>RADIO_REF_ID</code></td>
-          <td><code>FRAC_REF_ID</code></td>
-      </tr>
-  </tbody>
-</table>
-<h2 id="parte-3-creación-del-esquema-normalizado-en-sql">Parte 3: Creación del Esquema Normalizado en SQL</h2>
-<h3 id="tareas-2">Tareas</h3>
-<ol>
-<li>Escribir el código SQL para crear las tablas normalizadas.</li>
-<li>Poblarlas con los datos desde BigQuery, asegurando integridad referencial.</li>
-</ol>
-<h3 id="código-sql">Código SQL</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Provincia (
-</span></span><span style="display:flex;"><span>  PROV_REF_ID INT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-</span></span><span style="display:flex;"><span>  IDPROV INT <span style="color:#66d9ef">UNIQUE</span>,
-</span></span><span style="display:flex;"><span>  NOMPROV VARCHAR(<span style="color:#ae81ff">100</span>)
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Departamento (
-</span></span><span style="display:flex;"><span>  DPTO_REF_ID INT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-</span></span><span style="display:flex;"><span>  IDDPTO INT <span style="color:#66d9ef">UNIQUE</span>,
-</span></span><span style="display:flex;"><span>  PROV_REF_ID INT,
-</span></span><span style="display:flex;"><span>  NOMDPTO VARCHAR(<span style="color:#ae81ff">100</span>),
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (PROV_REF_ID) <span style="color:#66d9ef">REFERENCES</span> Provincia(PROV_REF_ID)
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Fraccion (
-</span></span><span style="display:flex;"><span>  FRAC_REF_ID INT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-</span></span><span style="display:flex;"><span>  IDFRAC INT <span style="color:#66d9ef">UNIQUE</span>,
-</span></span><span style="display:flex;"><span>  DPTO_REF_ID INT,
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (DPTO_REF_ID) <span style="color:#66d9ef">REFERENCES</span> Departamento(DPTO_REF_ID)
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Radio (
-</span></span><span style="display:flex;"><span>  RADIO_REF_ID INT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-</span></span><span style="display:flex;"><span>  IDRADIO INT <span style="color:#66d9ef">UNIQUE</span>,
-</span></span><span style="display:flex;"><span>  FRAC_REF_ID INT,
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (FRAC_REF_ID) <span style="color:#66d9ef">REFERENCES</span> Fraccion(FRAC_REF_ID)
-</span></span><span style="display:flex;"><span>);
-</span></span></code></pre></div><h2 id="parte-4-inserción-de-datos-y-verificación">Parte 4: Inserción de Datos y Verificación</h2>
-<h3 id="tareas-3">Tareas</h3>
-<ol>
-<li>Insertar datos extraídos de BigQuery en las nuevas tablas.</li>
-<li>Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente.</li>
-</ol>
-<h3 id="ejemplo-de-consulta-para-verificar-la-normalización">Ejemplo de consulta para verificar la normalización</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Contar cuántos departamentos tiene cada provincia
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> p.NOMPROV, <span style="color:#66d9ef">COUNT</span>(d.DPTO_REF_ID) <span style="color:#66d9ef">AS</span> total_departamentos
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> Provincia p
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">JOIN</span> Departamento d <span style="color:#66d9ef">ON</span> p.PROV_REF_ID <span style="color:#f92672">=</span> d.PROV_REF_ID
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> p.NOMPROV;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Verificar la estructura de fracciones dentro de un departamento específico
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> d.NOMDPTO, <span style="color:#66d9ef">COUNT</span>(f.FRAC_REF_ID) <span style="color:#66d9ef">AS</span> total_fracciones
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> Departamento d
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">JOIN</span> Fraccion f <span style="color:#66d9ef">ON</span> d.DPTO_REF_ID <span style="color:#f92672">=</span> f.DPTO_REF_ID
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> d.NOMDPTO <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Buenos Aires&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> d.NOMDPTO;
-</span></span></code></pre></div><h2 id="reflexión-y-preguntas-finales">Reflexión y Preguntas Finales</h2>
-<ol>
-<li>¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta?</li>
-<li>¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido?</li>
-<li>¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región?</li>
-</ol>
-<h2 id="entrega-esperada">Entrega Esperada</h2>
-<ul>
-<li>Esquema en DBML o en Draw.io con el modelo normalizado.</li>
-<li>Código SQL para crear y poblar las tablas.</li>
-<li>Consultas en BigQuery que justifiquen las decisiones de normalización.</li>
-</ul>
-<p>Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional.</p>
-<div class="edit-meta">
-
-<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/ldd-uba/notebooks/27/" title="Ejercicio 27: Modelado de Bases de Datos con DBML"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Ejercicio 27: Modelado de Bases de Datos con DBML</a>
-<a class="nav nav-next" href="http://localhost:1313/ldd-uba/notebooks/29/" title="Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades">Next - Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-</nav>
-
-</article>
-
-</div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
-</footer>
-</main>
-
-
-
-
-
-</div><a href="#" id="backtothetop-fixed" class="backtothetop"
- data-backtothetop-duration="600"
- data-backtothetop-easing="easeOutQuart"
- data-backtothetop-fixed-fadeIn="1000"
- data-backtothetop-fixed-fadeOut="1000"
- data-backtothetop-fixed-bottom="10"
- data-backtothetop-fixed-right="20">
-<span class="fa-layers fa-fw">
-<i class="fas fa-circle"></i>
-<i class="fas fa-arrow-circle-up"></i>
-</span></a>
-</div>
-</body>
-</html>
+<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Ejercicio 28: Normalización - De CSV a Base de Datos Relacional - Ejercicios en Notebooks</title>
+<meta name=generator content="Hugo 0.145.0"><link href=https://matuteiglesias.github.io/ldd-uba//index.xml rel=alternate type=application/rss+xml><link rel=canonical href=https://matuteiglesias.github.io/ldd-uba/notebooks/28/><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-uba/css/theme.min.css><link rel=stylesheet href=https://matuteiglesias.github.io/ldd-uba/css/chroma.min.css><script defer src=https://matuteiglesias.github.io/ldd-uba//js/fontawesome6/all.min.js></script><script src=https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin=anonymous></script><script src=https://matuteiglesias.github.io/ldd-uba/js/bundle.js></script><style>:root{}</style><meta property="og:url" content="https://matuteiglesias.github.io/ldd-uba/notebooks/28/"><meta property="og:site_name" content="Ejercicios en Notebooks"><meta property="og:title" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional"><meta property="og:description" content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.
+Objetivos Explorar y analizar un dataset desnormalizado en BigQuery. Aplicar el proceso de normalización hasta la tercera forma normal (3FN). Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas. Implementar el esquema normalizado en SQL y poblar las tablas con datos. Entrada de Datos Dataset: census_data.censo_2010_geo en BigQuery. Parte 1: Exploración del Dataset y Análisis de Redundancias Tareas Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset. Obtener el número total de filas y la cantidad de valores únicos por columna. Detectar redundancias en los identificadores geográficos. Ejemplo de consultas en SQL -- Contar filas totales en el dataset SELECT COUNT(*) AS total_rows FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; -- Contar valores únicos por nivel geográfico SELECT COUNT(DISTINCT PROV_REF_ID) AS unique_provinces, COUNT(DISTINCT DPTO_REF_ID) AS unique_departments, COUNT(DISTINCT FRAC_REF_ID) AS unique_fractions, COUNT(DISTINCT RADIO_REF_ID) AS unique_radios FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; Parte 2: Diseño Relacional Normalizado Tareas Aplicar normalización en tres fases (1FN, 2FN, 3FN). Separar los niveles geográficos en tablas independientes con claves primarias y foráneas. Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido. Normalización por Niveles Geográficos Nivel Clave Primaria (PK) Clave Foránea (FK) Provincia PROV_REF_ID - Departamento DPTO_REF_ID PROV_REF_ID Fracción FRAC_REF_ID DPTO_REF_ID Radio RADIO_REF_ID FRAC_REF_ID Parte 3: Creación del Esquema Normalizado en SQL Tareas Escribir el código SQL para crear las tablas normalizadas. Poblarlas con los datos desde BigQuery, asegurando integridad referencial. Código SQL CREATE TABLE Provincia ( PROV_REF_ID INT PRIMARY KEY, IDPROV INT UNIQUE, NOMPROV VARCHAR(100) ); CREATE TABLE Departamento ( DPTO_REF_ID INT PRIMARY KEY, IDDPTO INT UNIQUE, PROV_REF_ID INT, NOMDPTO VARCHAR(100), FOREIGN KEY (PROV_REF_ID) REFERENCES Provincia(PROV_REF_ID) ); CREATE TABLE Fraccion ( FRAC_REF_ID INT PRIMARY KEY, IDFRAC INT UNIQUE, DPTO_REF_ID INT, FOREIGN KEY (DPTO_REF_ID) REFERENCES Departamento(DPTO_REF_ID) ); CREATE TABLE Radio ( RADIO_REF_ID INT PRIMARY KEY, IDRADIO INT UNIQUE, FRAC_REF_ID INT, FOREIGN KEY (FRAC_REF_ID) REFERENCES Fraccion(FRAC_REF_ID) ); Parte 4: Inserción de Datos y Verificación Tareas Insertar datos extraídos de BigQuery en las nuevas tablas. Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente. Ejemplo de consulta para verificar la normalización -- Contar cuántos departamentos tiene cada provincia SELECT p.NOMPROV, COUNT(d.DPTO_REF_ID) AS total_departamentos FROM Provincia p JOIN Departamento d ON p.PROV_REF_ID = d.PROV_REF_ID GROUP BY p.NOMPROV; -- Verificar la estructura de fracciones dentro de un departamento específico SELECT d.NOMDPTO, COUNT(f.FRAC_REF_ID) AS total_fracciones FROM Departamento d JOIN Fraccion f ON d.DPTO_REF_ID = f.DPTO_REF_ID WHERE d.NOMDPTO = 'Buenos Aires' GROUP BY d.NOMDPTO; Reflexión y Preguntas Finales ¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta? ¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido? ¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región? Entrega Esperada Esquema en DBML o en Draw.io con el modelo normalizado. Código SQL para crear y poblar las tablas. Consultas en BigQuery que justifiquen las decisiones de normalización. Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="notebooks"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional"><meta name=twitter:description content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.
+Objetivos Explorar y analizar un dataset desnormalizado en BigQuery. Aplicar el proceso de normalización hasta la tercera forma normal (3FN). Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas. Implementar el esquema normalizado en SQL y poblar las tablas con datos. Entrada de Datos Dataset: census_data.censo_2010_geo en BigQuery. Parte 1: Exploración del Dataset y Análisis de Redundancias Tareas Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset. Obtener el número total de filas y la cantidad de valores únicos por columna. Detectar redundancias en los identificadores geográficos. Ejemplo de consultas en SQL -- Contar filas totales en el dataset SELECT COUNT(*) AS total_rows FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; -- Contar valores únicos por nivel geográfico SELECT COUNT(DISTINCT PROV_REF_ID) AS unique_provinces, COUNT(DISTINCT DPTO_REF_ID) AS unique_departments, COUNT(DISTINCT FRAC_REF_ID) AS unique_fractions, COUNT(DISTINCT RADIO_REF_ID) AS unique_radios FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; Parte 2: Diseño Relacional Normalizado Tareas Aplicar normalización en tres fases (1FN, 2FN, 3FN). Separar los niveles geográficos en tablas independientes con claves primarias y foráneas. Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido. Normalización por Niveles Geográficos Nivel Clave Primaria (PK) Clave Foránea (FK) Provincia PROV_REF_ID - Departamento DPTO_REF_ID PROV_REF_ID Fracción FRAC_REF_ID DPTO_REF_ID Radio RADIO_REF_ID FRAC_REF_ID Parte 3: Creación del Esquema Normalizado en SQL Tareas Escribir el código SQL para crear las tablas normalizadas. Poblarlas con los datos desde BigQuery, asegurando integridad referencial. Código SQL CREATE TABLE Provincia ( PROV_REF_ID INT PRIMARY KEY, IDPROV INT UNIQUE, NOMPROV VARCHAR(100) ); CREATE TABLE Departamento ( DPTO_REF_ID INT PRIMARY KEY, IDDPTO INT UNIQUE, PROV_REF_ID INT, NOMDPTO VARCHAR(100), FOREIGN KEY (PROV_REF_ID) REFERENCES Provincia(PROV_REF_ID) ); CREATE TABLE Fraccion ( FRAC_REF_ID INT PRIMARY KEY, IDFRAC INT UNIQUE, DPTO_REF_ID INT, FOREIGN KEY (DPTO_REF_ID) REFERENCES Departamento(DPTO_REF_ID) ); CREATE TABLE Radio ( RADIO_REF_ID INT PRIMARY KEY, IDRADIO INT UNIQUE, FRAC_REF_ID INT, FOREIGN KEY (FRAC_REF_ID) REFERENCES Fraccion(FRAC_REF_ID) ); Parte 4: Inserción de Datos y Verificación Tareas Insertar datos extraídos de BigQuery en las nuevas tablas. Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente. Ejemplo de consulta para verificar la normalización -- Contar cuántos departamentos tiene cada provincia SELECT p.NOMPROV, COUNT(d.DPTO_REF_ID) AS total_departamentos FROM Provincia p JOIN Departamento d ON p.PROV_REF_ID = d.PROV_REF_ID GROUP BY p.NOMPROV; -- Verificar la estructura de fracciones dentro de un departamento específico SELECT d.NOMDPTO, COUNT(f.FRAC_REF_ID) AS total_fracciones FROM Departamento d JOIN Fraccion f ON d.DPTO_REF_ID = f.DPTO_REF_ID WHERE d.NOMDPTO = 'Buenos Aires' GROUP BY d.NOMDPTO; Reflexión y Preguntas Finales ¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta? ¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido? ¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región? Entrega Esperada Esquema en DBML o en Draw.io con el modelo normalizado. Código SQL para crear y poblar las tablas. Consultas en BigQuery que justifiquen las decisiones de normalización. Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional."><meta itemprop=name content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional"><meta itemprop=description content="Ejercicio 28: Normalización - De CSV a Base de Datos Relacional Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.
+Objetivos Explorar y analizar un dataset desnormalizado en BigQuery. Aplicar el proceso de normalización hasta la tercera forma normal (3FN). Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas. Implementar el esquema normalizado en SQL y poblar las tablas con datos. Entrada de Datos Dataset: census_data.censo_2010_geo en BigQuery. Parte 1: Exploración del Dataset y Análisis de Redundancias Tareas Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset. Obtener el número total de filas y la cantidad de valores únicos por columna. Detectar redundancias en los identificadores geográficos. Ejemplo de consultas en SQL -- Contar filas totales en el dataset SELECT COUNT(*) AS total_rows FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; -- Contar valores únicos por nivel geográfico SELECT COUNT(DISTINCT PROV_REF_ID) AS unique_provinces, COUNT(DISTINCT DPTO_REF_ID) AS unique_departments, COUNT(DISTINCT FRAC_REF_ID) AS unique_fractions, COUNT(DISTINCT RADIO_REF_ID) AS unique_radios FROM `argentinianpovertyatlas.census_data.censo_2010_geo`; Parte 2: Diseño Relacional Normalizado Tareas Aplicar normalización en tres fases (1FN, 2FN, 3FN). Separar los niveles geográficos en tablas independientes con claves primarias y foráneas. Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido. Normalización por Niveles Geográficos Nivel Clave Primaria (PK) Clave Foránea (FK) Provincia PROV_REF_ID - Departamento DPTO_REF_ID PROV_REF_ID Fracción FRAC_REF_ID DPTO_REF_ID Radio RADIO_REF_ID FRAC_REF_ID Parte 3: Creación del Esquema Normalizado en SQL Tareas Escribir el código SQL para crear las tablas normalizadas. Poblarlas con los datos desde BigQuery, asegurando integridad referencial. Código SQL CREATE TABLE Provincia ( PROV_REF_ID INT PRIMARY KEY, IDPROV INT UNIQUE, NOMPROV VARCHAR(100) ); CREATE TABLE Departamento ( DPTO_REF_ID INT PRIMARY KEY, IDDPTO INT UNIQUE, PROV_REF_ID INT, NOMDPTO VARCHAR(100), FOREIGN KEY (PROV_REF_ID) REFERENCES Provincia(PROV_REF_ID) ); CREATE TABLE Fraccion ( FRAC_REF_ID INT PRIMARY KEY, IDFRAC INT UNIQUE, DPTO_REF_ID INT, FOREIGN KEY (DPTO_REF_ID) REFERENCES Departamento(DPTO_REF_ID) ); CREATE TABLE Radio ( RADIO_REF_ID INT PRIMARY KEY, IDRADIO INT UNIQUE, FRAC_REF_ID INT, FOREIGN KEY (FRAC_REF_ID) REFERENCES Fraccion(FRAC_REF_ID) ); Parte 4: Inserción de Datos y Verificación Tareas Insertar datos extraídos de BigQuery en las nuevas tablas. Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente. Ejemplo de consulta para verificar la normalización -- Contar cuántos departamentos tiene cada provincia SELECT p.NOMPROV, COUNT(d.DPTO_REF_ID) AS total_departamentos FROM Provincia p JOIN Departamento d ON p.PROV_REF_ID = d.PROV_REF_ID GROUP BY p.NOMPROV; -- Verificar la estructura de fracciones dentro de un departamento específico SELECT d.NOMDPTO, COUNT(f.FRAC_REF_ID) AS total_fracciones FROM Departamento d JOIN Fraccion f ON d.DPTO_REF_ID = f.DPTO_REF_ID WHERE d.NOMDPTO = 'Buenos Aires' GROUP BY d.NOMDPTO; Reflexión y Preguntas Finales ¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta? ¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido? ¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región? Entrega Esperada Esquema en DBML o en Draw.io con el modelo normalizado. Código SQL para crear y poblar las tablas. Consultas en BigQuery que justifiquen las decisiones de normalización. Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional."><meta itemprop=wordCount content="550"></head><body><div class=container><header><h1>Ejercicios en Notebooks</h1></header><div class=global-menu><nav><ul><li><a href=/ldd-uba/>Inicio</a></li><li><a href=/ldd-uba/notebooks/>Notebooks</a></li><li><a href=/ldd-uba/notebooks/python-pandas/>Python y Pandas</a></li><li><a href=/ldd-uba/notebooks/bases-de-datos/>Bases de Datos y SQL</a></li><li><a href=/ldd-uba/notebooks/visualizacion/>Visualización de Datos</a></li><li><a href=/ldd-uba/notebooks/estadistica/>Estadística y Probabilidad</a></li></ul></nav></div><div class=content-container><main><div class=content-container><aside class=sidebar><h3>📑 Contenidos</h3><nav id=TableOfContents><ul><li><a href=#objetivos>Objetivos</a></li><li><a href=#entrada-de-datos>Entrada de Datos</a></li><li><a href=#parte-1-exploración-del-dataset-y-análisis-de-redundancias>Parte 1: Exploración del Dataset y Análisis de Redundancias</a><ul><li><a href=#tareas>Tareas</a></li><li><a href=#ejemplo-de-consultas-en-sql>Ejemplo de consultas en SQL</a></li></ul></li><li><a href=#parte-2-diseño-relacional-normalizado>Parte 2: Diseño Relacional Normalizado</a><ul><li><a href=#tareas-1>Tareas</a></li><li><a href=#normalización-por-niveles-geográficos>Normalización por Niveles Geográficos</a></li></ul></li><li><a href=#parte-3-creación-del-esquema-normalizado-en-sql>Parte 3: Creación del Esquema Normalizado en SQL</a><ul><li><a href=#tareas-2>Tareas</a></li><li><a href=#código-sql>Código SQL</a></li></ul></li><li><a href=#parte-4-inserción-de-datos-y-verificación>Parte 4: Inserción de Datos y Verificación</a><ul><li><a href=#tareas-3>Tareas</a></li><li><a href=#ejemplo-de-consulta-para-verificar-la-normalización>Ejemplo de consulta para verificar la normalización</a></li></ul></li><li><a href=#reflexión-y-preguntas-finales>Reflexión y Preguntas Finales</a></li><li><a href=#entrega-esperada>Entrega Esperada</a></li></ul></nav><h3>📂 Otros Notebooks</h3><ul><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/01/>Ejercicio 1: Fundamentos de Python - Lógica, Funciones y Manipulación de Strings</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/02/>Ejercicio 2: Traductor Geringoso y Clases en Python</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/03/>Ejercicio 3: Simulación de Rebotes y Tablas de Multiplicar sin Multiplicar</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/04/>Ejercicio 4: Importar Traductor y Crear un Programa en traductor.py</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/05/>Ejercicio 5: Cálculo de una Hipoteca con Pagos Extras</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/06/>Ejercicio 6: Corrección de Errores Comunes en Python</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/07/>Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/08/>Ejercicio 8: Maestría en Input/Output con Pandas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/09/>Ejercicio 9: Fundamentos de Pandas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/10/>Ejercicio 10: Indexación y Filtrado</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/11/>Ejercicio 11: Combinación de Datos</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/12/>Ejercicio 12: Agregaciones y Análisis</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/13/>Ejercicio 13: Agrupación y Transformaciones en Pandas con el Dataset Diamonds</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/14/>Ejercicio 14: Análisis de Datos y Visualización con Python</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/15/>Ejercicio 15: Análisis de Datos Temporales con Pandas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/16/>Ejercicio 16: Operaciones Vectorizadas con Cadenas en Pandas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/17/>Ejercicio 17: Cargando un Google Sheet como un DataFrame en Python desde Google Cloud Platform (GCP)</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/18/>Ejercicio 18: Limpieza y Visualización de Datos Geoespaciales con GeoPandas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/19/>Ejercicio 19: Limpieza y Análisis Exploratorio de Datos (EDA) en Pandas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/20/>Ejercicio 20: Instalación y Configuración de PostgreSQL en Sistemas Operativos Comunes</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/21/>Ejercicio 21: Exploración y Consulta de Datos en PostgreSQL con DBeaver</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/22/>Ejercicio 22: Administración y Consultas en PostgreSQL con pgAdmin</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/23/>Conexiones a Bases de Datos desde Python</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/24/>Ejercicio 24: Comparación de Operaciones en Pandas y SQL</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/25/>Ejercicio 25: Web Scraping y Almacenamiento en MongoDB</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/26/>Ejercicio 26: Consultas en BigQuery (Solo usando la Interfaz Web)</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/27/>Ejercicio 27: Modelado de Bases de Datos con DBML</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/28/>Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/29/>Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/30/>Ejercicio 30: Diseño de DER para una Productora de Cine</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/31/>Ejercicio 31: Mapeo al Modelo Relacional</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/32/>Ejercicio 32: Mapeo de un Diagrama Entidad-Relación al Modelo Relacional</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/33/>Ejercicio 33: Modelado Entidad-Relación para Bases de Datos MAIL_ORDER y MOVIE</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/34/>Ejercicio 34: Modelado de la Base de Datos GRADE_BOOK</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/35/>Ejercicio 35: Modelado de la Base de Datos ONLINE_AUCTION</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/36/>Ejercicio 36: Modelado de la Base de Datos de una Liga de Hockey Femenino</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/37/>Ejercicio: Consultas SQL sobre Vuelos y Reservas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/38/>Ejercicio 38: Gestión de Notas de Examen</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/39/>Ejercicio 39: Gestión de Reservas en una Base de Datos de Aerolínea</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/40/>Ejercicio 40: Identificación de Claves Foráneas y Restricciones de Integridad en Bases de Datos Relacionales</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/41/>Ejercicio 41: Consultas y Actualizaciones SQL en Bases de Datos Relacionales</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/42/>Ejercicio 42: Análisis y Visualización de Datos con Gráficos en Pandas y Seaborn</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/43/>Ejercicio 43: Análisis Visual de Datos con Penguins e Iris</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/44/>Ejercicio 44: Limpieza y Manejo de Datos Faltantes, Duplicados y Variables Categóricas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/45/>Ejercicio 45: Análisis Estadístico y Visualización de Datos con `tips` y `ventaCasas`</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/46/>Ejercicio 46: Implementación Manual de Regresión Lineal con NumPy</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/47/>Ejercicio 47: Análisis de Correlaciones y Visualización con Heatmaps</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/48/>Ejercicio 48: Construcción y Análisis de Redes Basadas en Similitud</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/49/>Ejercicio 49: Creación de Figuras Científicas de Publicación con Matplotlib</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/50/>Ejercicio 50: Creación de un Reporte Exploratorio con Python y Markdown</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/51/>Ejercicio 51: Contar Historias con Datos - Más Allá de los Gráficos</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/52/>Ejercicio 52: Simulación de la Paradoja del Cumpleaños</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/53/>Ejercicio 53: Ley de los Grandes Números en Acción</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/54/>Ejercicio 54: Simulación del P-Value y Rechazo de H₀</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/55/>Ejercicio 55: Diseño y Evaluación de un A/B Testing en Python</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/56/>Ejercicio 56: Simulación de una Variable Aleatoria usando la Transformada Inversa</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/57/>Ejercicio 57: Regresión Lineal Simple en Datos Reales</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/58/>Ejercicio 58: Evaluación de Suposiciones de la Regresión Lineal</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/59/>Ejercicio 59: Análisis de Datos de Ventas</a></li><li><a href=https://matuteiglesias.github.io/ldd-uba/notebooks/60/>Ejercicio 60: Análisis de Datos de Ventas</a></li></ul></aside><div class=main-content style=margin-left:20px;padding-left:10px;max-width:80%><h1 id=ejercicio-28-normalización---de-csv-a-base-de-datos-relacional>Ejercicio 28: Normalización - De CSV a Base de Datos Relacional</h1><p>Este ejercicio tiene como objetivo guiar a los estudiantes en el proceso de convertir un dataset desnormalizado en una base de datos relacional bien estructurada. Se trabajará con datos del Censo 2010 de Argentina, disponibles en BigQuery, explorando problemas de redundancia y estructuración.</p><h2 id=objetivos>Objetivos</h2><ol><li>Explorar y analizar un dataset desnormalizado en BigQuery.</li><li>Aplicar el proceso de normalización hasta la tercera forma normal (3FN).</li><li>Diseñar un modelo de base de datos relacional utilizando claves primarias y foráneas.</li><li>Implementar el esquema normalizado en SQL y poblar las tablas con datos.</li></ol><h2 id=entrada-de-datos>Entrada de Datos</h2><ul><li>Dataset: <code>census_data.censo_2010_geo</code> en BigQuery.</li></ul><h2 id=parte-1-exploración-del-dataset-y-análisis-de-redundancias>Parte 1: Exploración del Dataset y Análisis de Redundancias</h2><h3 id=tareas>Tareas</h3><ol><li>Acceder a BigQuery y ejecutar consultas para analizar la estructura del dataset.</li><li>Obtener el número total de filas y la cantidad de valores únicos por columna.</li><li>Detectar redundancias en los identificadores geográficos.</li></ol><h3 id=ejemplo-de-consultas-en-sql>Ejemplo de consultas en SQL</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#75715e>-- Contar filas totales en el dataset
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> total_rows
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> <span style=color:#f92672>`</span>argentinianpovertyatlas.census_data.censo_2010_geo<span style=color:#f92672>`</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- Contar valores únicos por nivel geográfico
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> 
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#66d9ef>DISTINCT</span> PROV_REF_ID) <span style=color:#66d9ef>AS</span> unique_provinces,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#66d9ef>DISTINCT</span> DPTO_REF_ID) <span style=color:#66d9ef>AS</span> unique_departments,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#66d9ef>DISTINCT</span> FRAC_REF_ID) <span style=color:#66d9ef>AS</span> unique_fractions,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#66d9ef>DISTINCT</span> RADIO_REF_ID) <span style=color:#66d9ef>AS</span> unique_radios
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> <span style=color:#f92672>`</span>argentinianpovertyatlas.census_data.censo_2010_geo<span style=color:#f92672>`</span>;
+</span></span></code></pre></div><h2 id=parte-2-diseño-relacional-normalizado>Parte 2: Diseño Relacional Normalizado</h2><h3 id=tareas-1>Tareas</h3><ol><li>Aplicar normalización en tres fases (1FN, 2FN, 3FN).</li><li>Separar los niveles geográficos en tablas independientes con claves primarias y foráneas.</li><li>Elegir entre el esquema de IDs referenciales o el sistema de IDs únicos de corrido.</li></ol><h3 id=normalización-por-niveles-geográficos>Normalización por Niveles Geográficos</h3><table><thead><tr><th>Nivel</th><th>Clave Primaria (PK)</th><th>Clave Foránea (FK)</th></tr></thead><tbody><tr><td>Provincia</td><td><code>PROV_REF_ID</code></td><td>-</td></tr><tr><td>Departamento</td><td><code>DPTO_REF_ID</code></td><td><code>PROV_REF_ID</code></td></tr><tr><td>Fracción</td><td><code>FRAC_REF_ID</code></td><td><code>DPTO_REF_ID</code></td></tr><tr><td>Radio</td><td><code>RADIO_REF_ID</code></td><td><code>FRAC_REF_ID</code></td></tr></tbody></table><h2 id=parte-3-creación-del-esquema-normalizado-en-sql>Parte 3: Creación del Esquema Normalizado en SQL</h2><h3 id=tareas-2>Tareas</h3><ol><li>Escribir el código SQL para crear las tablas normalizadas.</li><li>Poblarlas con los datos desde BigQuery, asegurando integridad referencial.</li></ol><h3 id=código-sql>Código SQL</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Provincia (
+</span></span><span style=display:flex><span>  PROV_REF_ID INT <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>  IDPROV INT <span style=color:#66d9ef>UNIQUE</span>,
+</span></span><span style=display:flex><span>  NOMPROV VARCHAR(<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Departamento (
+</span></span><span style=display:flex><span>  DPTO_REF_ID INT <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>  IDDPTO INT <span style=color:#66d9ef>UNIQUE</span>,
+</span></span><span style=display:flex><span>  PROV_REF_ID INT,
+</span></span><span style=display:flex><span>  NOMDPTO VARCHAR(<span style=color:#ae81ff>100</span>),
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (PROV_REF_ID) <span style=color:#66d9ef>REFERENCES</span> Provincia(PROV_REF_ID)
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Fraccion (
+</span></span><span style=display:flex><span>  FRAC_REF_ID INT <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>  IDFRAC INT <span style=color:#66d9ef>UNIQUE</span>,
+</span></span><span style=display:flex><span>  DPTO_REF_ID INT,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (DPTO_REF_ID) <span style=color:#66d9ef>REFERENCES</span> Departamento(DPTO_REF_ID)
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Radio (
+</span></span><span style=display:flex><span>  RADIO_REF_ID INT <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>  IDRADIO INT <span style=color:#66d9ef>UNIQUE</span>,
+</span></span><span style=display:flex><span>  FRAC_REF_ID INT,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (FRAC_REF_ID) <span style=color:#66d9ef>REFERENCES</span> Fraccion(FRAC_REF_ID)
+</span></span><span style=display:flex><span>);
+</span></span></code></pre></div><h2 id=parte-4-inserción-de-datos-y-verificación>Parte 4: Inserción de Datos y Verificación</h2><h3 id=tareas-3>Tareas</h3><ol><li>Insertar datos extraídos de BigQuery en las nuevas tablas.</li><li>Ejecutar consultas de prueba para asegurar que la estructura funciona correctamente.</li></ol><h3 id=ejemplo-de-consulta-para-verificar-la-normalización>Ejemplo de consulta para verificar la normalización</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#75715e>-- Contar cuántos departamentos tiene cada provincia
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> p.NOMPROV, <span style=color:#66d9ef>COUNT</span>(d.DPTO_REF_ID) <span style=color:#66d9ef>AS</span> total_departamentos
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Provincia p
+</span></span><span style=display:flex><span><span style=color:#66d9ef>JOIN</span> Departamento d <span style=color:#66d9ef>ON</span> p.PROV_REF_ID <span style=color:#f92672>=</span> d.PROV_REF_ID
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> p.NOMPROV;
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#75715e>-- Verificar la estructura de fracciones dentro de un departamento específico
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> d.NOMDPTO, <span style=color:#66d9ef>COUNT</span>(f.FRAC_REF_ID) <span style=color:#66d9ef>AS</span> total_fracciones
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Departamento d
+</span></span><span style=display:flex><span><span style=color:#66d9ef>JOIN</span> Fraccion f <span style=color:#66d9ef>ON</span> d.DPTO_REF_ID <span style=color:#f92672>=</span> f.DPTO_REF_ID
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> d.NOMDPTO <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Buenos Aires&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> d.NOMDPTO;
+</span></span></code></pre></div><h2 id=reflexión-y-preguntas-finales>Reflexión y Preguntas Finales</h2><ol><li>¿Cómo mejora la normalización la eficiencia de almacenamiento y consulta?</li><li>¿Cuál es la ventaja de usar claves foráneas en lugar de IDs de corrido?</li><li>¿Cómo se puede optimizar el modelo si se necesitan realizar consultas rápidas por región?</li></ol><h2 id=entrega-esperada>Entrega Esperada</h2><ul><li>Esquema en DBML o en Draw.io con el modelo normalizado.</li><li>Código SQL para crear y poblar las tablas.</li><li>Consultas en BigQuery que justifiquen las decisiones de normalización.</li></ul><p>Este ejercicio fortalece habilidades de modelado, SQL y análisis de datos en BigQuery, preparando a los estudiantes para trabajar con bases de datos normalizadas a nivel profesional.</p><div class=edit-meta><br></div><nav class=pagination><a class="nav nav-prev" href=https://matuteiglesias.github.io/ldd-uba/notebooks/27/ title="Ejercicio 27: Modelado de Bases de Datos con DBML"><i class="fas fa-arrow-left" aria-hidden=true></i>&nbsp;Prev - Ejercicio 27: Modelado de Bases de Datos con DBML</a>
+<a class="nav nav-next" href=https://matuteiglesias.github.io/ldd-uba/notebooks/29/ title="Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades">Next - Ejercicio de Modelado de Base de Datos Relacional - DER y Cardinalidades <i class="fas fa-arrow-right" aria-hidden=true></i></a></nav></article></div><footer><p class=powered>Powered by <a href=https://gohugo.io>Hugo</a>. Theme by <a href=https://themes.gohugo.io/hugo-theme-techdoc/>TechDoc</a>. Designed by <a href=https://github.com/thingsym/hugo-theme-techdoc>Thingsym</a>.</p></footer></main></div><a href=# id=backtothetop-fixed class=backtothetop data-backtothetop-duration=600 data-backtothetop-easing=easeOutQuart data-backtothetop-fixed-fadein=1000 data-backtothetop-fixed-fadeout=1000 data-backtothetop-fixed-bottom=10 data-backtothetop-fixed-right=20><span class="fa-layers fa-fw"><i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i></span></a></div></body></html>
