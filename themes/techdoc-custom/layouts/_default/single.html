@@ -1,0 +1,39 @@
+{{- define "main" -}}
+<div class="content-container">
+
+    <!-- Sidebar (Use Theme's Sidebar System) -->
+    <aside class="sidebar">
+        <h3>📑 Contenidos</h3>
+        {{ if .TableOfContents }}
+            {{ .TableOfContents }}
+        {{ else }}
+            <p>No hay contenido disponible.</p>
+        {{ end }}
+        
+        <h3>📂 Otros Notebooks</h3>
+        <ul>
+            {{ range sort (where .Site.RegularPages "Section" "notebooks") "Params.order" }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+        
+<!-- 
+        <h3>📂 Otros Notebooks</h3>
+        <ul>
+            {{ range where .Site.RegularPages "Section" "notebooks" }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul> -->
+    </aside>
+
+    <!-- Main Content -->
+    <!-- <article class="main-content" > -->
+    <div class="main-content" style="margin-left: 20px; padding-left: 10px; max-width: 80%;">
+        <!-- <h1>{{ .Title }}</h1> -->
+        {{- .Content -}}
+        {{- partial "edit-meta.html" . -}}
+        {{- partial "pagination.html" . -}}
+    </article>
+
+</div>
+{{- end -}}
