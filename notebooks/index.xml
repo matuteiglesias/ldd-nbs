@@ -1408,16 +1408,7 @@ modelo = sm.OLS(y, X).fit()
 &lt;/code>&lt;/pre>&lt;h2 id="tareas">Tareas&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>&lt;strong>Diagnóstico de Heterocedasticidad:&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 59: Análisis de Datos de Ventas</title><link>https://matuteiglesias.github.io/ldd-nbs/notebooks/59/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-nbs/notebooks/59/</guid><description>&lt;h1 id="ejercicio-59-análisis-de-datos-de-ventas">Ejercicio 59: Análisis de Datos de Ventas&lt;/h1>
-&lt;p>En este ejercicio, se realizará un análisis de datos de ventas utilizando técnicas de estadística descriptiva y visualización de datos. El objetivo es identificar patrones y tendencias en los datos proporcionados, así como generar visualizaciones que faciliten la interpretación de los resultados.&lt;/p>
-&lt;h2 id="objetivos">Objetivos&lt;/h2>
-&lt;ol>
-&lt;li>Aplicar técnicas de estadística descriptiva para resumir los datos de ventas.&lt;/li>
-&lt;li>Generar visualizaciones que representen de manera clara las tendencias y patrones en los datos.&lt;/li>
-&lt;li>Interpretar los resultados obtenidos y extraer conclusiones relevantes.&lt;/li>
-&lt;/ol>
-&lt;h2 id="tipo-de-ejercicio">Tipo de Ejercicio&lt;/h2>
-&lt;p>Análisis de datos.&lt;/p></description></item><item><title>Ejercicio 6: Corrección de Errores Comunes en Python</title><link>https://matuteiglesias.github.io/ldd-nbs/notebooks/06/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-nbs/notebooks/06/</guid><description>&lt;h1 id="ejercicio-6-corrección-de-errores-comunes-en-python">Ejercicio 6: Corrección de Errores Comunes en Python&lt;/h1>
+&lt;p>&lt;strong>Diagnóstico de Heterocedasticidad:&lt;/strong>&lt;/p></description></item><item><title>Ejercicio 6: Corrección de Errores Comunes en Python</title><link>https://matuteiglesias.github.io/ldd-nbs/notebooks/06/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-nbs/notebooks/06/</guid><description>&lt;h1 id="ejercicio-6-corrección-de-errores-comunes-en-python">Ejercicio 6: Corrección de Errores Comunes en Python&lt;/h1>
 &lt;p>Este ejercicio está diseñado para que los estudiantes experimenten y resuelvan los errores más frecuentes al programar en Python. A través de la corrección de estos errores, se busca mejorar la comprensión de los conceptos básicos y avanzados de Python.&lt;/p>
 &lt;h2 id="objetivos">Objetivos&lt;/h2>
 &lt;ul>
@@ -1430,10 +1421,7 @@ modelo = sm.OLS(y, X).fit()
 &lt;li>Código Python con errores predefinidos.&lt;/li>
 &lt;/ul>
 &lt;h2 id="código-base">Código Base&lt;/h2>
-&lt;p>A continuación se presenta el código base con errores comunes. Cada línea contiene un error que debe ser corregido. Las pistas están proporcionadas en los comentarios.&lt;/p></description></item><item><title>Ejercicio 60: Análisis de Datos de Ventas</title><link>https://matuteiglesias.github.io/ldd-nbs/notebooks/60/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-nbs/notebooks/60/</guid><description>&lt;h1 id="ejercicio-60-análisis-de-datos-de-ventas">Ejercicio 60: Análisis de Datos de Ventas&lt;/h1>
-&lt;p>En este ejercicio, se realizará un análisis de datos de ventas utilizando técnicas de estadística descriptiva y visualización de datos. El objetivo es identificar patrones y tendencias en los datos de ventas de una empresa ficticia. Este ejercicio es de tipo práctico y se espera como resultado un reporte que incluya visualizaciones y análisis descriptivo. La dificultad es intermedia.&lt;/p>
-&lt;h2 id="introducción">Introducción&lt;/h2>
-&lt;p>El análisis de datos de ventas es fundamental para comprender el comportamiento del mercado y tomar decisiones informadas. En este ejercicio, se trabajará con un conjunto de datos que contiene información sobre las ventas de productos de una empresa ficticia durante un año. Se espera que los estudiantes apliquen técnicas de estadística descriptiva y generen visualizaciones para identificar patrones y tendencias en los datos.&lt;/p></description></item><item><title>Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</title><link>https://matuteiglesias.github.io/ldd-nbs/notebooks/07/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-nbs/notebooks/07/</guid><description>&lt;h1 id="ejercicio-7-de-listas-anidadas-a-arrays-y-dataframes">Ejercicio 7: De Listas Anidadas a Arrays y DataFrames&lt;/h1>
+&lt;p>A continuación se presenta el código base con errores comunes. Cada línea contiene un error que debe ser corregido. Las pistas están proporcionadas en los comentarios.&lt;/p></description></item><item><title>Ejercicio 7: De Listas Anidadas a Arrays y DataFrames</title><link>https://matuteiglesias.github.io/ldd-nbs/notebooks/07/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://matuteiglesias.github.io/ldd-nbs/notebooks/07/</guid><description>&lt;h1 id="ejercicio-7-de-listas-anidadas-a-arrays-y-dataframes">Ejercicio 7: De Listas Anidadas a Arrays y DataFrames&lt;/h1>
 &lt;p>En este ejercicio, los estudiantes explorarán las dificultades de trabajar con listas de listas, cómo NumPy puede facilitar las operaciones y, finalmente, comprenderán por qué Pandas es la herramienta ideal para manipular datos estructurados.&lt;/p>
 &lt;h2 id="objetivos">Objetivos&lt;/h2>
 &lt;ul>
